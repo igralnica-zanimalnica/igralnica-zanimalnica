@@ -4,4 +4,3 @@ document.addEventListener('DOMContentLoaded', function() {
     const footer = document.getElementsByTagName('footer')[0];
     footer.innerHTML = footerHTML;
   });
-  
