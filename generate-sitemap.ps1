@@ -1,6 +1,6 @@
 # Run before pushing, important for SEO
 $baseUrl = "https://igralnica-zanimalnica.github.io/igralnica-zanimalnica"
-$gitRepoPath = (Get-Location).Path
+$gitRepoPath = (Get-Location).Path  # Use the current path as the Git repository path
 
 Set-Content -Path "sitemap.xml" -Value '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
 
