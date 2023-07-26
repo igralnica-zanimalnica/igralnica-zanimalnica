@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Start of HTML
     const homeHTML = 
     `<h1>Начална страница</h1><p>Добре дошли в сайта на Игралница-Занималница!</p>`
 
@@ -42,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const summerZanimalnicaHTML = 
     `<h1>Лятна Занималница</h1>`
-
+    // End of HTML
 
     const routes = {
         '/': homeHTML,
