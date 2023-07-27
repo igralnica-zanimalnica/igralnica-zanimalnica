@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const summerZanimalnicaHTML = 
     `<h1>Лятна Занималница</h1>`
-    // End of HTML
+    // End of HTML - Do not delete this line, generate_sitemap uses it.
 
     const routes = {
         '/': homeHTML,
@@ -62,7 +62,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function navigateTo(url) {
         let urlObject = new URL(url);
         let path = urlObject.pathname;
+        // Change the HTML of the main content
         content.innerHTML = routes[path];
+        // Document title is the navbar text + company name
+        let navbarContent = document.querySelector(`a[href="${path}"]`).textContent;
+        document.title = navbarContent + " | Игралница-Занималница"
+        // Modify browser's history and change the URL without triggering a full page reload
         window.history.pushState({}, '', path);
     }
     
