@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const summerZanimalnicaHTML = 
     `<h1>Лятна Занималница</h1>`
-    // End of HTML - Do not delete this line, generate_sitemap uses it.
+    // End of HTML - Do not delete this line, generate_sitemap.py uses it.
 
     const routes = {
         '/': homeHTML,
