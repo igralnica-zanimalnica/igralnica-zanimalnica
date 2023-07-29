@@ -54,15 +54,8 @@ footer {
 }
 
 .logo-img {
-  max-width: 100%; /* Set the maximum width to 100% of the parent container */
-  height: auto; /* Allow the image to maintain its aspect ratio while scaling */
-}
-
-
-/*
-.logo-container {
-  display: flex;
-  justify-content: center; /* Center the child elements horizontally 
-  align-items: center; /* Center the child elements vertically 
-  margin-bottom: 20px;
+  max-width: 1200px;
+  aspect-ratio: 7/1;
+  width: 100%;
+  height: auto;
 }

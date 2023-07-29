@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     navigateTo(window.location);
 
     // Update the current year in the footer
-    const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница. Всички права запазени.</p>`;
+    const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница.</p>`;
     const footer = document.getElementsByTagName('footer')[0];
     footer.innerHTML = footerHTML;
 });
