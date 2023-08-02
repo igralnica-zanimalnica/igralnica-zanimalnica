@@ -1,13 +1,10 @@
-import { createAuth0Client } from './node_modules/@auth0/auth0-spa-js/dist/auth0-spa-js.production.esm.js'; // Relative path to node_modules
-
-
 let auth0Client = null;
 const fetchAuthConfig = () => fetch("/auth_config.json");
 const configureClient = async () => {
     const response = await fetchAuthConfig();
     const config = await response.json();
   
-    auth0Client = await createAuth0Client({
+    auth0Client = await auth0.createAuth0Client({
       domain: config.domain,
       clientId: config.clientId
     });
