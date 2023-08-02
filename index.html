@@ -23,14 +23,20 @@
       <a href="/school-zanimalnica">Училищна Занималня</a>
       <a href="/summer-igralnica">Лятна Игралница</a>
       <a href="/summer-zanimalnica">Лятна Занималница</a>
+      <a href="/admin">Администраторски панел</a>
     </nav>
   </header>
   <body>
-    <main></main>
+    <main>    <button id="btn-login" disabled="true" onclick="login()">Log in</button>
+      <button id="btn-logout" disabled="true" onclick="logout()">Log out</button></main>
 
     <footer>
       <p>&copy; Игралница-Занималница.</p>
     </footer>
-    <script src="script.js" defer></script>
+    <!-- <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script> -->
+    <script type="module" src="app.js" defer></script>
+    <!-- <script type="module" src="auth.js"></script> -->
+
+    </script>
   </body>
 </html>
