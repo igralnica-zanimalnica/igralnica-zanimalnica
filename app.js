@@ -1,3 +1,108 @@
+let auth0Client = null;
+const fetchAuthConfig = () => fetch("/auth_config.json");
+const configureClient = async () => {
+    const response = await fetchAuthConfig();
+    const config = await response.json();
+  
+    auth0Client = await auth0.createAuth0Client({
+      domain: config.domain,
+      clientId: config.clientId
+    });
+};
+const query = window.location.search;
+const shouldParseResult = query.includes("code=") && query.includes("state=");
+const requireAuth = async (fn, targetUrl) => {
+    const isAuthenticated = await auth0Client.isAuthenticated();
+  
+    if (isAuthenticated) {
+      return fn();
+    }
+  
+    return login(targetUrl);
+  };
+
+window.onload = async () => {
+    await configureClient();
+    const isAuthenticated = await auth0Client.isAuthenticated();
+  
+    if (isAuthenticated) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+        updateUI();
+        return;
+      }
+
+    // check for the code and state parameters
+    if (shouldParseResult) {
+        const result = await auth0Client.handleRedirectCallback();
+        if (result.appState && result.appState.targetUrl) {
+            updateUI();
+        }
+        window.history.replaceState({}, document.title, "/");
+      }
+};
+  
+const updateUI = async () => {
+    const isAuthenticated = await auth0Client.isAuthenticated();
+    const logoutButton = document.getElementById("btn-logout");
+    const loginButton = document.getElementById("btn-login");
+
+    if (logoutButton && loginButton) {
+        logoutButton.disabled = !isAuthenticated;
+        loginButton.disabled = isAuthenticated;
+        loginButton.onclick = function(){login()};
+        logoutButton.onclick = function(){logout()};
+    }
+
+    const gatedContent = document.getElementById("gated-content");
+    const iptAccessToken = document.getElementById("ipt-access-token");
+    const iptUserProfile = document.getElementById("ipt-user-profile");
+    // add logic to show/hide gated content after authentication
+    if (gatedContent && iptAccessToken && iptUserProfile) {
+        if (isAuthenticated) {
+            gatedContent.classList.remove("hidden");
+            iptAccessToken.innerHTML = await auth0Client.getTokenSilently();
+            iptUserProfile.textContent = JSON.stringify(await auth0Client.getUser());
+        } else {
+            gatedContent.classList.add("hidden");
+         };
+        };
+};
+    
+
+document.addEventListener("adminAccess", updateUI);
+
+const login = async (targetUrl) => {
+  try {
+    const options = {
+      authorizationParams: {
+        redirect_uri: window.location.origin
+      }
+    };
+
+    if (targetUrl) {
+      options.appState = { targetUrl };
+    }
+
+    await auth0Client.loginWithRedirect(options);
+  } catch (err) {
+    console.log("Log in failed", err);
+  }
+};
+
+const logout = async () => {
+    try {
+      await auth0Client.logout({
+        logoutParams: {
+          returnTo: window.location.origin
+        }
+      });
+    } catch (err) {
+      console.log("Log out failed", err);
+    }
+  };
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
     // Start of HTML
     const homeHTML = 
@@ -70,6 +175,24 @@ document.addEventListener('DOMContentLoaded', function() {
     `<h1>Лятна Занималница</h1>`
     // End of HTML - Do not delete this line, generate_sitemap.py uses it.
 
+    const adminHTML =
+    `    <button id="btn-login" disabled="true">Log in</button>
+    <button id="btn-logout" disabled="true">Log out</button>
+    <div class="hidden" id="gated-content">
+    <p>
+      You're seeing this content because you're currently
+      <strong>logged in</strong>.
+    </p>
+    <label>
+      Access token:
+      <pre id="ipt-access-token"></pre>
+    </label>
+    <label>
+      User profile:
+      <pre id="ipt-user-profile"></pre>
+    </label>
+  </div>`
+
     const routes = {
         '/': homeHTML,
         '/about': aboutHTML,
@@ -78,6 +201,7 @@ document.addEventListener('DOMContentLoaded', function() {
         '/school-zanimalnica': schoolZanimalnicaHTML,
         '/summer-igralnica': summerIgralnicaHTML,
         '/summer-zanimalnica': summerZanimalnicaHTML,
+        '/admin': adminHTML,
         };
     
 
@@ -97,7 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
         content.innerHTML = routes[path];
         updateTitle(path);
         // Modify browser's history and change the URL without triggering a full page reload
-        window.history.pushState({}, '', path);
+        if (!shouldParseResult) {
+            window.history.pushState({}, '', path);
+        }
+        if (path=='/admin') {
+            const event = new Event("adminAccess");
+            document.dispatchEvent(event);
+          }
+        
+
     }
     
     // For each nav button click, change content
@@ -112,7 +244,8 @@ document.addEventListener('DOMContentLoaded', function() {
     navigateTo(window.location);
 
     // Update the current year in the footer
-    const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница.</p>`;
+    const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница</p>`;
     const footer = document.getElementsByTagName('footer')[0];
     footer.innerHTML = footerHTML;
 });
+
