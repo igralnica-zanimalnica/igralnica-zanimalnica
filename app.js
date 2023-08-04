@@ -9,40 +9,40 @@ const configureClient = async () => {
       clientId: config.clientId
     });
 };
-
-window.onload = async () => {
-    await configureClient();
-  
-    updateUI();
-
+const query = window.location.search;
+const shouldParseResult = query.includes("code=") && query.includes("state=");
+const requireAuth = async (fn, targetUrl) => {
     const isAuthenticated = await auth0Client.isAuthenticated();
   
     if (isAuthenticated) {
-        console.log("> User is authenticated");
+      return fn();
+    }
+  
+    return login(targetUrl);
+  };
+
+window.onload = async () => {
+    await configureClient();
+    const isAuthenticated = await auth0Client.isAuthenticated();
+  
+    if (isAuthenticated) {
         window.history.replaceState({}, document.title, window.location.pathname);
         updateUI();
         return;
       }
 
-    console.log("> User not authenticated");
     // check for the code and state parameters
-    const query = window.location.search;
-    if (query.includes("state=") && (query.includes("code=") || query("error="))){
-  
-      // Process the login state
-      await auth0Client.handleRedirectCallback();
-      
-      updateUI();
-  
-      // Use replaceState to redirect the user away and remove the querystring parameters
-      window.history.replaceState({}, document.title, "/");
-    }
+    if (shouldParseResult) {
+        const result = await auth0Client.handleRedirectCallback();
+        if (result.appState && result.appState.targetUrl) {
+            updateUI();
+        }
+        window.history.replaceState({}, document.title, "/");
+      }
 };
   
 const updateUI = async () => {
     const isAuthenticated = await auth0Client.isAuthenticated();
-    console.log(isAuthenticated)
-
     const logoutButton = document.getElementById("btn-logout");
     const loginButton = document.getElementById("btn-login");
 
@@ -59,12 +59,10 @@ const updateUI = async () => {
     // add logic to show/hide gated content after authentication
     if (gatedContent && iptAccessToken && iptUserProfile) {
         if (isAuthenticated) {
-            console.log('Yes')
             gatedContent.classList.remove("hidden");
             iptAccessToken.innerHTML = await auth0Client.getTokenSilently();
             iptUserProfile.textContent = JSON.stringify(await auth0Client.getUser());
         } else {
-            console.log('No')
             gatedContent.classList.add("hidden");
          };
         };
@@ -75,8 +73,6 @@ document.addEventListener("adminAccess", updateUI);
 
 const login = async (targetUrl) => {
   try {
-    console.log("Logging in", targetUrl);
-
     const options = {
       authorizationParams: {
         redirect_uri: window.location.origin
@@ -95,7 +91,6 @@ const login = async (targetUrl) => {
 
 const logout = async () => {
     try {
-      console.log("Logging out");
       await auth0Client.logout({
         logoutParams: {
           returnTo: window.location.origin
@@ -105,6 +100,8 @@ const logout = async () => {
       console.log("Log out failed", err);
     }
   };
+
+
 
 document.addEventListener('DOMContentLoaded', function() {
     // Start of HTML
@@ -224,7 +221,9 @@ document.addEventListener('DOMContentLoaded', function() {
         content.innerHTML = routes[path];
         updateTitle(path);
         // Modify browser's history and change the URL without triggering a full page reload
-        window.history.pushState({}, '', path);
+        if (!shouldParseResult) {
+            window.history.pushState({}, '', path);
+        }
         if (path=='/admin') {
             const event = new Event("adminAccess");
             document.dispatchEvent(event);
