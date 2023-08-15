@@ -1,5 +1,13 @@
+@font-face {
+  font-family: ComicRelief;
+  src: url(fonts/ComicRelief.woff) format(woff);
+}
+
+* {
+  font-family: 'Comic Sans MS', ComicRelief;
+}
+
 body {
-  font-family: Arial, sans-serif;
   padding: 0;
   background-color: #F2EBDA;
   display: flex;
