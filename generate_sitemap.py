@@ -16,8 +16,8 @@ result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', e
 blame = result.stdout
 blame = blame.replace('`\n', '`endofconst\n')
 
-# Get "routes" variable
-pattern = r"const routes = {[\s\S]*?};"
+# Get "mainContent" variable
+pattern = r"const mainContent = {[\s\S]*?};"
 match = re.search(pattern, blame)
 if match:
     dictionary_str = match.group(0)

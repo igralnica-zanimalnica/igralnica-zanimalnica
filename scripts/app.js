@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </label>
   </div>`
 
-    const routes = {
+    const mainContent = {
         '/': homeHTML,
         '/about': aboutHTML,
         '/services': servicesHTML,
@@ -99,6 +99,17 @@ document.addEventListener('DOMContentLoaded', function() {
         '/summer-zanimalnica': summerZanimalnicaHTML,
         '/admin': adminHTML,
         };
+    
+    const metaDescriptions = {
+      '/': 'Добре дошли в Игралница-Занималница! Детски център и място за игра на вашето дете. Разгледайте нашите услуги.',
+      '/about': 'Информация за служителите на занималнята. Каква квалификация имаме, с какво можем да помогнем на вашето дете и какво ни мотивира.',
+      '/services': 'Информация за услугите които предлагаме. Какво е игралница, какво е занималница. Разликата между лятно и учебно време.',
+      '/contacts': 'Телефон за връзка. Служебен, както и за всеки индивидуален учител. Имейл за връзка.',
+      '/school-zanimalnica': 'Какво представлява училищната занималня. В какви дейности ще участва вашето дете и с какво ще се занимава през деня.',
+      '/summer-igralnica': 'Какво представлява лятната игралница. Какво сме ви приготвили за това лято и каква е настоящата програма.',
+      '/summer-zanimalnica': 'Какво представлява лятната занималня. В какви дейности ще участва вашето дете и с какво ще се занимава през деня.',
+      '/admin': 'Администраторски панел за служители на занималнята. Не е публично достъпно.',
+      };
     
 
     const navLinks = document.querySelectorAll('nav a');
@@ -110,12 +121,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.title = navbarContent + " | Игралница-Занималница"
     }
 
+    function updateDescription(pathname) {
+      document.getElementsByTagName('meta')["description"].content = metaDescriptions[pathname];
+    }
+
     function navigateTo(url) {
         let urlObject = new URL(url);
         let path = urlObject.pathname;
         // Change the HTML of the main content
-        content.innerHTML = routes[path];
+        content.innerHTML = mainContent[path];
         updateTitle(path);
+        updateDescription(path);
         // Modify browser's history and change the URL without triggering a full page reload
         if (!shouldParseResult) {
             window.history.pushState({}, '', path);
