@@ -3,11 +3,8 @@
   src: url(fonts/ComicRelief.woff) format(woff);
 }
 
-* {
-  font-family: 'Comic Sans MS', ComicRelief;
-}
-
 body {
+  font-family: 'Comic Sans MS', ComicRelief;
   padding: 0;
   background-color: #F2EBDA;
   display: flex;
@@ -26,6 +23,12 @@ header {
   background-color: #F2EBDA;
 }
 
+#hamburgerContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 h1, h2, p, ul {
   color: #333;
   line-height: 1.5;
@@ -40,7 +43,7 @@ ul {
   overflow: hidden;
 }
 
-.navbar a {
+#desktopNavbar .navlink {
   float: left;
   display: block;
   color: white;
@@ -49,7 +52,7 @@ ul {
   text-decoration: none;
 }
 
-.navbar a:hover {
+#desktopNavbar .navlink:hover{
   background-color: #ddd;
   color: black;
 }
@@ -70,4 +73,29 @@ footer {
 
 .hidden {
   display: none;
+}
+
+/* Style the navigation menu */
+#mobileNavbar {
+  display: none;
+}
+
+/* Style navigation menu links */
+.burger {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Add a grey background color on mouse-over */
+.burger:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#hamburgerIcon {
+  width: 40vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
 }
