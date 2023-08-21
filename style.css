@@ -32,10 +32,7 @@ header {
 h1, h2, p, ul {
   color: #333;
   line-height: 1.5;
-}
-
-ul {
-  margin-left: 20px;
+  margin-block-start: 0px;
 }
 
 .navbar {
