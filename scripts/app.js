@@ -197,9 +197,12 @@ document.addEventListener('DOMContentLoaded', function() {
         navbarInnerHTML  = navbarInnerHTML.replaceAll('navlink', 'burger');
         let header = document.getElementsByTagName('header')[0];
         header.id = 'mobileHeader';
-        header.innerHTML = header.innerHTML + hamburger;
-        header.innerHTML = '<div id="hamburgerContainer">' + header.innerHTML + '</div>'
+        header.innerHTML = '<div id="hamburgerContainer">' + header.innerHTML + hamburger + '</div>'
       };
+      // hidden due to layout shift
+      let logoimg = document.getElementsByClassName("logo-img")[0]
+      logoimg.hidden = false;
+
       let header = document.getElementsByTagName("header")[0]
       header.innerHTML = header.innerHTML + navbarInnerHTML;
 
@@ -266,5 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница</p>`;
     const footer = document.getElementsByTagName('footer')[0];
     footer.innerHTML = footerHTML;
+    footer.hidden = false;
 });
 

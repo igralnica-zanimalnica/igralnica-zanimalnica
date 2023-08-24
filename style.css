@@ -1,6 +1,7 @@
 @font-face {
   font-family: ComicRelief;
   src: url(fonts/ComicRelief.woff) format(woff);
+  font-display: swap;
 }
 
 body {
@@ -16,6 +17,7 @@ body {
 main {
   flex: 1;
   padding: 20px;
+  padding-top: 0px;
 }
 
 header {
@@ -24,9 +26,10 @@ header {
 }
 
 #hamburgerContainer {
+  margin-top: 1vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 }
 
 h1, h2, p, ul {
@@ -54,6 +57,10 @@ h1, h2, p, ul {
   color: black;
 }
 
+#desktopNavbar {
+  margin-bottom: 20px;
+}
+
 footer {
   color: white;
   background-color: #ffe4b5;
@@ -68,6 +75,11 @@ footer {
   filter: drop-shadow(0.4vw 0.4vw 0.4vw rgb(172, 172, 172));
 }
 
+.logo-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .hidden {
   display: none;
 }
@@ -75,6 +87,7 @@ footer {
 /* Style the navigation menu */
 #mobileNavbar {
   display: none;
+  margin-bottom: 1vh;
 }
 
 /* Style navigation menu links */
@@ -92,7 +105,6 @@ footer {
 }
 
 #hamburgerIcon {
-  width: 40vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  width: 13vw;
+  margin-right: 20px;
 }
