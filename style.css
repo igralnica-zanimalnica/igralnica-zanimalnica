@@ -1,6 +1,7 @@
 @font-face {
   font-family: ComicRelief;
   src: url(fonts/ComicRelief.woff) format(woff);
+  font-display: swap;
 }
 
 body {
