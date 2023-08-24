@@ -74,6 +74,11 @@ footer {
   filter: drop-shadow(0.4vw 0.4vw 0.4vw rgb(172, 172, 172));
 }
 
+.logo-container {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
 .hidden {
   display: none;
 }
@@ -99,7 +104,6 @@ footer {
 }
 
 #hamburgerIcon {
-  width: 40vw;
-  margin-left: 5vw;
-  margin-right: 5vw;
+  width: 13vw;
+  margin-right: 20px;
 }
