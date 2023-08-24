@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // hidden due to layout shift
       let logoimg = document.getElementsByClassName("logo-img")[0]
       logoimg.hidden = false;
-      
+
       let header = document.getElementsByTagName("header")[0]
       header.innerHTML = header.innerHTML + navbarInnerHTML;
 
@@ -269,5 +269,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница</p>`;
     const footer = document.getElementsByTagName('footer')[0];
     footer.innerHTML = footerHTML;
+    footer.hidden = false;
 });
 
