@@ -50,10 +50,10 @@ h1, h2, p, ul {
   text-decoration: none;
   position: relative;
   margin-top: -1.5vw;
-  margin-bottom: 3vw;
+  margin-bottom: 4vw;
   text-shadow: 0vw 0vw 0.4vw lightblue;
   background-position: center;
-  filter: drop-shadow(0.4vw 0.4vw 0.35vw rgb(255, 255, 255));
+  filter: drop-shadow(-0.4vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(0.4vw 0.4vw 0.35vw rgb(255, 255, 255));
   font-size: 1.5vw;
 }
 
