@@ -266,21 +266,22 @@ document.addEventListener('DOMContentLoaded', function() {
           navLinks[i].style.color = RGB(rgbColor, -10);
           navLinks[i].addEventListener('mouseout', event => {
             navLinks[i].style.color = RGB(rgbColor, -10);
+            navLinks[i].style.filter = `drop-shadow(-0.4vw -0.4vw 0.35vw white) drop-shadow(0.4vw 0.4vw 0.35vw white)`
           });
           navLinks[i].addEventListener('mouseover', event => {
             navLinks[i].style.color = RGB(rgbColor, -100);
+            navLinks[i].style.filter = `drop-shadow(-0.2vw -0.2vw 0.35vw ${RGB(rgbColor)}) drop-shadow(0.2vw 0.2vw 0.35vw ${RGB(rgbColor)})`
           });
           // Positioning
-          navLinks[i].style.top = 5.5 + currentX/100 + 'vw';
+          navLinks[i].style.top = 6 + currentX/100 + 'vw';
           navLinks[i].style.padding =  5 - currentX/-250 + 'vw';
-          document.getElementsByClassName('logo-container')[0].style.marginBottom = '-3vw';
+          document.getElementsByClassName('logo-container')[0].style.marginBottom = '-4.5vw';
           document.getElementsByTagName('main')[0].style.marginTop = '-3vw';
         }
 }
     }
 
     function toggleHamburger() {
-      
       let mobileNavbar = document.getElementById("mobileNavbar");
       if (mobileNavbar.style.display === "block") {
         mobileNavbar.style.display = "none";
