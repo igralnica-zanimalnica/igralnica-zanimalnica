@@ -50,17 +50,31 @@ h1, h2, p, ul {
   text-decoration: none;
   position: relative;
   margin-top: -1.5vw;
-  margin-bottom: 4vw;
+  margin-bottom: 5vw;
   text-shadow: 0vw 0vw 0.4vw lightblue;
   background-position: center;
-  filter: drop-shadow(-0.4vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(0.4vw 0.4vw 0.35vw rgb(255, 255, 255));
+  filter: drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(0vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255));
   font-size: 1.5vw;
 }
 
-#desktopNavbar .navlink:hover{
+@keyframes MoveUpDown {
+  0% {
+    transform: translateY(var(--translationStart, 0));
+  }
+  50% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(var(--translationEnd, 0));
+  }
+}
+
+/* 
+#desktopNavbar .navlink:hover {
+  animation-play-state: paused;
   filter: drop-shadow(0.1vw 0.1vw 0.35vw white);
   color: black;
-}
+} */
 
 #desktopNavbar {
   /* background-color: #333; */

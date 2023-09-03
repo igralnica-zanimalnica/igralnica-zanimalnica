@@ -212,8 +212,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return `<svg class="pencil" xmlns="http://www.w3.org/2000/svg" viewBox="${x} ${y} 1818 210"><defs><style>.cls-1{fill:${color};}.cls-2{fill:#979797;}.cls-3{fill:#c7b199;}</style></defs><g id="g5334"><path id="path4720" class="cls-1" d="M1818,210h-31V0h31Z" transform="translate(0 0)"/><path id="path4722" class="cls-2" d="M1787,210h-14V0h14Z" transform="translate(0 0)"/><path id="path4726" class="cls-3" d="M257.77,0C270,6.94,282.93,12.65,295.33,19.33c-12.51,8.19-26.18,14.43-39.1,22-.07,1.22-.16,2.44-.27,3.65,13.1,5.84,26.43,11.18,39.38,17.33-12.88,6-25.87,11.86-39.14,17-.05,1.22-.11,2.43-.19,3.65,12.85,7.74,26.77,13.56,39.3,21.82-12.86,5.91-26,11.17-39.16,16.46,0,1.24-.11,2.49-.19,3.73,13.17,6.9,26.49,13.52,39.47,20.74-12.84,6.08-26.26,10.85-39.29,16.52,0,1.24-.09,2.49-.16,3.74,13.16,7.54,26.84,14.26,39.43,22.73-12.37,8.07-29.48,11-39.7,21.25C194.92,185.72,134.54,159.79,74,135c0-20.14.38-40.29-.32-60.42C128.28,52,193.79,25.53,257.77,0Z" transform="translate(0 0)"/><path id="path4728" class="cls-1" d="M74,135q-37-15-74-30.14v-.82c24.71-9.43,49-19.9,73.65-29.46C74.35,94.75,73.92,114.9,74,135Z" transform="translate(0 0)"/><path id="path4724" class="cls-1" d="M1773,210H255.75l0-.83c10.22-10.28,27.33-12.45,39.7-20.52-12.59-8.47-26.27-15.19-39.43-22.73.07-1.25.13-2.5.16-3.74,13-5.67,26.45-10.44,39.29-16.52-13-7.22-26.3-13.84-39.47-20.74.08-1.24.14-2.49.19-3.73,13.13-5.29,26.3-10.55,39.16-16.46-12.53-8.26-26.45-14.08-39.3-21.82.08-1.22.14-2.43.19-3.65,13.27-5.14,26.26-11,39.14-17C282.39,56.11,269.06,50.77,256,44.93c.11-1.21.2-2.43.27-3.65,12.92-7.52,26.59-13.76,39.1-22C282.93,12.65,270,6.94,257.77,0H1773Z" transform="translate(0 0)"/></g></svg>`
     }
 
-    function cloudSVG(color, borderColor, opacity) {
-      return `<svg class="cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 767.77 420.93"><defs><style>.cls-1{fill:${color};opacity:${opacity}}.cls-2{fill:none;stroke:${borderColor};stroke-linecap:round;stroke-linejoin:round;stroke-width:10px;}</style></defs><g id="layer1"><path id="filling" class="cls-1" d="M455.53,5C401,5.37,347.29,30.14,328.62,75.09,237.37-46.09,36.67,67.64,94.91,188.91-43.2,163.27-11.48,386.48,117.38,364.72c55.32,57.59,140.17,67,232,26.28h.06c111,40.42,207.56,10.29,251.09-20.56,261.28,68.17,167.31-349.25-4.15-240.35C595,43.37,524.69,4.53,455.53,5Z" transform="translate(0 0)"/><path id="outline" class="cls-2" d="M328.62,75.09c44.24-106.55,285.63-99.7,266.72,76.69m1-21.69C767.84,21.18,861.82,438.6,600.53,370.42M617.07,356c-31.76,36.11-153.17,87.93-292.21,25m24.5,10c-91.82,40.73-176.65,31.33-232-26.26m23.89-6.55C-7.13,413.79-51.4,161.74,94.89,188.9m12.57,20.79C7.82,73.76,259.23-69,344.42,100.74" transform="translate(0 0)"/></g></svg>`
+    function cloudSVG(color, borderColor, strokeWidth, opacity) {
+      return `<svg class="cloud" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 767.77 420.93"><defs><style>.cls-1{fill:${color};opacity:${opacity}}.cls-2{fill:none;stroke:${borderColor};stroke-linecap:round;stroke-linejoin:round;stroke-width:${strokeWidth};}</style></defs><g id="layer1"><path id="filling" class="cls-1" d="M455.53,5C401,5.37,347.29,30.14,328.62,75.09,237.37-46.09,36.67,67.64,94.91,188.91-43.2,163.27-11.48,386.48,117.38,364.72c55.32,57.59,140.17,67,232,26.28h.06c111,40.42,207.56,10.29,251.09-20.56,261.28,68.17,167.31-349.25-4.15-240.35C595,43.37,524.69,4.53,455.53,5Z" transform="translate(0 0)"/><path id="outline" class="cls-2" d="M328.62,75.09c44.24-106.55,285.63-99.7,266.72,76.69m1-21.69C767.84,21.18,861.82,438.6,600.53,370.42M617.07,356c-31.76,36.11-153.17,87.93-292.21,25m24.5,10c-91.82,40.73-176.65,31.33-232-26.26m23.89-6.55C-7.13,413.79-51.4,161.74,94.89,188.9m12.57,20.79C7.82,73.76,259.23-69,344.42,100.74" transform="translate(0 0)"/></g></svg>`
     }
 
     function setNavlinkBackground() {
@@ -260,23 +260,42 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks[i].innerHTML = navLinks[i].innerHTML.replaceAll(' ', '<br>')
           }
           let rgbColor = hexToRgb(currentColor)
-          var encodedSVG = window.btoa(cloudSVG('white', RGB(rgbColor, 20), '60%'));
+          var encodedSVG = window.btoa(cloudSVG('white', 'white', '4vw','60%'));
           // Color of inside text
           navLinks[i].style.backgroundImage = "url(data:image/svg+xml;base64," + encodedSVG + ")";
           navLinks[i].style.color = RGB(rgbColor, -10);
+          // When mouse out of cloud
           navLinks[i].addEventListener('mouseout', event => {
+            navLinks[i].style.animationPlayState = 'running';
             navLinks[i].style.color = RGB(rgbColor, -10);
-            navLinks[i].style.filter = `drop-shadow(-0.4vw -0.4vw 0.35vw white) drop-shadow(0.4vw 0.4vw 0.35vw white)`
+            navLinks[i].style.filter = `drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(0vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255))`;
           });
+          // When mouse inside of cloud
           navLinks[i].addEventListener('mouseover', event => {
-            navLinks[i].style.color = RGB(rgbColor, -100);
-            navLinks[i].style.filter = `drop-shadow(-0.2vw -0.2vw 0.35vw ${RGB(rgbColor)}) drop-shadow(0.2vw 0.2vw 0.35vw ${RGB(rgbColor)})`
+            navLinks[i].style.animationPlayState = 'paused';
+            navLinks[i].style.color = RGB(rgbColor, -70);
+            navLinks[i].style.width = parseFloat(navLinks[i].style.width.replaceAll('vw', '')) + 0.8 + 'vw';
+            navLinks[i].style.filter = `drop-shadow(-0.2vw -0.2vw 0.35vw ${RGB(rgbColor, -20)}) drop-shadow(0.2vw 0.2vw 0.35vw ${RGB(rgbColor)}) drop-shadow(-0.3vw -0.3vw 0.35vw white) drop-shadow(0.3vw 0.3vw 0.35vw white)`
           });
           // Positioning
-          navLinks[i].style.top = 6 + currentX/100 + 'vw';
+          let startingPosition = 6 + currentX/100;
+          navLinks[i].style.top = startingPosition + 'vw';
           navLinks[i].style.padding =  5 - currentX/-250 + 'vw';
           document.getElementsByClassName('logo-container')[0].style.marginBottom = '-4.5vw';
           document.getElementsByTagName('main')[0].style.marginTop = '-3vw';
+          function vwToPx(vw) {
+            return (vw * window.innerWidth) / 100;
+          }
+          // Animate clouds
+          if (i % 2  == 0) { // up
+            navLinks[i].style.setProperty('--translationStart', '0.25vw');
+            navLinks[i].style.setProperty('--translationEnd', '-0.25vw');
+            navLinks[i].style.animation = 'MoveUpDown 3s linear infinite alternate';
+          } else { // down
+            navLinks[i].style.setProperty('--translationStart', '-0.25vw');
+            navLinks[i].style.setProperty('--translationEnd', '0.25vw');
+            navLinks[i].style.animation = 'MoveUpDown 3s linear infinite alternate';
+          }
         }
 }
     }
