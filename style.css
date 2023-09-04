@@ -51,9 +51,9 @@ h1, h2, p, ul {
   position: relative;
   margin-top: -1.5vw;
   margin-bottom: 5vw;
-  text-shadow: 0vw 0vw 0.4vw lightblue;
+  text-shadow: 0vw 0vw 0.4vw lightgray;
   background-position: center;
-  filter: drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(0vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255));
+  filter: drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(-0.2vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255));
   font-size: 1.5vw;
 }
 
@@ -93,15 +93,19 @@ footer {
 }
 
 .logo-img {
-  max-width: 1200px;
+  max-width: 67vw;
   width: 100%;
   height: auto;
-  filter: drop-shadow(0.4vw 0.4vw 0.4vw rgb(172, 172, 172));
 }
 
 .logo-container {
   margin-left: 3vw;
   margin-right: 3vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0.4vw 0.4vw 0.4vw rgb(172, 172, 172));
 }
 
 .hidden {
@@ -147,4 +151,53 @@ footer {
 #hamburgerIcon {
   width: 13vw;
   margin-right: 3vw;
+}
+
+
+.kite-inner-border {
+  fill: #8ab93a;
+}
+
+.kite-lower-half {
+  fill: #08a2db;
+}
+
+.kite-upper-half {
+  fill: #f8cf0c;
+}
+
+.kite-outer-border {
+  fill: none;
+  stroke: #e63030;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 4px;
+}
+
+.kite-mouth, .kite-tail {
+  fill: #e63030;
+}
+
+.kite-eyes {
+  fill: #0c69ab;
+}
+
+#kite {
+  animation: rotateAnimation 3s ease-in-out infinite alternate;
+  transform-origin: 10% 10%;
+  margin-top: 1vw;
+  max-width: 20vw;
+  width: 100%;
+  height: auto;
+  margin-right: -13.7vw;
+}
+
+
+@keyframes rotateAnimation {
+  0% {
+    transform: translateX(-0.2vw) translateY(0vw) rotate(-1.5deg);
+  }
+  100% {
+    transform: translateX(0vw) translateY(0vw) rotate(1.5deg);
+  }
 }
