@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
           navLinks[i].addEventListener('mouseout', event => {
             navLinks[i].style.animationPlayState = 'running';
             navLinks[i].style.color = RGB(rgbColor, -10);
-            navLinks[i].style.filter = `drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(0vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255))`;
+            navLinks[i].style.filter = `drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(-0.2vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255))`;
           });
           // When mouse inside of cloud
           navLinks[i].addEventListener('mouseover', event => {
@@ -320,6 +320,8 @@ document.addEventListener('DOMContentLoaded', function() {
         header.innerHTML = '<div id="hamburgerContainer">' + header.innerHTML + hamburger + '</div>'
       };
       // hidden due to layout shift
+      let kiteimg = document.getElementsByClassName("kite-logo")[0]
+      kiteimg.style.visibility = "visible";
       let logoimg = document.getElementsByClassName("logo-img")[0]
       logoimg.hidden = false;
 
