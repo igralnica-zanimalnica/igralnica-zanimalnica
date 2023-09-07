@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
       return'rgb(' + (rgbColor['r'] + brightness) + ',' + (rgbColor['g'] + brightness) + ',' + (rgbColor['b'] + brightness) + ')'
     };
 
+    const forSignUpAndInformation = `<p>Записване и информация - 0889656789, 0887779783 или на място - ж.к.Чайка, бл189, от понеделник до петък, от 8.00 до 18.00ч.</p>`
+
     // Start of HTML
     const homeHTML = 
     `<p>Детски център "Игралница занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p>
@@ -75,32 +77,47 @@ document.addEventListener('DOMContentLoaded', function() {
     Важно за нас е родителите да ни имат доверие, да се чувстват спокойни, улеснени и сигурни, че детето им ще е щастливо, подготвено и устремено.</p>`
 
     const servicesHTML = 
-    `<h1>Услуги</h1><p>
-    <p>
-    Полудневно посещение<br>
-    <ul>
-      <li>Месечна такса – 300 лв./20 работни дни / Не се възстановява при отсъствие на детето</li>
-      <li>Седмична такса – 80лв./16лв.на ден</li>
-      <li>Дневна такса – 20 лв.</li>
-      <li>Удължено работно време – 5 лв./час за всеки започнат час.</li>
-      <li>Почасово – 6 лв./час</li>
-      <li>Топъл обяд - 6 лв. на ден /заплаща се в началото на всяка седмица/</li>
+    `<h1>Услуги</h1>
+    
+    
+    От 15.09 до 31.05:<ul>
+    <li><a href="/school-zanimalnica" class="navlink">Училишна Занималня</a></li>
     </ul>
-
-    Целодневно посещение: 20лв./ден<br>
-    Топъл обяд: 6лв.<br>
-    Допълнителни занимания:<br>
-
+    От 01.06 до 14.09:
     <ul>
-      <li>Арт студио "Игралница занималница", рисуване и приложни изкуства - 16лв. / 2 часа, всяка събота от 10:00-12:00 или 12:00-14:00/</li>
+    <li><a href="/summer-igralnica" class="navlink">Лятна Игралница</a></li>
+    <li><a href="/summer-zanimalnica" class="navlink">Лятна Занималница</a></li>
+    </ul>
+    Допълнителни услуги:
+    <ul>
+      <li>
+        <input type="checkbox" id="hiddenToggle">
+        <label for="hiddenToggle" class="arrow">▶</label>
+        Арт студио "Игралница занималница", рисуване и приложни изкуства - 16лв. / 2 часа, всяка събота от 10:00-12:00 или 12:00-14:00/
+        <div class="hiddenContent">
+          <p>Рисувайки малките деца стават по-наблюдателни, чувствителни и възпитават у себе си усет към красивото и любов към природата.
+
+          При нас няма възрастови ограничения. Всеки е добре дошъл да се присъедини към групата, която се събира всяка събота от 10.00 до 12.00 часа или от 12.00 до 14.00 е ръководена от художничката Теодора Скорчева.                                        
+          
+          Децата в студиото работят с различни материали и техники за да усетят широките възможности, които им дава изобразителното изкуство. Възможността да изразят себе си, своето усещане за света, своите чувства, мисли и мечти.
+          
+          С много старание рисуват с водни и темперни бои, сухи пастели и цветни моливи, рисуват върху стъкло и текстил, правят апликации с природни и други материали.
+          
+          Тези, на които им се отдава скулптурата, правят релефи от пластилин, които отливат от гипс, а бъдещите графици рисуват с туш и перо и правят линогравюра.
+          
+          Желаещите да кандидатстват след  4 и 7 клас в специализирано училище по изобразителни изкуства работят по изпитните задачи: натюрморт-етюд и фигурална композиция.
+          
+          Рисува се върху картон с размер 35/50 см.,за да може рисунките да участват в различни конкурси.
+          
+          В края на учебната година се провежда изложба, където всеки може да се полюбува на таланта и постиженията на малките художници.
+          
+          Част от изложбата  и участия в конкурси и награди можете да разгледате тук.</p>
+        </div>
+      </li>
       <li>Индивидуални уроци по български език и математика - 20лв./час</li>
       <li>Индивидуални уроци по английски език-25лв./час</li>
     </ul>
-    
-    <br><br>
-    *Месечната такса се заплаща от 1-5 число на текущия месец, включва полудневна занималня, взимане и водене на детето от и до училище, не се възстановява при отсъствие<br>
-    
-    *Седмичната такса се заплаща в началото на всяка седмица, включва полудневна занималня, взимане и водене на детето от и до училище.</p>`
+    `
 
     const contactsHTML = 
     `<h1>Контакти</h1><p>Служебен телефон  0889 656789 <br><br>
@@ -121,7 +138,7 @@ document.addEventListener('DOMContentLoaded', function() {
     0888 769508</p>`
 
     const schoolZanimalnicaHTML = 
-    `<p>Детски център ”Игралница занималница”, предлага училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
+    `<h1>Училищна Занималня</h1><p>От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 
     <p>Близо до нас са: ОУ „Захари Стоянов“, ОУ “Георги Сава Раковски, VII СУ “Найден Геров”;ОУ"Васил Друмев"</p>
     
@@ -137,13 +154,166 @@ document.addEventListener('DOMContentLoaded', function() {
     
     <p>Разполагаме с просторни и светли учебни стаи, зала за игра, богата детска библиотека и огромен избор от учебни помагала.</p>
     
-    <p>Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>`
+    <p>Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
+    <p>
+    Полудневно посещение<br>
+    <ul>
+      <li>Месечна такса – 300 лв./20 работни дни / Не се възстановява при отсъствие на детето</li>
+      <li>Седмична такса – 80лв./16лв.на ден</li>
+      <li>Дневна такса – 20 лв.</li>
+      <li>Удължено работно време – 5 лв./час за всеки започнат час.</li>
+      <li>Почасово – 6 лв./час</li>
+      <li>Топъл обяд - 6 лв. на ден /заплаща се в началото на всяка седмица/</li>
+    </ul>
+
+    Целодневно посещение: 20лв./ден<br>
+    Топъл обяд: 6лв.<br>
+    </p>
+    <p>
+    *Месечната такса се заплаща от 1-5 число на текущия месец, включва полудневна занималня, взимане и водене на детето от и до училище, не се възстановява при отсъствие<br>
+    
+    *Седмичната такса се заплаща в началото на всяка седмица, включва полудневна занималня, взимане и водене на детето от и до училище.
+    </p>`
+
+    
 
     const summerIgralnicaHTML = 
-    `<h1>Лятна Игралница</h1>`
+    `<h1>Лятна Игралница</h1>
+
+    <p>От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
+
+    <p>Опознаваме света отблизо, защото опитът винаги е най-добрият учител. 
+    Правим екскурзии,посещаваме интересни места, изложби, музеи,забележителности. 
+    Гостуваме на библиотеката, творим красотички в различни работилнички. 
+    Правим походи в гората, катерим се, учим се да се ориентираме, плуваме и събираме слънце на плажа.
+    </p>
+    
+    <p>Програмата е седмична и почти целия ден прекарваме навън. Децата си носят вода и храна за обяд и следобедна закуска.</p>
+
+    <p>
+      Сутрин се събираме в занималнята от 8.00ч до 9.30ч., /ж.к. Чайка,vбл.189, на един подлез разстояние от морската градина/
+
+      10ч. тръгваме по програмата за деня и се връщаме в занималнята около 16.00ч.
+
+      Изпращаме децата до 18ч.
+
+      Подробна програма публикуваме всяка седмица в профила и страницата ни във Фейсбук,предвид метеороличната прогноза. При неподходящо време е възможна промяна в програмата за седмицата.
+    </p>
+    <p>
+      Примерна програма за седмица:
+      <ul style="list-style-type:none;">
+        <li>/Понеделник / - Хайде да играем /игри и забавления в морската градина/</li>
+        <li>/Вторник/ - Като Рицарите / парк – музей Владислав Варненчик/</li>
+        <li>/Сряда/ - По следите на животните /Зоопарк Варна/</li>
+        <li>/Четвъртък/ - Сладки приказки в библиотеката /Детски отдел на РБ”П.Славейков”/</li>
+        <li>/Петък/ - Фотосафари /Побити камъни/</li>
+      </ul>
+    </p>
+    
+    <p>
+    Цени:
+      <ul style="list-style-type:none;">
+        <li>Седмична такса – 100лв.</li>
+        <li>Дневна такса: 25лв.</li>
+        <li>Входни такси и транспорт се заплащат допълнително /25- 30 лв. за седмица/</li>
+      </ul>
+    </p>
+    <p>
+    Отстъпки:
+      <ul style="list-style-type:none;">
+        <li>10% от таксата за второ и трето дете от семейството</li>
+        <li>10% при заплащане на месецна такса</li>
+        <li>При отсъствие на детето по болест или неотложни причини, може да се ползва деня /без допълнителните такси/, в следващите до 30 дни.</li>
+      </ul>
+    </p>
+
+    <p>
+    Групи - до 20 деца.<br>
+    Tранспорт с лицензиран автобус.
+    </p>
+    
+
+    <p>Актуалната програма  за всяка седмица ще бъде публикувана <a href="https://www.facebook.com/IgralnicaZanimalnica">тук</a></p>
+
+    <p>
+    Местата, на които приключенстваме:
+    <ul>
+      <li>Природен парк "Златни пясъци"</li>
+      <li>Маршрут "Домът на сойката"</li>
+      <li>Вълшебната гора</li>
+      <li>Морска гара и Южен плаж</li>
+      <li>местност Боровец</li>
+      <li>местност Царска чешма</li>
+      <li>Виница / гората над Конна база /</li>
+      <li>Конна база с. Доброглед</li>
+      <li>местност Елен дере</li>
+      <li>Маршрут "Яйла чешма"</li>
+      <li>Музей на стъклото гр. Белослав / пътуване с влак и ферибот /</li>
+      <li>Вълшебните извори</li>
+      <li>Музей на мозайките гр.Девня</li>
+      <li>Побити камъни</li>
+      <li>с.Орешак</li>
+      <li>местност Батова</li>
+      <li>Екопарк "Св. Константин и Елена"</li>
+      <li>Парк Аспарухово</li>
+      <li>Парк-музей "Владислав Варненчик"</li>
+      <li>Археологически музей</li>
+      <li>Ферма с.Зорница</li>
+    </ul>
+    и още знайни и незнайни горички и полянки, на които геройски сме играли, щуряли и приключенствали.
+    </p>
+    ${forSignUpAndInformation}
+    `
 
     const summerZanimalnicaHTML = 
-    `<h1>Лятна Занималница</h1>`
+    `<h1>Лятна Занималница</h1><p>От 1-ви Юни до 14-ти Септември предлагаме целодневна или полудневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
+
+ 
+
+    <p>Тук се забавляваме, учим и играем. В спокойна и приятна среда на нашата база, на метри от Морската градина на град Варна. 
+    Сутрешни занимания по четене, писане, математика и следобедни игри в Морската градина.</p>
+    
+    <p>Работното ни време е от понеделник до петък, от 8 до 18ч.</p>
+    
+     
+    
+     
+    
+    <p>Един примерен ден в Лятната занималница:<br>
+    
+    Сутрин в занималнята :
+    <ol style="list-style-type:none;">
+      <li>8.00 -10.00ч.- Посрещане на децата, свободни занимания, приложни дейности</li>
+      <li>10.00 -12.00 ч.- Занимания по математика, български език, английски език, четене / заниманията са по график за деня/</li>
+      <li>12:00- 13:00ч. - Обяд /готвено меню, не е включен в общата такса/</li>
+    </ol>
+    
+    Следобедна занималня:
+    <ol style="list-style-type:none;">
+      <li>13.00-16:00 ч. - време за разходка, игри в Морската градина</li>
+      <li>16.00-17.00ч - занимания по интереси,четене на книжки, приложни дейности</li>
+      <li>17.00-18-00ч. - изпращане на децата</li>
+    </ol>
+    
+     
+    <p>Целодневно посещение:
+      <ul style="list-style-type:none;">
+        <li>Седмична такса /пет дни/ - 100лв.</li>
+        <li>Еднократно посещение - 25лв.</li>
+      </ul>
+    </p>
+    
+    <p>Полудневно посещение:
+      <ul style="list-style-type:none;">
+        <li>Седмична такса - 16лв.</li>
+        <li>Еднократно посещение - 20лв</li>
+      </ul>
+    </p>
+
+    <p>
+      Обяд/Двустепенно меню/- 6лв.
+    </p>
+    ${forSignUpAndInformation}`
     // End of HTML - Do not delete this line, generate_sitemap.py uses it.
 
     const adminHTML =
@@ -176,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     
     const metaDescriptions = {
-      '/': 'Добре дошли в Игралница-Занималница! Детски център и място за игра на вашето дете. Разгледайте нашите услуги.',
+      '/': 'Добре дошли в Игралница Занималница! Детски център и място за игра на вашето дете. Разгледайте нашите услуги.',
       '/about': 'Информация за служителите на занималнята. Каква квалификация имаме, с какво можем да помогнем на вашето дете и какво ни мотивира.',
       '/services': 'Информация за услугите които предлагаме. Какво е игралница, какво е занималница. Разликата между лятно и учебно време.',
       '/contacts': 'Телефон за връзка. Служебен, както и за всеки индивидуален учител. Имейл за връзка.',
@@ -217,7 +387,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function setNavlinkBackground() {
-      const navLinks = document.querySelectorAll(".navlink");
+      var navLinks = document.querySelectorAll(".navlink");
       for (let i = 0; i < navLinks.length; i++) {
         var currentColor = 'black'
         var currentX = 0
@@ -260,7 +430,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks[i].innerHTML = navLinks[i].innerHTML.replaceAll(' ', '<br>')
           }
           let rgbColor = hexToRgb(currentColor)
-          var encodedSVG = window.btoa(cloudSVG('white', 'white', '4vw','60%'));
+          var encodedSVG = window.btoa(cloudSVG('white', 'black', '2vw','95%'));
           // Color of inside text
           navLinks[i].style.backgroundImage = "url(data:image/svg+xml;base64," + encodedSVG + ")";
           navLinks[i].style.color = RGB(rgbColor, -10);
@@ -268,33 +438,33 @@ document.addEventListener('DOMContentLoaded', function() {
           navLinks[i].addEventListener('mouseout', event => {
             navLinks[i].style.animationPlayState = 'running';
             navLinks[i].style.color = RGB(rgbColor, -10);
-            navLinks[i].style.filter = `drop-shadow(0vw -0.4vw 0.35vw rgb(255, 255, 255)) drop-shadow(-0.2vw 0.2vw 0.3vw lightgray) drop-shadow(0vw 0.4vw 0.35vw rgb(255, 255, 255))`;
+            navLinks[i].style.filter = `none`;
           });
           // When mouse inside of cloud
           navLinks[i].addEventListener('mouseover', event => {
             navLinks[i].style.animationPlayState = 'paused';
             navLinks[i].style.color = RGB(rgbColor, -70);
             navLinks[i].style.width = parseFloat(navLinks[i].style.width.replaceAll('vw', '')) + 0.8 + 'vw';
-            navLinks[i].style.filter = `drop-shadow(-0.2vw -0.2vw 0.35vw ${RGB(rgbColor, -20)}) drop-shadow(0.2vw 0.2vw 0.35vw ${RGB(rgbColor)}) drop-shadow(-0.3vw -0.3vw 0.35vw white) drop-shadow(0.3vw 0.3vw 0.35vw white)`
+            navLinks[i].style.filter = `drop-shadow(-0.1vw -0.1vw 0.35vw ${RGB(rgbColor, -20)}) drop-shadow(0.1vw 0.1vw 0.35vw ${RGB(rgbColor)}) drop-shadow(-0.1vw -0.1vw 0.35vw white) drop-shadow(0.1vw 0.1vw 0.35vw white)`
           });
           // Positioning
           let startingPosition = 6 + currentX/100;
           navLinks[i].style.top = startingPosition + 'vw';
           navLinks[i].style.padding =  5 - currentX/-250 + 'vw';
-          document.getElementsByClassName('logo-container')[0].style.marginBottom = '-4.5vw';
+          document.getElementsByClassName('logo-container')[0].style.marginBottom = '-5.5vw';
           document.getElementsByTagName('main')[0].style.marginTop = '-3vw';
           function vwToPx(vw) {
             return (vw * window.innerWidth) / 100;
           }
           // Animate clouds
           if (i % 2  == 0) { // up
-            navLinks[i].style.setProperty('--translationStart', '0.25vw');
-            navLinks[i].style.setProperty('--translationEnd', '-0.25vw');
-            navLinks[i].style.animation = 'MoveUpDown 3s linear infinite alternate';
+            navLinks[i].style.setProperty('--translationStart', '0.45vw');
+            navLinks[i].style.setProperty('--translationEnd', '-0.45vw');
+            navLinks[i].style.animation = 'MoveUpDown 2.5s linear infinite alternate';
           } else { // down
-            navLinks[i].style.setProperty('--translationStart', '-0.25vw');
-            navLinks[i].style.setProperty('--translationEnd', '0.25vw');
-            navLinks[i].style.animation = 'MoveUpDown 3s linear infinite alternate';
+            navLinks[i].style.setProperty('--translationStart', '-0.45vw');
+            navLinks[i].style.setProperty('--translationEnd', '0.45vw');
+            navLinks[i].style.animation = 'MoveUpDown 2.5s linear infinite alternate';
           }
         }
 }
@@ -312,22 +482,21 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateNavbar() {
       // Set unique id for navbar element on mobile|desktop
       let navbarInnerHTML = navbarHTML;
+      let header = document.getElementsByTagName("header")[0]
       if (onMobile()) {
         navbarInnerHTML  = navbarInnerHTML.replaceAll('desktopNavbar', 'mobileNavbar');
         navbarInnerHTML  = navbarInnerHTML.replaceAll('navlink', 'navlink pencil');
-        let header = document.getElementsByTagName('header')[0];
         header.id = 'mobileHeader';
         header.innerHTML = '<div id="hamburgerContainer">' + header.innerHTML + hamburger + '</div>'
+      } else {
+        header.id = 'desktopHeader';
       };
       // hidden due to layout shift
       let kiteimg = document.getElementsByClassName("kite-logo")[0]
       kiteimg.style.visibility = "visible";
       let logoimg = document.getElementsByClassName("logo-img")[0]
       logoimg.hidden = false;
-
-      let header = document.getElementsByTagName("header")[0]
       header.innerHTML = header.innerHTML + navbarInnerHTML;
-
       if (onMobile()) {
         let hamburgerIcon = document.getElementById('hamburgerIcon');
         hamburgerIcon.style.display = "block";
@@ -340,13 +509,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateNavbar();
     setNavlinkBackground();
-    const navLinks = document.querySelectorAll('nav a');
     const content = document.querySelector('main');
 
     function updateTitle(pathname) {
         // Document title is the navbar text + company name
         let navbarContent = document.querySelector(`a[href="${pathname}"]`).textContent;
-        document.title = navbarContent + " | Игралница-Занималница"
+        document.title = navbarContent + " | Игралница Занималница"
     }
 
     function updateDescription(pathname) {
@@ -362,34 +530,40 @@ document.addEventListener('DOMContentLoaded', function() {
         updateDescription(path);
         // Modify browser's history and change the URL without triggering a full page reload
         if (!shouldParseResult) {
-            window.history.pushState({}, '', path);
-        }
+        window.history.pushState({}, '', path);
+        };
+        
         if (path=='/admin') {
             const event = new Event("adminAccess");
             document.dispatchEvent(event);
           }
-        
+        document.querySelectorAll('a.navlink').forEach(link => {
+          // For each nav button click, change content
+          if (!link.classList.contains('click-ready')) {
+            addNavLinkEventListener(link);
+          };
+          link.classList.add('click-ready');
+        });
 
     }
-    
-    // For each nav button click, change content
-    navLinks.forEach(link => {
-        link.addEventListener('click', event => {
+
+
+    function addNavLinkEventListener(element) {
+        element.addEventListener('click', event => {
         event.preventDefault();
         if (onMobile()) {
           toggleHamburger()
         };
-        navigateTo(link.href);
-        });
-    });
+        navigateTo(element.href);
+      });
+    };
 
-    
 
     // Update the page content based on the URL
     navigateTo(window.location);
 
     // Update the current year in the footer
-    const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница-Занималница</p>`;
+    const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница Занималница</p>`;
     const footer = document.getElementsByTagName('footer')[0];
     footer.innerHTML = footerHTML;
     footer.hidden = false;
