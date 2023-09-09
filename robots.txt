@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://igralnica-zanimalnica.netlify.app/sitemap.xml
+Sitemap: https://игралница-занималница.бг/sitemap.xml

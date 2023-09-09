@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 main {
@@ -26,7 +26,7 @@ header {
 }
 
 #desktopHeader {
-  background: linear-gradient( white -20%, skyblue 50%, #FFEACE 90%)
+  background: linear-gradient( white -20%, #87ceeb 50%, #FFEACE 90%)
 }
 
 #mobileHeader {
@@ -234,10 +234,21 @@ a {
 /* Style the label as a button with the arrow */
 .arrow {
   /* background-color: #3498db; */
-  color: #fff;
+  color: white;
   padding: 5px 10px;
   cursor: pointer;
-  transform: rotate(90deg);
+  border-radius: 0.5rem;
+  border: solid;
+  border-color: rgb(142, 112, 87, 255);
+  background-color: rgb(142, 112, 87, 255);
+  font-size: 0.9rem;
+  filter: drop-shadow(0.1vw 0.1vw 0.15vw black);
+}
+
+.arrow:active {
+  color: black;
+  background-color: white;
+  border-color: black;
 }
 
 /* Initially hide the content */
@@ -248,10 +259,11 @@ a {
 /* When the checkbox is checked, show the content */
 #hiddenToggle:checked + .arrow + .hiddenContent {
   display: block;
-  
 }
 
-/* When the checkbox is checked, show the content and rotate the arrow */
-#hiddenToggle:checked + .arrow {
-  transform: rotate(90deg); /* Rotate the arrow by 90 degrees */
+.profileImage {
+  border-radius: 50%;
+  /* max-width: 50vw; */
+  min-width: 20vh;
+  width: 20vw;
 }
