@@ -5,7 +5,7 @@ import re
 import subprocess
 from datetime import datetime
 
-base_url = "https://igralnica-zanimalnica.netlify.app"
+base_url = "https://игралница-занималница.бг"
 
 date_pattern = r'\d{4}-\d{2}-\d{2}'
 last_date = datetime.strptime("2023-07-25", "%Y-%m-%d")
@@ -51,5 +51,5 @@ for line in blame.split('\n'):
         break
 
 # Save string into file
-with open("sitemap.xml", "w") as file:
+with open("sitemap.xml", "w", encoding='UTF-8') as file:
     file.write(sitemap)
