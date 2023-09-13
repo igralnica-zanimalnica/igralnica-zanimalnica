@@ -29,6 +29,61 @@ document.addEventListener('DOMContentLoaded', function() {
       return'rgb(' + (rgbColor['r'] + brightness) + ',' + (rgbColor['g'] + brightness) + ',' + (rgbColor['b'] + brightness) + ')'
     };
 
+    function homeImages(show=true) {
+      if (!show) {
+        return ``
+      };
+      if (onMobile()) {
+        return `<div class="w3-content w3-display-container slideshow-container">
+                  <div class="imageBtnContainer">
+                    <img class="mySlides fade" src="images/home/igralnica_inside.jpg">
+                    <img class="mySlides fade" src="images/home/twister.jpg">
+                    <img class="mySlides fade" src="images/home/rope.jpg">
+                    <img class="mySlides fade" src="images/home/archer.jpg">
+                    <img class="mySlides fade" src="images/home/pool.jpg">
+                    <img class="mySlides fade" src="images/home/forest_smile.jpg">
+                    <button class="w3-button w3-black prev">&#10094;</button>
+                    <button class="w3-button w3-black next">&#10095;</button>
+                  </div>
+                  <br>
+                  <div style="text-align:center"> 
+                  <span class="dot"></span>
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>`
+      } else {
+        return `<div class="row">
+                  <div class="column">
+                    <img src="images/home/igralnica_inside.jpg">
+                    <img src="images/home/horo.jpg">
+                    <img src="images/home/cooking.jpg">
+                    <img src="images/home/forest_smile.jpg">
+                  </div>
+                  <div class="column">
+                    <img src="images/home/igralnica_entrance_baloons.jpg">
+                    <img src="images/home/forest.jpg">
+                    <img src="images/home/halloween.jpg">
+                    <img src="images/home/archer.jpg">
+                  </div>
+                  <div class="column">
+                    <img src="images/home/twister.jpg">
+                    <img src="images/home/pool.jpg">
+                    <img src="images/home/crafts.jpg">
+                    <img src="images/home/rope.jpg">
+                  </div>
+                  <div class="column">
+                    <img src="images/home/tea.jpg">
+                    <img src="images/home/medved.jpg">
+                    <img src="images/home/worker.jpg">
+                    <img src="images/home/neptune.jpg">
+                  </div>
+                </div>`
+      };
+    };
+
     const hamburger = 
     `
     <svg xmlns="http://www.w3.org/2000/svg" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
@@ -38,71 +93,53 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const forSignUpAndInformation = `<p>Записване и информация - 0889656789, 0887779783 или на място - ж.к.Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</p>`
 
+    
     // Start of HTML
     const homeHTML = 
     `
     <div class="contentContainer">
-      <img class="contentImage framed fixed" src="images/igralnica_inside.jpg">
-      <div class="textContainer fixed">
         <p>Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
-      </div>
-    </div>
-
-    <div class="contentContainer reverseFlex">
-      <div class="textContainer">
+        ${homeImages(!onMobile())}
         <p>Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
-      </div>
-      <img class="contentImage framed" src="images/igralnica_entrance.jpg">
-    </div>
+        <p>Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
+        
+        ${homeImages(onMobile())}
+        <p>В основната ни програма:
+        <ul>
+          <li>помагаме за решаване на задачите, поставени в училище;</li>
+          <li>развиваме в децата уменията за самоподготовка и заедно проверяваме готови ли сме за утрешния ден;</li>
+          <li>обогатяваме знанията с допълнителни занятия и учебни игри;</li>
+          <li>помагаме в подготовката по английски, немски и руски език;</li>
+          <li>работим в малки групи с до 8 деца на един учител,</li> <!-- Should it be a comma? -->
+          <li>с индивидуални програми за работа развиваме потенциала на всяко дете;</li>
+          <li>насърчаваме уменията за общуване и създаване на приятелства;</li>
+          <li>осигуряваме транспорт от и до училище с график, удобен за всяко дете;</li>
+          <li>предлагаме топъл обяд;</li>
+          <li>обичаме рождените дни и не пропускаме важните празнични дати;</li>
+          <li>в училищната ваканция предлагаме целодневна приключенска програма, без това да натоварва допълнително семейния бюджет</li>
+        </ul></p>
+        <br>
+        <p>Допълнителна програма:
+        <ul>
+          <li>Арт студио “Игралница Занималница”- рисуване и приложни изкуства в събота с Теди Скорчева</li>
+          <li>Уроци и курсове по български и английски език</li>
+          <li>Уроци и курсове по математика</li>
+          <li>Логопедична консултация и помощ</li>
+        </ul></p>
 
-  <div class="contentContainer">
-    <img class="contentImage framed" src="images/table.jpg">
-    <div class="textContainer">
-      <p>Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
-    </div>
-  </div>
-
-
-    
-    
-    <br>
-    <p>В основната ни програма:
-    <ul>
-      <li>помагаме за решаване на задачите, поставени в училище;</li>
-      <li>развиваме в децата уменията за самоподготовка и заедно проверяваме готови ли сме за утрешния ден;</li>
-      <li>обогатяваме знанията с допълнителни занятия и учебни игри;</li>
-      <li>помагаме в подготовката по английски, немски и руски език;</li>
-      <li>работим в малки групи с до 8 деца на един учител,</li> <!-- Should it be a comma? -->
-      <li>с индивидуални програми за работа развиваме потенциала на всяко дете;</li>
-      <li>насърчаваме уменията за общуване и създаване на приятелства;</li>
-      <li>осигуряваме транспорт от и до училище с график, удобен за всяко дете;</li>
-      <li>предлагаме топъл обяд;</li>
-      <li>обичаме рождените дни и не пропускаме важните празнични дати;</li>
-      <li>в училищната ваканция предлагаме целодневна приключенска програма, без това да натоварва допълнително семейния бюджет</li>
-    </ul></p>
-    <br>
-    <p>Допълнителна програма:
-    <ul>
-      <li>Арт студио “Игралница Занималница”- рисуване и приложни изкуства в събота с Теди Скорчева</li>
-      <li>Уроци и курсове по български и английски език</li>
-      <li>Уроци и курсове по математика</li>
-      <li>Логопедична консултация и помощ</li>
-    </ul></p>
-
-    <div class="contentContainer reverseFlex">
-      <div class="textContainer">
         <p><q>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</q>
-      - Илиана Йорданова, основател на "Игралница Занималница"</p></div>
-      <img class="contentImage framed" src="images/ilka.jpg">
+          - Илиана Йорданова, основател на "Игралница Занималница"</p>
+      
     </div>
+
 
     `
     const aboutHTML = 
     `<div style="display: flex;align-items: center;flex-direction: column;">
         <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
         <div style="margin: 2vw 0vw; display: flex;align-items: center;flex-wrap: wrap;justify-content: center;">
-          <img src="images/nina.jpg" title="Нина" class="profileImage framed" alt="Снимка на Нина" style="display: inline;">
-          <img src="images/rosi.jpg" title="Роси" class="profileImage framed" alt="Снимка на Роси" style="display: inline;">
+          <img src="images/about/nina.jpg" title="Нина" class="profileImage framed" alt="Снимка на Нина" style="display: inline;">
+          <img src="images/about/rosi.jpg" title="Роси" class="profileImage framed" alt="Снимка на Роси" style="display: inline;">
         </div>
         <div>
           <p>За нас е удоволствие да  работим и помагаме за решаването на безбройните въпроси при обучението и възпитанието на детето.</p>
@@ -167,7 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <ul>    
       <li>
         Арт студио "Игралница Занималница", рисуване и приложни изкуства - 20лв./2 часа, с включени материали
-        <input type="checkbox" id="hiddenToggle"><label for="hiddenToggle" class="arrow">${chevronDown}</label>
+        <input type="checkbox" id="hiddenToggle"><label for="hiddenToggle" class="chevronContainer">${chevronDown}</label>
         <div class="hiddenContent">
           <p>Рисувайки малките деца стават по-наблюдателни, чувствителни и възпитават у себе си усет към красивото и любов към природата.</p>
 
@@ -563,11 +600,12 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!shouldParseResult) {
         window.history.pushState({}, '', path);
         };
-        
+        // ADMIN --START--
         if (path=='/admin') {
             const event = new Event("adminAccess");
             document.dispatchEvent(event);
           }
+        // ADMIN --END--
         document.querySelectorAll('a.navlink').forEach(link => {
           // For each nav button click, change content
           if (!link.classList.contains('click-ready')) {
@@ -575,6 +613,77 @@ document.addEventListener('DOMContentLoaded', function() {
           };
           link.classList.add('click-ready');
         });
+        // HOME --START--
+        if ((path=='/') & (onMobile())) {
+          var slideIndex = 0;
+          var slideShowTimeoutMiliseconds = 7000;
+          showSlides();
+          var slides,dots,slideShowTimeout;
+          
+          function showSlides() {
+              var i;
+              slides = document.getElementsByClassName("mySlides");
+              dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                 slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex> slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              slideShowTimeout = setTimeout(showSlides, slideShowTimeoutMiliseconds); // Change image every 7 seconds
+          };
+          
+          function plusSlides(position) {
+              slideIndex +=position;
+              if (slideIndex> slides.length) {slideIndex = 1}
+              else if(slideIndex<1){slideIndex = slides.length}
+              for (i = 0; i < slides.length; i++) {
+                 slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+          };
+          
+          function currentSlide(index) {
+              if (index> slides.length) {
+                index = 1
+              } else if (index<1) {
+                index = slides.length
+              }
+              for (i = 0; i < slides.length; i++) {
+                 slides[i].style.display = "none";  
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[index-1].style.display = "block";  
+              dots[index-1].className += " active";
+          };
+          document.getElementsByClassName('prev')[0].addEventListener('click', event => {
+            plusSlides(-1);
+            clearTimeout( slideShowTimeout );
+            slideShowTimeout = setTimeout(showSlides, slideShowTimeoutMiliseconds);
+          });
+          document.getElementsByClassName('next')[0].addEventListener('click', event => {
+            plusSlides(1);
+            clearTimeout( slideShowTimeout );
+            slideShowTimeout = setTimeout(showSlides, slideShowTimeoutMiliseconds);
+          });
+
+          document.querySelectorAll('.dot').forEach(el => {
+            el.addEventListener('click', event => {
+              currentSlide(index);
+            });
+          });
+        };
+        // HOME --END--
 
     }
 
@@ -592,7 +701,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update the page content based on the URL
     navigateTo(window.location);
-
+    
     // Update the current year in the footer
     const footerHTML = `<p>&copy; ${new Date().getFullYear()} Игралница Занималница</p>`;
     const footer = document.getElementsByTagName('footer')[0];

@@ -235,24 +235,30 @@ a {
   display: none;
 }
 
-/* Style the label as a button with the arrow */
-.arrow {
-  /* background-color: #3498db; */
-  color: black;
+/* Style the label as a button with the chevronContainer */
+.chevronContainer {
+  color: white;
   padding: 5px 10px;
-  /* cursor: pointer; */
+  cursor: pointer;
   border-radius: 0.5rem;
-  /* border: solid; */
   border-color: black;
-  /* background-color: skyblue; */
   font-size: 1rem;
-  /* filter: drop-shadow(0vw 0vw 0.55vw black); */
+  
+  
+}
+.chevronContainer:hover {
+background-color: white;
+color: black;
 }
 
-.arrow:active {
+.chevronContainer:active {
   color: black;
   background-color: white;
   border-color: black;
+}
+
+#hiddenToggle:checked + .chevronContainer #chevronDownIcon {
+  transform: rotate(180deg);
 }
 
 /* Initially hide the content */
@@ -261,16 +267,85 @@ a {
 }
 
 /* When the checkbox is checked, show the content */
-#hiddenToggle:checked + .arrow + .hiddenContent {
+#hiddenToggle:checked + .chevronContainer + .hiddenContent {
   display: block;
-  
+}
+
+
+@media (orientation: landscape) {
+  .mySlides {
+    display:none;
+    max-width: 100vh;
+    margin: auto;
+    width: 50%;
+  }
+}
+.imageBtnContainer {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+
+.mySlides {
+  display:none;
+  width: 100%;
+}
+.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+/* .w3-button:hover{color:#000!important;background-color:#ccc!important} */
+.w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#000!important}
+
+.prev{
+  position:absolute;
+  left:3vw;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(-0%,-50%);
+
+}
+.next{
+  position:absolute;
+  right:3vw;
+  transform:translate(0%,-50%);
+  -ms-transform:translate(0%,-50%);
+
+}
+/* The dots/bullets/indicators */
+.dot {
+	cursor: pointer;
+	height: 13px;
+	width: 13px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: background-color 0.6s ease;
+}
+.active, .dot:hover {
+	background-color: #717171;
+}
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 2s;
+	animation-name: fade;
+	animation-duration: 2s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
 /* #chevronDownIcon {
   transform: rotate(0deg);
 }
 
-#hiddenToggle:checked + .arrow + #chevronDownIcon {
+#hiddenToggle:checked + .chevronContainer + #chevronDownIcon {
   transform: rotate(180deg);
 } */
 
@@ -295,54 +370,59 @@ a {
   filter: drop-shadow(0vw 0vw 0.3vw lightgray);
 }
 
-.contentImage {
-  margin-top: -2vw;
-  height: auto;
-  max-width: 40%;
-  width: 100%;
-  border-radius: 5%;
-}
-.textContainer {
-  margin-top: -2vw;
-  max-width: 60%;
-  width: 100%;
-  padding: 2vw;
-  font-size: 1.4rem;
-  filter: drop-shadow(0 0 5vw lightgray);
-}
 
-.contentContainer {
+.row {
+  max-width: 50%;
+  float: right;
   display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+  justify-content: center;
   align-items: center;
-  flex-direction: row;
-  text-align: left;
+  filter: drop-shadow(0vw 0vw 1.9vw lightgray);
 }
 
-.fixed {
-  margin-top: 0vw;
+/* Create four equal columns that sits next to each other */
+.column {
+  max-width: 23%;
+  padding-left: 0.15vw;
+  padding-right: 0.15vw;
 }
 
-.contentContainer + .reverseFlex {
-  text-align: left;
+.column img {
+  margin: -0.15vw 0;
+  border-width: 0.4vh;
+  vertical-align: middle;
+  width: 100%;
+  border-style: solid;
+  border-color: skyblue;
+  border-radius: 3%;
 }
 
-@media (max-width: 75vh) {
-  .contentContainer {
-    flex-direction: column-reverse;
-    text-align: center;
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 75vh) {
+  .column {
+    /* flex: 100%; */
+    max-width: 24%;
   }
-  .contentContainer + .reverseFlex {
-    text-align: center;
+
+  body {
+    font-size: 1.1rem;
   }
-  .reverseFlex {
-    flex-direction: column;
+  ul {
+    padding-inline-start: 3vw;
   }
-  
-  .textContainer {
+  .row {
     max-width: 100%;
-    font-size: 5vw;
-  }
-  .contentImage {
-    max-width: 100%;
   }
 }
+
+@media screen and (max-width: 65vh) {
+  body {
+    font-size: 1rem;
+  }
+}
+
+
+
