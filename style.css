@@ -238,15 +238,15 @@ a {
 /* Style the label as a button with the arrow */
 .arrow {
   /* background-color: #3498db; */
-  color: white;
+  color: black;
   padding: 5px 10px;
-  cursor: pointer;
+  /* cursor: pointer; */
   border-radius: 0.5rem;
-  border: solid;
-  border-color: rgb(142, 112, 87, 255);
-  background-color: rgb(142, 112, 87, 255);
-  font-size: 0.9rem;
-  filter: drop-shadow(0.1vw 0.1vw 0.15vw black);
+  /* border: solid; */
+  border-color: black;
+  /* background-color: skyblue; */
+  font-size: 1rem;
+  /* filter: drop-shadow(0vw 0vw 0.55vw black); */
 }
 
 .arrow:active {
@@ -263,7 +263,16 @@ a {
 /* When the checkbox is checked, show the content */
 #hiddenToggle:checked + .arrow + .hiddenContent {
   display: block;
+  
 }
+
+/* #chevronDownIcon {
+  transform: rotate(0deg);
+}
+
+#hiddenToggle:checked + .arrow + #chevronDownIcon {
+  transform: rotate(180deg);
+} */
 
 .profileImage {
   border-radius: 50%;
@@ -276,4 +285,64 @@ a {
   max-width: 70vh;
   width: 100%;
   aspect-ratio : 4 / 3;
+  border-radius: 5%;
+}
+
+.framed {
+  border-color: rgb(142, 112, 87, 255);
+  border-style: groove;
+  border-width: 0.25rem;
+  filter: drop-shadow(0vw 0vw 0.3vw lightgray);
+}
+
+.contentImage {
+  margin-top: -2vw;
+  height: auto;
+  max-width: 40%;
+  width: 100%;
+  border-radius: 5%;
+}
+.textContainer {
+  margin-top: -2vw;
+  max-width: 60%;
+  width: 100%;
+  padding: 2vw;
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 5vw lightgray);
+}
+
+.contentContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  text-align: left;
+}
+
+.fixed {
+  margin-top: 0vw;
+}
+
+.contentContainer + .reverseFlex {
+  text-align: left;
+}
+
+@media (max-width: 75vh) {
+  .contentContainer {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .contentContainer + .reverseFlex {
+    text-align: center;
+  }
+  .reverseFlex {
+    flex-direction: column;
+  }
+  
+  .textContainer {
+    max-width: 100%;
+    font-size: 5vw;
+  }
+  .contentImage {
+    max-width: 100%;
+  }
 }
