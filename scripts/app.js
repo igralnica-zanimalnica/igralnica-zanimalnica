@@ -72,12 +72,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start of HTML
     const homeHTML = 
-    `
-    <div class="contentContainer">
+    `<div class="contentContainer">
         <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
         <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
         <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
-        
+
         ${homeImages(true)}
         <p>В основната ни програма:
         <ul>
@@ -105,10 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <p class="centered"><q>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</q>
           - Илиана Йорданова, основател на "Игралница Занималница"</p>
       
-    </div>
+    </div>`
 
-
-    `
     const aboutHTML = 
     `<div style="display: flex;align-items: center;flex-direction: column;">
         <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
@@ -145,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <p>кв. Чайка бл. 189 / до бл. 23 /</p>
     <iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    
     const schoolZanimalnicaHTML = 
     `<h1>Училищна Занималня</h1><p>От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 

@@ -28,7 +28,8 @@ if match:
         urls[value] = key
 
 # Sitemap header
-sitemap = """<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n"""
+sitemap_header = """<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n"""
+sitemap = sitemap_header
 
 for line in blame.split('\n'):
     # Get the url for the <loc> tag
@@ -49,6 +50,8 @@ for line in blame.split('\n'):
         last_date = datetime.strptime("2023-07-25", "%Y-%m-%d")
     if '// End of HTML' in line:
         break
+    if '// Start of HTML' in line:
+        sitemap = sitemap_header
 
 # Save string into file
 with open("sitemap.xml", "w", encoding='UTF-8') as file:
