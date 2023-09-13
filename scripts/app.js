@@ -33,55 +33,31 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!show) {
         return ``
       };
-      if (onMobile()) {
-        return `<div class="w3-content w3-display-container slideshow-container">
-                  <div class="imageBtnContainer">
-                    <img class="mySlides fade" src="images/home/igralnica_inside.jpg">
-                    <img class="mySlides fade" src="images/home/twister.jpg">
-                    <img class="mySlides fade" src="images/home/rope.jpg">
-                    <img class="mySlides fade" src="images/home/archer.jpg">
-                    <img class="mySlides fade" src="images/home/pool.jpg">
-                    <img class="mySlides fade" src="images/home/forest_smile.jpg">
+      return `<div class="w3-content w3-display-container slideshow-container">
+                <div class="imageContainer">
+                  
+                  <img class="mySlides fade" src="images/home/igralnica_inside.jpg" alt="Нина и децата в занималнята." title="В занималнята">
+                  <img class="mySlides fade" src="images/home/twister.jpg" alt="Деца играят на Туистър в занималнята." title="Туистър">
+                  <img class="mySlides fade" src="images/home/rope.jpg" alt="Деца се състезават да дърпат въже." title="Дърпане на въже">
+                  <img class="mySlides fade" src="images/home/archer.jpg" alt="Дете стреля с лък навън." title="Стрелба с лък">
+                  <img class="mySlides fade" src="images/home/pool.jpg" alt="Деца плуват щастливо в басейн." title="На басейн">
+                  <img class="mySlides fade" src="images/home/forest_smile.jpg" alt="Децата играят на рицари насред горичка." title="Рицари в гората">
+                  <div class="btnContainer">
                     <button class="w3-button w3-black prev">&#10094;</button>
+                    <div class="imageOverlay"></div>
                     <button class="w3-button w3-black next">&#10095;</button>
                   </div>
-                  <br>
-                  <div style="text-align:center"> 
+                </div>
+                <br>
+                <div style="text-align:center"> 
                   <span class="dot"></span>
                   <span class="dot"></span> 
                   <span class="dot"></span> 
                   <span class="dot"></span>
                   <span class="dot"></span>
                   <span class="dot"></span>
-                </div>`
-      } else {
-        return `<div class="row">
-                  <div class="column">
-                    <img src="images/home/igralnica_inside.jpg">
-                    <img src="images/home/horo.jpg">
-                    <img src="images/home/cooking.jpg">
-                    <img src="images/home/forest_smile.jpg">
-                  </div>
-                  <div class="column">
-                    <img src="images/home/igralnica_entrance_baloons.jpg">
-                    <img src="images/home/forest.jpg">
-                    <img src="images/home/halloween.jpg">
-                    <img src="images/home/archer.jpg">
-                  </div>
-                  <div class="column">
-                    <img src="images/home/twister.jpg">
-                    <img src="images/home/pool.jpg">
-                    <img src="images/home/crafts.jpg">
-                    <img src="images/home/rope.jpg">
-                  </div>
-                  <div class="column">
-                    <img src="images/home/tea.jpg">
-                    <img src="images/home/medved.jpg">
-                    <img src="images/home/worker.jpg">
-                    <img src="images/home/neptune.jpg">
-                  </div>
-                </div>`
-      };
+                </div>
+            </div>`
     };
 
     const hamburger = 
@@ -96,14 +72,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Start of HTML
     const homeHTML = 
-    `
-    <div class="contentContainer">
-        <p>Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
-        ${homeImages(!onMobile())}
-        <p>Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
-        <p>Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
-        
-        ${homeImages(onMobile())}
+    `<div class="contentContainer">
+        <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
+        <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
+        <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
+
+        ${homeImages(true)}
         <p>В основната ни програма:
         <ul>
           <li>помагаме за решаване на задачите, поставени в училище;</li>
@@ -127,13 +101,11 @@ document.addEventListener('DOMContentLoaded', function() {
           <li>Логопедична консултация и помощ</li>
         </ul></p>
 
-        <p><q>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</q>
+        <p class="centered"><q>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</q>
           - Илиана Йорданова, основател на "Игралница Занималница"</p>
       
-    </div>
+    </div>`
 
-
-    `
     const aboutHTML = 
     `<div style="display: flex;align-items: center;flex-direction: column;">
         <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
@@ -170,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <p>кв. Чайка бл. 189 / до бл. 23 /</p>
     <iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
     <iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+    
     const schoolZanimalnicaHTML = 
     `<h1>Училищна Занималня</h1><p>От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 
@@ -404,12 +377,12 @@ document.addEventListener('DOMContentLoaded', function() {
         };
     
     const metaDescriptions = {
-      '/': 'Добре дошли в Игралница Занималница! Детски център и място за игра на вашето дете. Разгледайте нашите услуги.',
-      '/за-нас': 'Информация за служителите на занималнята. Каква квалификация имаме, с какво можем да помогнем на вашето дете и какво ни мотивира.',
-      '/контакти': 'Телефон за връзка. Служебен, както и за всеки индивидуален учител. Имейл за връзка.',
-      '/училищна-занималня': 'Какво представлява училищната занималня. В какви дейности ще участва вашето дете и с какво ще се занимава през деня.',
-      '/лятна-игралница': 'Какво представлява лятната игралница. Какво сме ви приготвили за това лято и каква е настоящата програма.',
-      '/лятна-занималница': 'Какво представлява лятната занималня. В какви дейности ще участва вашето дете и с какво ще се занимава през деня.',
+      '/': 'Добре дошли в Игралница Занималница! Детски център и място за игра на вашето дете. Предламе училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.',
+      '/училищна-занималня': 'Какво представлява училищната занималня. Какво се включва в цената и как минава един ден в занималнята.',
+      '/лятна-игралница': 'Какво представлява лятната игралница. Какво включва приключенската програма, как минава един ден в лятната игралница, цена и често задавани въпроси.',
+      '/лятна-занималница': 'Какво включва лятната занималня и какви са различните опции на които може да запишете детето си.',
+      '/за-нас': 'Информация за служителите на занималнята. Каква е нашата квалификация, с какво можем да помогнем на вашето дете и какво ни мотивира.',
+      '/контакти': 'Телефон за връзка. Служебен, както и за всеки индивидуален учител. Имейл и адрес на занималнята.',
       '/admin': 'Администраторски панел за служители на занималнята. Не е публично достъпно.',
       };
     
@@ -614,7 +587,7 @@ document.addEventListener('DOMContentLoaded', function() {
           link.classList.add('click-ready');
         });
         // HOME --START--
-        if ((path=='/') & (onMobile())) {
+        if (path=='/') {
           var slideIndex = 0;
           var slideShowTimeoutMiliseconds = 7000;
           showSlides();
