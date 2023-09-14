@@ -49,6 +49,7 @@ for line in blame.split('\n'):
         sitemap += f"""\t<lastmod>{last_date.strftime("%Y-%m-%d")}</lastmod>\n</url>\n"""
         last_date = datetime.strptime("2023-07-25", "%Y-%m-%d")
     if '// End of HTML' in line:
+        sitemap += "</urlset>"
         break
     if '// Start of HTML' in line:
         sitemap = sitemap_header
