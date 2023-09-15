@@ -11,7 +11,7 @@ date_pattern = r'\d{4}-\d{2}-\d{2}'
 last_date = datetime.strptime("2023-07-25", "%Y-%m-%d")
 
 # Execute git blame and get the output
-cmd = ["git", "blame", "scripts/app.js"]
+cmd = ["git", "blame", "scripts/htmlTemplates.js"]
 result = subprocess.run(cmd, capture_output=True, text=True, encoding='utf-8', errors='ignore')
 blame = result.stdout
 blame = blame.replace('`\n', '`endofconst\n')

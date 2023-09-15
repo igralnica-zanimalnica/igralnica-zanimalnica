@@ -295,7 +295,7 @@ color: black;
   max-width: 90vh;
   width: 100%;
   border-radius: 4%;
-  filter: drop-shadow(0.1vw 0.1vw 0.3vw rgba(142, 112, 87, 100));
+  filter: drop-shadow(0.1vw 0.1vw 0.3vw gray);
 }
 .w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-button:hover{color:#000!important;background-color:#ccc!important}
