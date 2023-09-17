@@ -1,18 +1,33 @@
-function slideshow(images, portrait=false) {
-  let maxwidth= "90vh;";
+function imageEl(image, dir='', portrait=false) {
+  let orientation= 'horizontal';
+  let dim = 'w';
   if (portrait) {
-    maxwidth = "70vh;";
+    orientation = 'portrait';
+    dim = 'h';
   };
-  
+  let imgPath = `${dir}${image['src']}`;
+  let format = image['src'].split('.').pop();
+  let imgPathNoExt = imgPath.replaceAll(`.${format}`, '');
+  return `<img class="mySlides fade ${orientation}" src="${imgPath}" 
+  srcset="${imgPathNoExt}@600${dim}.${format} 600w, ${imgPathNoExt}@1000${dim}.${format} 1000w, ${imgPathNoExt}@2000${dim}.${format} 2000w, ${imgPathNoExt}@3000${dim}.${format} 3000w" alt="${image['alt']}" 
+  title="${image['title']}"
+>`
+}
+
+function slideshow(images, dir='/', portrait=false) {
+  let orientation= 'horizontal';
+  if (portrait) {
+    orientation = 'portrait'; 
+  };
   let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer">`
   images.forEach(image => {
-    result += `<img style="max-width: ${maxwidth}" class="mySlides fade" src="${image['src']}" alt="${image['alt']}" title="${image['title']}">`
+    result += imageEl(image, dir, portrait)
   });
   result += 
-  `<div style="max-width: ${maxwidth}" class="btnContainer">
-      <button style="max-width: ${maxwidth}" class="w3-button w3-black prev">&#10094;</button>
-      <div style="width: ${maxwidth}" class="imageOverlay"></div>
-      <button style="max-width: ${maxwidth}" class="w3-button w3-black next">&#10095;</button>
+  `<div class="btnContainer">
+      <button class="w3-button w3-black prev">&#10094;</button>
+      <div class="imageOverlay"></div>
+      <button class="w3-button w3-black next">&#10095;</button>
     </div>
   </div>
   <br>
@@ -25,21 +40,21 @@ function slideshow(images, portrait=false) {
 };
 
 const homeImages = [
-  {src: "images/home/igralnica_inside.jpg", alt: "Нина и децата в занималнята.", title: "В занималнята"},
-  {src: "images/home/twister.jpg", alt: "Деца играят на Туистър в занималнята.", title: "Туистър"},
-  {src: "images/home/rope.jpg", alt: "Деца се състезават да дърпат въже.", title: "Дърпане на въже"},
-  {src: "images/home/archer.jpg", alt: "Дете стреля с лък навън.", title: "Стрелба с лък"},
-  {src: "images/home/pool.jpg", alt: "Деца плуват щастливо в басейн.", title: "На басейн"},
-  {src: "images/home/forest_smile.jpg", alt: "Децата играят на рицари насред горичка.", title: "Рицари в гората"}
+  {src: "igralnica_inside.webp", alt: "Нина и децата в занималнята.", title: "В занималнята"},
+  {src: "twister.webp", alt: "Деца играят на Туистър в занималнята.", title: "Туистър"},
+  {src: "rope.webp", alt: "Деца се състезават да дърпат въже.", title: "Дърпане на въже"},
+  {src: "archer.webp", alt: "Дете стреля с лък навън.", title: "Стрелба с лък"},
+  {src: "pool.webp", alt: "Деца плуват щастливо в басейн.", title: "На басейн"},
+  {src: "forest_smile.webp", alt: "Децата играят на рицари насред горичка.", title: "Рицари в гората"}
 ]
 
 const summerIgralnicaImages = [
-  {src: "images/summer-igralnica/knighthood.jpg", alt: "Дете бива посвещавано в рицарство с меч.", title: "Рицарство"},
-  {src: "images/summer-igralnica/neptune.jpg", alt: "Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун"},
-  {src: "images/summer-igralnica/ferry.jpg", alt: "Група деца насъбрали се пред прозорец, гледайкип рез него.", title: "Ферибот"},
-  {src: "images/summer-igralnica/ostrich.jpg", alt: "Деца се радват на щраус зад ограда.", title: "Щраус"},
-  {src: "images/summer-igralnica/uno.jpg", alt: "Група деца играят на Уно на кръгла маса в сянката на горичка.", title: "Уно"},
-  {src: "images/summer-igralnica/zen.jpg", alt: "Дете на люлееща се платформа в горичка заело медитативна позиция.", title: "Медитация в гората"}
+  {src: "knighthood.webp", alt: "Дете бива посвещавано в рицарство с меч.", title: "Рицарство"},
+  {src: "neptune.webp", alt: "Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун"},
+  {src: "ferry.webp", alt: "Група деца насъбрали се пред прозорец, гледайкип рез него.", title: "Ферибот"},
+  {src: "ostrich.webp", alt: "Деца се радват на щраус зад ограда.", title: "Щраус"},
+  {src: "uno.webp", alt: "Група деца играят на Уно на кръгла маса в сянката на горичка.", title: "Уно"},
+  {src: "zen.webp", alt: "Дете на люлееща се платформа в горичка заело медитативна позиция.", title: "Медитация в гората"}
 ]
 
 const hamburger = 
@@ -59,7 +74,9 @@ const homeHTML =
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
     <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
 
-    ${slideshow(homeImages)}
+    ${slideshow(homeImages, dir='images/home/', portrait=false)}
+
+
     <p>В основната ни програма:
     <ul>
       <li>Помагаме за решаване на задачите, поставени в училище</li>
@@ -92,8 +109,8 @@ const aboutHTML =
 `<div style="display: flex;align-items: center;flex-direction: column;">
     <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
     <div style="margin: 2vw 0vw; display: flex;align-items: center;flex-wrap: wrap;justify-content: center;">
-      <img src="images/about/nina.jpg" title="Нина" class="profileImage framed" alt="Снимка на Нина" style="display: inline;">
-      <img src="images/about/rosi.jpg" title="Роси" class="profileImage framed" alt="Снимка на Роси" style="display: inline;">
+      <img src="images/about/nina.webp" title="Нина" class="profileImage framed" alt="Снимка на Нина" style="display: inline;">
+      <img src="images/about/rosi.webp" title="Роси" class="profileImage framed" alt="Снимка на Роси" style="display: inline;">
     </div>
     <div>
       <p>За нас е удоволствие да  работим и помагаме за решаването на безбройните въпроси при обучението и възпитанието на детето.</p>
@@ -194,7 +211,7 @@ const summerIgralnicaHTML =
 `<h1 class="centered">Лятна Игралница</h1>
 
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
-${slideshow(summerIgralnicaImages, true)}
+${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true)}
 <p class="centered">Опознаваме света отблизо, защото опитът винаги е най-добрият учител.<br> 
 Правим екскурзии,посещаваме интересни места, изложби, музеи,забележителности.<br> 
 Гостуваме на библиотеката, творим красотички в различни работилнички.<br> 
@@ -279,7 +296,7 @@ ${forSignUpAndInformation}
 `
 
 const summerZanimalnicaHTML = 
-`<h1>Лятна Занималница</h1><p>От 1-ви Юни до 14-ти Септември предлагаме целодневна или полудневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
+`<h1>Лятна Занималница</h1><p>От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
 
 
 
@@ -315,14 +332,6 @@ const summerZanimalnicaHTML =
     <li>Еднократно посещение - 25лв.</li>
   </ul>
 </p>
-
-<p>Полудневно посещение:
-  <ul style="list-style-type:none;">
-    <li>Седмична такса - 16лв.</li>
-    <li>Еднократно посещение - 20лв</li>
-  </ul>
-</p>
-
 <p>
   Обяд /Двустепенно меню/- 6лв.
 </p>
