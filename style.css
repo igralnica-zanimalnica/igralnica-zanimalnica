@@ -270,8 +270,7 @@ color: black;
 #hiddenToggle:checked + .chevronContainer + .hiddenContent {
   display: block;
 }
-
-
+ 
 .imageContainer {
   display: flex;
   align-items: center;
@@ -285,25 +284,18 @@ color: black;
 .btnContainer {
   position: absolute;
   display: flex;
-  max-width: 90vh;
-  width: 93.9%;
+  /* max-width: 90vh;
+  width: 93.9%; */
 }
 
 
-.mySlides {
-  display:none;
-  max-width: 90vh;
-  width: 100%;
-  border-radius: 4%;
-  filter: drop-shadow(0.1vw 0.1vw 0.3vw gray);
-}
+
 .w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
 .w3-button:hover{color:#000!important;background-color:#ccc!important}
 .w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#000!important}
 
 .slideshow-container {
-  /* width: 100%; */
-  margin: auto;
+  margin-left: 1vw;
   float: right;
 }
 
@@ -409,13 +401,45 @@ color: black;
 }
 
 
+
+.mySlides {
+  display:none;
+  border-radius: 4%;
+  filter: drop-shadow(0.1vw 0.1vw 0.3vw gray);
+}
+
+.horizontal, .horizontal + .imageOverlay, .horizontal + .btnContainer {
+  width: 48vw;
+}
+
+.portrait, .portrait + .imageOverlay, .portrait + .btnContainer {
+  width: 38vw;
+}
+
+
+
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 75vh) {
+
+  .mySlides, .imageOverlay, .btnContainer {
+    width: 90vw;
+    padding: 2vw;
+  }
+
+  .horizontal + .btnContainer, .portrait + .btnContainer {
+    width: 90vw;
+  }
+  
+  .slideshow-container {
+    margin: 0vw;
+  }
+
   .column {
     /* flex: 100%; */
     max-width: 24%;
   }
   .mySlides {
+    /* width: 90vw; */
     border-radius: 0%;
     border-style: none;
     filter: none;
@@ -443,6 +467,5 @@ color: black;
     font-size: 1rem;
   }
 }
-
 
 
