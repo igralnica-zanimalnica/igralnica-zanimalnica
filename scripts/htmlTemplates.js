@@ -15,10 +15,6 @@ function imageEl(image, dir='', portrait=false) {
 }
 
 function slideshow(images, dir='/', portrait=false) {
-  let orientation= 'horizontal';
-  if (portrait) {
-    orientation = 'portrait'; 
-  };
   let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer">`
   images.forEach(image => {
     result += imageEl(image, dir, portrait)
@@ -57,6 +53,16 @@ const summerIgralnicaImages = [
   {src: "zen.webp", alt: "Дете на люлееща се платформа в горичка заело медитативна позиция.", title: "Медитация в гората"}
 ]
 
+
+const schoolZanimalnyaImages = [
+  {src: "snowman.webp", alt: "Нина и няколко деца пред занималнята заедно със снежен човек.", title: "Снежен човек"},
+  {src: "tea.webp", alt: "Нина сипва чай на децата в занималнята.", title: "Чай"},
+  {src: "crafts.webp", alt: "Деца си играят с изработени от тях кукли в занималнята.", title: "Кукловоди"},
+  {src: "halloween.webp", alt: "Деца облечени в костюми за Хелоуин в занималнята.", title: "Хелоуин"},
+  {src: "cooking.webp", alt: "Децата приготвят вкусотии в занималнята.", title: "Готвачи"},
+  {src: "bracelet.webp", alt: "Деца изработват гривнички в занималнята.", title: "Гривнички"}
+]
+
 const hamburger = 
 `
 <svg xmlns="http://www.w3.org/2000/svg" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
@@ -64,7 +70,7 @@ const hamburger =
 const chevronDown = 
 `<svg xmlns="http://www.w3.org/2000/svg"  alt="Chevron expand button" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
 
-const forSignUpAndInformation = `<p>Записване и информация - 0889656789, 0887779783 или на място - ж.к.Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</p>`
+const forSignUpAndInformation = `<p>Записване и информация - 0889656789, 0887779783 или на място - гр. Варна ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</p>`
 
 
 // Start of HTML
@@ -138,7 +144,7 @@ const contactsHTML =
 <p>Е-mail - igralnica1@gmail.com</p>
 
 <p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a></p>
-<p>кв. Чайка бл. 189 / до бл. 23 /</p>
+<p>Гр. Варна кв. Чайка бл. 189 / до бл. 23 /</p>
 <iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 
@@ -148,6 +154,8 @@ const schoolZanimalnicaHTML =
 <p>Близо до нас са: ОУ „Захари Стоянов“, ОУ “Георги Сава Раковски, VII СУ “Найден Геров”, ОУ “Васил Друмев”</p>
 
 <p>Организираме взимане и водене на децата от и до училище, подготовка на уроци и домашни, както и допълнителни занимания и упражнения по учебния материал. Предлагаме топъл обяд. Всеки ден  осигуряваме на децата време за отдих и игри в морската градина.</p>
+
+${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=true)}
 
 <p>Обичаме  приложните изкуства и художествените проекти. </p>
 
@@ -221,7 +229,7 @@ ${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true
 <p class="centered">Програмата е седмична и почти целия ден прекарваме навън. Децата си носят вода и храна за обяд и следобедна закуска.</p>
 
 <p>
-  Сутрин се събираме в занималнята от 8:00 до 9:30, /ж.к. Чайка,vбл.189, на един подлез разстояние от морската градина/<br>
+  Сутрин се събираме в занималнята от 8:00 до 9:30, /ж.к. Чайка, бл.189, на един подлез разстояние от морската градина/<br>
 
   10:00 тръгваме по програмата за деня и се връщаме в занималнята около 16:00<br>
 
