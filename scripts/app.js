@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
           link.classList.add('click-ready');
         });
         // HOME / SUMMER-IGR --START--
-        if ((path=='/') | (path=='/лятна-игралница')) {
+        if ((path=='/') | (path=='/лятна-игралница') | (path=='/училищна-занималня')) {
           var slideIndex = 0;
           var slideShowTimeoutMiliseconds = 7000;
           function initSlideshow() {
