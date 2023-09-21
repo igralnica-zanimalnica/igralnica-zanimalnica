@@ -64,7 +64,7 @@ const schoolZanimalnyaImages = [
 ]
 
 
-const headerHTML = 
+const headerEl = 
 `<div class="logo-container"> 
 <svg id="kite" class="kite-logo" data-name="kite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342.19 160.3" visibility="hidden">
     <path class="kite-inner-border" d="M101,360a646.42,646.42,0,0,1,19,81c-24.49-8.72-50.16-17.12-77-25q-16.18-4.75-32-9a348.3,348.3,0,0,0,2-41c-.12-12.25-.88-23.63-2-34q9.84-1.11,20-2c20.48-1.79,40.17-2.73,59-3Q95.73,342.77,101,360Zm5,65a508.45,508.45,0,0,0-13-55c-3.45-11.68-7.17-22.69-11-33-8.92.08-18.26.39-28,1-11.24.7-21.92,1.74-32,3q.7,8.69,1,18a360.49,360.49,0,0,1-1,40q9.41,2.36,19,5C64,410.36,85.67,417.46,106,425Z" transform="translate(-9 -325)"/>

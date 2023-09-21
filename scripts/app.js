@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Set unique id for navbar element on mobile|desktop
       let navbarInnerHTML = navbarHTML;
       let header = document.getElementsByTagName("header")[0]
-      header.innerHTML = headerHTML;
+      header.innerHTML = headerEl;
       if (onMobile()) {
         navbarInnerHTML  = navbarInnerHTML.replaceAll('desktopNavbar', 'mobileNavbar');
         navbarInnerHTML  = navbarInnerHTML.replaceAll('navlink', 'navlink pencil');
