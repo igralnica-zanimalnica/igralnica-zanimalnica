@@ -4,6 +4,8 @@
   font-display: swap;
 }
 
+/* Pallete - #89CFEB #7B3000 #FFEACE #8F7158 */
+
 body {
   font-family: 'Comic Sans MS', ComicRelief;
   padding: 0;
@@ -50,8 +52,9 @@ body {
 }
 
 footer p {
-  color: lightgray;
+  color: white;
   background-color: rgb(142, 112, 87, 255);
+  text-shadow: 0vw 0vw 0.1rem skyblue;
   font-size: 1.2rem;
   padding: 0.7vw;
   text-align: center;
@@ -125,13 +128,13 @@ a {
 }
 
 .logo-container {
-  margin-left: 3vw;
+  margin-left: 5vw;
   margin-right: 3vw;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  filter: drop-shadow(0.4vw 0.4vw 0.4vw rgb(172, 172, 172)) drop-shadow(-0.2vw -0.2vw 0.4vw rgb(255, 255, 255, 0.9));
+  filter: drop-shadow(0.4vw 0.4vw 0.4vw rgb(172, 172, 172)) drop-shadow(-0.2vw -0.2vw 0.8vw rgb(255, 255, 255, 0.9));
 }
 
 .hidden {
@@ -176,10 +179,16 @@ a {
 
 #hamburgerIcon {
   width: 13vw;
-  /* margin-right: 3vw; */
-  margin-left: 5vw
+  margin-left: 3vw;
+  filter: drop-shadow(0vw 0.2vw 0.4vw white);
 }
 
+.hamburgerLines {
+  fill: #7B3000;
+  stroke: black;
+  filter: drop-shadow(0vw 0vw 0.4rem black) drop-shadow(0vw 0vw 0.9rem white);
+  stroke-width: 0.1rem;
+}
 
 .kite-inner-border {
   fill: #8ab93a;
@@ -290,9 +299,28 @@ color: black;
 
 
 
-.w3-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
-.w3-button:hover{color:#000!important;background-color:#ccc!important}
-.w3-black,.w3-hover-black:hover{color:#fff!important;background-color:#000!important}
+.w3-button {
+  border:none;
+  display:inline-block;
+  padding:4px 16px;
+  vertical-align:middle;
+  overflow:hidden;
+  text-decoration:none;
+  text-align:center;
+  cursor:pointer;
+  white-space:nowrap;
+  color:white;
+  background-color:transparent;
+  font-size: 2rem;
+  filter: drop-shadow(0vw 0vw 0.1rem black) drop-shadow(0vw 0vw 0.1rem skyblue)
+}
+.w3-button:hover {
+  color:#000;
+  background-color:transparent;
+  font-size: 2rem;
+  filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.1rem skyblue)
+}
+
 
 .slideshow-container {
   margin-left: 1vw;
@@ -311,19 +339,26 @@ color: black;
   -ms-transform:translate(0%,-50%);
 
 }
+.dotContainer {
+  position: relative;
+  text-align: center;
+  top: -2vh;
+}
 /* The dots/bullets/indicators */
 .dot {
 	cursor: pointer;
-	height: 13px;
-	width: 13px;
+	height: 0.8rem;
+	width: 0.8rem;
 	margin: 0 2px;
-	background-color: #bbb;
+	background-color: white;
+  filter: drop-shadow(0vw 0vw 0.08rem skyblue) drop-shadow(0vw 0vw 0.15rem black);
 	border-radius: 50%;
 	display: inline-block;
 	transition: background-color 0.6s ease;
 }
-.active, .dot:hover {
-	background-color: #717171;
+.activeDot, .dot:hover {
+	background-color: skyblue;
+  filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.15rem black);
 }
 /* Fading animation */
 .fade {
@@ -342,13 +377,6 @@ color: black;
   to {opacity: 1}
 }
 
-/* #chevronDownIcon {
-  transform: rotate(0deg);
-}
-
-#hiddenToggle:checked + .chevronContainer + #chevronDownIcon {
-  transform: rotate(180deg);
-} */
 
 .profileImage {
   border-radius: 50%;
@@ -356,21 +384,29 @@ color: black;
   width: 20vw;
 }
 
-.googleMap {
-  display: inline;
-  max-width: 70vh;
-  width: 100%;
-  aspect-ratio : 4 / 3;
-  border-radius: 5%;
+
+.framedLeft {
+  margin: 0vw 2vw 0vw 0vw;
+}
+
+.framedRight {
+  margin: 0vw 0vw 0vw 2vw;
 }
 
 .framed {
-  border-color: rgb(142, 112, 87, 255);
+  border-color: #7B3000;
   border-style: groove;
   border-width: 0.25rem;
   filter: drop-shadow(0vw 0vw 0.3vw lightgray);
 }
 
+.googleMap {
+  display: inline;
+  max-width: 60vh;
+  width: 100%;
+  aspect-ratio : 4 / 3;
+  border-radius: 5%;
+}
 
 .row {
   max-width: 50%;
@@ -440,7 +476,7 @@ color: black;
   }
   .mySlides {
     /* width: 90vw; */
-    border-radius: 0%;
+    border-radius: 8%;
     border-style: none;
     filter: none;
   }
@@ -456,10 +492,26 @@ color: black;
   .centered {
     text-align: center;
   }
-  .w3-button:hover{
-    color:white!important;
-    background-color:black!important;
+  
+  .w3-button, .w3-button:hover, .w3-button:active {
+    font-size: 1.7rem;
+    text-decoration: none;
   }
+
+  .w3-button:hover{
+    color:white;
+    filter: drop-shadow(0vw 0vw 0.1rem black) drop-shadow(0vw 0vw 0.2rem skyblue)
+  }
+
+  .w3-button:active{
+    color:black;
+    filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.2rem skyblue)
+  }
+
+  .framed {
+    margin: 0px;
+  }
+
 }
 
 @media screen and (max-width: 65vh) {
