@@ -31,7 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     
-
+    window.addEventListener('resize', function(event){
+      updateNavbar();
+      if (onMobile()) {
+        body.classList.replace("desktopBody", "mobileBody");
+      } else {
+        body.classList.replace("mobileBody", "desktopBody");
+      };
+      refreshLinks();
+    });
 
 
     function onMobile() {
@@ -152,6 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Set unique id for navbar element on mobile|desktop
       let navbarInnerHTML = navbarHTML;
       let header = document.getElementsByTagName("header")[0]
+      header.innerHTML = headerEl;
       if (onMobile()) {
         navbarInnerHTML  = navbarInnerHTML.replaceAll('desktopNavbar', 'mobileNavbar');
         navbarInnerHTML  = navbarInnerHTML.replaceAll('navlink', 'navlink pencil');
@@ -173,11 +182,11 @@ document.addEventListener('DOMContentLoaded', function() {
           toggleHamburger();
         });
     };
+    setNavlinkBackground();
     };
 
 
-    updateNavbar();
-    setNavlinkBackground();
+    
     const content = document.querySelector('main');
     const body = document.querySelector('body');
     if (onMobile()) {
@@ -186,6 +195,15 @@ document.addEventListener('DOMContentLoaded', function() {
       body.classList.add("desktopBody");
     };
     
+    function refreshLinks() {
+      document.querySelectorAll('a.navlink').forEach(link => {
+        // For each nav button click, change content
+        if (!link.classList.contains('click-ready')) {
+          addNavLinkEventListener(link);
+        };
+        link.classList.add('click-ready');
+      });
+    };
 
     function updateTitle(pathname) {
         // home section is just company name
@@ -203,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let urlObject = new URL(url);
         let path = decodeURIComponent(urlObject.pathname);
         // Change the HTML of the main content
+        updateNavbar();
         content.innerHTML = mainContent[path];
         updateTitle(path);
         updateDescription(path);
@@ -216,14 +235,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.dispatchEvent(event);
           }
         // ADMIN --END--
-        document.querySelectorAll('a.navlink').forEach(link => {
-          // For each nav button click, change content
-          if (!link.classList.contains('click-ready')) {
-            addNavLinkEventListener(link);
-          };
-          link.classList.add('click-ready');
-        });
-        // HOME / SUMMER-IGR --START--
+
+        refreshLinks();
+
+        // HOME / SUMMER-IGR / SCHOOL-IGR --START--
         if ((path=='/') | (path=='/лятна-игралница') | (path=='/училищна-занималня')) {
           var slideIndex = 0;
           var slideShowTimeoutMiliseconds = 7000;
@@ -257,11 +272,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 slideIndex = 1
               };
               for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
+                dots[i].className = dots[i].className.replace(" activeDot", "");
               };
               try {
                 slides[slideIndex-1].style.display = "block";
-                dots[slideIndex-1].className += " active";
+                dots[slideIndex-1].className += " activeDot";
                 clearTimeout(slideShowTimeout);
                 slideShowTimeout = setTimeout(showSlides, slideShowTimeoutMiliseconds); // Change image every 7 seconds
               } catch(error) {
@@ -278,10 +293,10 @@ document.addEventListener('DOMContentLoaded', function() {
                  slides[i].style.display = "none";  
               }
               for (i = 0; i < dots.length; i++) {
-                  dots[i].className = dots[i].className.replace(" active", "");
+                  dots[i].className = dots[i].className.replace(" activeDot", "");
               }
               slides[slideIndex-1].style.display = "block";  
-              dots[slideIndex-1].className += " active";
+              dots[slideIndex-1].className += " activeDot";
               slideShowTimeout = setTimeout(showSlides, slideShowTimeoutMiliseconds);
           };
           
@@ -296,18 +311,22 @@ document.addEventListener('DOMContentLoaded', function() {
                  slides[i].style.display = "none";  
               }
               for (i = 0; i < dots.length; i++) {
-                  dots[i].className = dots[i].className.replace(" active", "");
+                  dots[i].className = dots[i].className.replace(" activeDot", "");
               }
               slides[index-1].style.display = "block";  
-              dots[index-1].className += " active";
+              dots[index-1].className += " activeDot";
               slideShowTimeout = setTimeout(showSlides, slideShowTimeoutMiliseconds);
           };
           while (slideShowTimeout--) {
             clearTimeout(slideShowTimeout);
           }
           initSlideshow();
-        };
         // HOME --END--
+        // CONTACTS --START--
+        } else if (path == '/контакти') {
+          // load iframe faster
+        };
+        
 
     }
 

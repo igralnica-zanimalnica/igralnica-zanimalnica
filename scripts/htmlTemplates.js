@@ -21,13 +21,13 @@ function slideshow(images, dir='/', portrait=false) {
   });
   result += 
   `<div class="btnContainer">
-      <button class="w3-button w3-black prev">&#10094;</button>
+      <button class="w3-button prev">&#10094;</button>
       <div class="imageOverlay"></div>
-      <button class="w3-button w3-black next">&#10095;</button>
+      <button class="w3-button next">&#10095;</button>
     </div>
   </div>
   <br>
-  <div style="text-align:center">`
+  <div class="dotContainer">`
   images.forEach(image => {
     result += `<span class="dot"></span>`
   });
@@ -63,9 +63,35 @@ const schoolZanimalnyaImages = [
   {src: "bracelet.webp", alt: "Деца изработват гривнички в занималнята.", title: "Гривнички"}
 ]
 
+
+const headerEl = 
+`<div class="logo-container"> 
+<svg id="kite" class="kite-logo" data-name="kite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342.19 160.3" visibility="hidden">
+    <path class="kite-inner-border" d="M101,360a646.42,646.42,0,0,1,19,81c-24.49-8.72-50.16-17.12-77-25q-16.18-4.75-32-9a348.3,348.3,0,0,0,2-41c-.12-12.25-.88-23.63-2-34q9.84-1.11,20-2c20.48-1.79,40.17-2.73,59-3Q95.73,342.77,101,360Zm5,65a508.45,508.45,0,0,0-13-55c-3.45-11.68-7.17-22.69-11-33-8.92.08-18.26.39-28,1-11.24.7-21.92,1.74-32,3q.7,8.69,1,18a360.49,360.49,0,0,1-1,40q9.41,2.36,19,5C64,410.36,85.67,417.46,106,425Z" transform="translate(-9 -325)"/>
+    <path class="kite-lower-half" d="M93,370a508.45,508.45,0,0,1,13,55c-20.33-7.54-42-14.64-65-21q-9.6-2.65-19-5l60-62C85.83,347.31,89.55,358.32,93,370Z" transform="translate(-9 -325)"/>
+    <path class="kite-upper-half" d="M82,337,22,399a360.49,360.49,0,0,0,1-40q-.29-9.31-1-18c10.08-1.26,20.76-2.3,32-3C63.74,337.39,73.08,337.08,82,337Z" transform="translate(-9 -325)"/>
+    <path class="kite-outer-border" d="M11,332q9.84-1.11,20-2c20.48-1.79,40.17-2.73,59-3q5.73,15.76,11,33a646.42,646.42,0,0,1,19,81c-24.49-8.72-50.16-17.12-77-25q-16.18-4.75-32-9a348.3,348.3,0,0,0,2-41C12.88,353.75,12.12,342.37,11,332Z" transform="translate(-9 -325)"/>
+    <path class="kite-tail" d="M351.08,452.18c-31.65,15.15-76.66,34.45-111.92,33.05-4.9-.35-10.12-1.28-14.15-4.35-2.74-2-4.27-5.15-5.94-8-5.42-9.89-14.27-17.38-25.23-20.24a43.81,43.81,0,0,0-27.65.87c-6.21,2.18-12,5.58-18.72,6.68-10.7,1.86-21.17-5-26.44-14a16.46,16.46,0,0,1-2-5c-1.18-4.8-2.07-9.62-2.92-14.46-1.72-9.62-3.07-19.26-5.38-28.75-.76-3.15-1.59-6.3-2.45-9.44a.2.2,0,0,1,.38-.12c1.2,3,2.3,6.11,3.31,9.21s2,6.24,2.78,9.41c2.75,10.76,5,22.49,7.87,33.18,1.92,6.84,9,13,15.51,15.07,5.93,2.06,11.81.29,17.52-2,6.08-2.45,12.42-5.07,19.08-5.85,13.44-1.4,27.56,2.85,37.06,12.55,4.76,4.64,7.72,10.76,10.91,16.39,2.81,4.92,8.75,6.83,14.11,7.35,13.73,1.14,27.28-2.92,40.37-6.64,12.42-3.67,24.74-7.73,37-12.05s24.44-8.86,36.72-13.24a.2.2,0,0,1,.16.36Z" transform="translate(-9 -325)"/>
+    <circle class="kite-eyes" cx="45" cy="30" r="5"/>
+    <circle class="kite-eyes" cx="29" cy="46" r="5"/>
+    <path class="kite-mouth" d="M60.53,394.41c9.88,1.31,18.68-6,17.87-16.14a20.13,20.13,0,0,0-.59-4c4.9,11.65-5,23.29-17.28,20.13Z" transform="translate(-9 -325)"/>
+</svg>
+<a href="/">
+  <img hidden
+  srcset="images/logo@0.5x.png 620w, images/logo@0.75x.png 930w, images/logo@1.5x.png 1860w, images/logo@2x.png 2481w, images/logo@3x.png 3721w, images/logo@4x.png 4961w"
+  src="images/logo.png"
+  alt="Лого на Игралница Занималница"
+  class="logo-img"
+  width="1241px"
+  height="180px"
+  />
+</a>
+</div>`
+
 const hamburger = 
 `
-<svg xmlns="http://www.w3.org/2000/svg" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
+<svg xmlns="http://www.w3.org/2000/svg" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+<path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
 
 const chevronDown = 
 `<svg xmlns="http://www.w3.org/2000/svg"  alt="Chevron expand button" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
@@ -115,8 +141,8 @@ const aboutHTML =
 `<div style="display: flex;align-items: center;flex-direction: column;">
     <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
     <div style="margin: 2vw 0vw; display: flex;align-items: center;flex-wrap: wrap;justify-content: center;">
-      <img src="images/about/nina.webp" title="Нина" class="profileImage framed" alt="Снимка на Нина" style="display: inline;">
-      <img src="images/about/rosi.webp" title="Роси" class="profileImage framed" alt="Снимка на Роси" style="display: inline;">
+      <img src="images/about/nina.webp" title="Нина" class="profileImage framed framedLeft" alt="Снимка на Нина" style="display: inline;">
+      <img src="images/about/rosi.webp" title="Роси" class="profileImage framed framedRight" alt="Снимка на Роси" style="display: inline;">
     </div>
     <div>
       <p>За нас е удоволствие да  работим и помагаме за решаването на безбройните въпроси при обучението и възпитанието на детето.</p>
@@ -145,11 +171,11 @@ const contactsHTML =
 
 <p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a></p>
 <p>Гр. Варна кв. Чайка бл. 189 / до бл. 23 /</p>
-<iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
-<iframe class="googleMap framed" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+<iframe class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 
 const schoolZanimalnicaHTML = 
-`<h1>Училищна Занималня</h1><p>От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
+`<p>От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 
 <p>Близо до нас са: ОУ „Захари Стоянов“, ОУ “Георги Сава Раковски, VII СУ “Найден Геров”, ОУ “Васил Друмев”</p>
 
@@ -216,9 +242,7 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 
 
 const summerIgralnicaHTML = 
-`<h1 class="centered">Лятна Игралница</h1>
-
-<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
+`<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
 ${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true)}
 <p class="centered">Опознаваме света отблизо, защото опитът винаги е най-добрият учител.<br> 
 Правим екскурзии,посещаваме интересни места, изложби, музеи,забележителности.<br> 
@@ -304,7 +328,7 @@ ${forSignUpAndInformation}
 `
 
 const summerZanimalnicaHTML = 
-`<h1>Лятна Занималница</h1><p>От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
+`<p>От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
 
 
 
