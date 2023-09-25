@@ -19,12 +19,16 @@ function imageEl(image, dir='', portrait=false, classes='') {
 }
 
 function slideshow(images, dir='/', portrait=false) {
+  let addClass = 'horizontal'
+  if (portrait) {
+    addClass = 'portrait'
+  };
   let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer">`
   images.forEach(image => {
     result += imageEl(image, dir, portrait, classes='mySlides fade')
   });
   result += 
-  `<div class="btnContainer">
+  `<div class="btnContainer ${addClass}">
       <button class="w3-button prev">&#10094;</button>
       <div class="imageOverlay"></div>
       <button class="w3-button next">&#10095;</button>
