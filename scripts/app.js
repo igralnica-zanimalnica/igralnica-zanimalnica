@@ -133,9 +133,6 @@ document.addEventListener('DOMContentLoaded', function() {
           navLinks[i].style.padding =  5 - currentX/-250 + 'vw';
           document.getElementsByClassName('logo-container')[0].style.marginBottom = '-5.5vw';
           document.getElementsByTagName('main')[0].style.marginTop = '-3vw';
-          function vwToPx(vw) {
-            return (vw * window.innerWidth) / 100;
-          }
           // Animate clouds
           if (i % 2  == 0) { // up
             navLinks[i].style.setProperty('--translationStart', '0.45vw');
@@ -329,8 +326,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (path == '/контакти') {
           // load iframe faster
         };
-        
-
     }
 
 
