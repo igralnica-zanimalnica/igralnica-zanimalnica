@@ -395,7 +395,7 @@ a {
 
 .row {
   max-width: 50%;
-  padding-left: 5px;
+  padding-right: 1vw;
   float: left;
   display: flex;
   flex-wrap: wrap;
