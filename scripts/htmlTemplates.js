@@ -243,8 +243,7 @@ const forSignUpAndInformation = `<p style="clear: both;"><i>Записване �
 
 // Start of HTML
 const homeHTML = 
-`
-<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute('images/home/' + homeImages[0]['src'], 'w')}" type="image/webp">
+`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute('images/home/' + homeImages[0]['src'], 'w')}" type="image/webp">
 <div class="contentContainer">
     <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
