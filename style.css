@@ -6,14 +6,17 @@
 
 /* Pallete - #89CFEB #7B3000 #FFEACE #8F7158 */
 
-body {
+html {
   font-family: 'Comic Sans MS', ComicRelief;
+  font-size: 2.35vmin;
+}
+
+body {
   padding: 0;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
-  font-size: 1.3rem;
 }
 
 .mobileBody {
@@ -47,6 +50,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
 }
 
 footer p {
@@ -114,13 +118,13 @@ a {
 
 
 .logo-img {
-  max-width: 67vw;
+  max-width: 73vw;
   width: 100%;
   height: auto;
 }
 
 .logo-container {
-  margin-left: 5vw;
+  margin-left: 3vw;
   margin-right: 3vw;
   display: flex;
   flex-direction: row;
@@ -170,8 +174,8 @@ a {
 }
 
 #hamburgerIcon {
-  width: 13vw;
-  margin-left: 3vw;
+  width: 12vw;
+  margin-right: 3vw;
   filter: drop-shadow(0vw 0.2vw 0.4vw white);
 }
 
@@ -328,18 +332,18 @@ a {
 /* The dots/bullets/indicators */
 .dot {
 	cursor: pointer;
-	height: 0.8rem;
-	width: 0.8rem;
-	margin: 0 2px;
+	height: 0.7rem;
+	width: 0.7rem;
+	margin: 0 0.1rem;
 	background-color: white;
-  filter: drop-shadow(0vw 0vw 0.08rem skyblue) drop-shadow(0vw 0vw 0.15rem black);
+  filter: drop-shadow(0vw 0vw 0.07rem skyblue) drop-shadow(0vw 0vw 0.15rem gray);
 	border-radius: 50%;
 	display: inline-block;
 	transition: background-color 0.6s ease;
 }
 .activeDot {
 	background-color: skyblue;
-  filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.15rem black);
+  filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.08rem black);
 }
 /* Fading animation */
 .fade {
@@ -391,18 +395,18 @@ a {
 
 .row {
   max-width: 50%;
-  float: right;
+  padding-left: 5px;
+  float: left;
   display: flex;
   flex-wrap: wrap;
-  padding: 0 4px;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   filter: drop-shadow(0vw 0vw 1.9vw lightgray);
 }
 
 /* Create four equal columns that sits next to each other */
 .column {
-  max-width: 23%;
+  max-width: 32%;
   padding-left: 0.15vw;
   padding-right: 0.15vw;
 }
@@ -454,24 +458,21 @@ a {
     margin: 0vw;
   }
 
-  .column {
-    /* flex: 100%; */
-    max-width: 24%;
-  }
   .mySlides {
     /* width: 90vw; */
     border-radius: 8%;
     border-style: none;
     filter: none;
   }
-  body {
-    font-size: 1.1rem;
+  html {
+    font-size: 4vmin;
   }
   ul {
     padding-inline-start: 3vw;
   }
   .row {
     max-width: 100%;
+    padding: 0px;
   }
   .centered {
     text-align: center;
@@ -490,18 +491,7 @@ a {
   .framed {
     margin: 0px;
   }
-
-
-
 }
-
-@media screen and (max-width: 65vh) {
-
-  body {
-    font-size: 1rem;
-  }
-}
-
 
 @media (hover: hover) and (pointer: fine) {
   .chevronContainer:hover {
