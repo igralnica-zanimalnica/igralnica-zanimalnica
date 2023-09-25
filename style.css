@@ -28,7 +28,6 @@ main {
 
 header {
   text-align: center;
-  
 }
 
 #desktopHeader {
@@ -41,7 +40,6 @@ header {
 
 body {
   background-color: #FFEACE;
-  /* background: linear-gradient(#FFEACE 30%, #F2EBDA); */
 }
 
 #hamburgerContainer {
@@ -104,12 +102,6 @@ a {
   }
 }
 
-/* 
-#desktopNavbar .navlink:hover {
-  animation-play-state: paused;
-  filter: drop-shadow(0.1vw 0.1vw 0.35vw white);
-  color: black;
-} */
 
 #desktopNavbar {
   /* background-color: #333; */
@@ -252,12 +244,6 @@ a {
   border-radius: 0.5rem;
   border-color: black;
   font-size: 1rem;
-  
-  
-}
-.chevronContainer:hover {
-background-color: white;
-color: black;
 }
 
 .chevronContainer:active {
@@ -265,6 +251,7 @@ color: black;
   background-color: white;
   border-color: black;
 }
+
 
 .hiddenToggle:checked + .chevronContainer #chevronDownIcon {
   transform: rotate(180deg);
@@ -314,12 +301,6 @@ color: black;
   font-size: 2rem;
   filter: drop-shadow(0vw 0vw 0.1rem black) drop-shadow(0vw 0vw 0.1rem skyblue)
 }
-.w3-button:hover {
-  color:#000;
-  background-color:transparent;
-  font-size: 2rem;
-  filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.1rem skyblue)
-}
 
 
 .slideshow-container {
@@ -356,7 +337,7 @@ color: black;
 	display: inline-block;
 	transition: background-color 0.6s ease;
 }
-.activeDot, .dot:hover {
+.activeDot {
 	background-color: skyblue;
   filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.15rem black);
 }
@@ -501,11 +482,6 @@ color: black;
     text-decoration: none;
   }
 
-  .w3-button:hover{
-    color:white;
-    filter: drop-shadow(0vw 0vw 0.1rem black) drop-shadow(0vw 0vw 0.2rem skyblue)
-  }
-
   .w3-button:active{
     color:black;
     filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.2rem skyblue)
@@ -527,3 +503,21 @@ color: black;
 }
 
 
+@media (hover: hover) and (pointer: fine) {
+  .chevronContainer:hover {
+    background-color: white;
+    color: black;
+  }
+
+  .w3-button:hover {
+    color:#000;
+    background-color:transparent;
+    font-size: 2rem;
+    filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.1rem skyblue)
+  }
+
+  .dot:hover {
+    background-color: skyblue;
+    filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.15rem black);
+  }
+}
