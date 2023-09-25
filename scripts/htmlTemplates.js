@@ -1,3 +1,9 @@
+
+function srcsetAttribute(imgPath, dim) {
+  let format = imgPath.split('.').pop();
+  let imgPathNoExt = imgPath.replaceAll(`.${format}`, '');
+  return `${imgPathNoExt}@600${dim}.${format} 600w, ${imgPathNoExt}@1000${dim}.${format} 1000w, ${imgPathNoExt}@2000${dim}.${format} 2000w, ${imgPathNoExt}@3000${dim}.${format} 3000w`}
+
 function imageEl(image, dir='', portrait=false, classes='') {
   let orientation= 'horizontal';
   let dim = 'w';
@@ -6,10 +12,8 @@ function imageEl(image, dir='', portrait=false, classes='') {
     dim = 'h';
   };
   let imgPath = `${dir}${image['src']}`;
-  let format = image['src'].split('.').pop();
-  let imgPathNoExt = imgPath.replaceAll(`.${format}`, '');
   return `<img class="${classes} ${orientation}" src="${imgPath}" 
-  srcset="${imgPathNoExt}@600${dim}.${format} 600w, ${imgPathNoExt}@1000${dim}.${format} 1000w, ${imgPathNoExt}@2000${dim}.${format} 2000w, ${imgPathNoExt}@3000${dim}.${format} 3000w" alt="${image['alt']}" 
+  srcset="${srcsetAttribute(imgPath, dim)}" alt="${image['alt']}" 
   title="${image['title']}"
 >`
 }
@@ -239,7 +243,9 @@ const forSignUpAndInformation = `<p style="clear: both;"><i>Записване �
 
 // Start of HTML
 const homeHTML = 
-`<div class="contentContainer">
+`
+<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute('images/home/' + homeImages[0]['src'], 'w')}" type="image/webp">
+<div class="contentContainer">
     <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
     <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
@@ -313,7 +319,8 @@ const contactsHTML =
 <iframe class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 
 const schoolZanimalnicaHTML = 
-`<p class="centered">От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
+`<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute('images/school-zanimalnya/' + schoolZanimalnyaImages[0]['src'], 'h')}" type="image/webp">
+<p class="centered">От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 
 <p class="centered">Близо до нас са: ОУ „Захари Стоянов“, ОУ “Георги Сава Раковски”, VII СУ “Найден Геров”, ОУ “Васил Друмев”</p>
 
@@ -363,7 +370,8 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 
 
 const summerIgralnicaHTML = 
-`<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
+`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-igralnica/' + summerIgralnicaImages[0]['src'], 'h')}" type="image/webp">
+<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
 ${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true)}
 <p>Опознаваме света отблизо, защото опитът винаги е най-добрият учител.<br> 
 Правим екскурзии,посещаваме интересни места, изложби, музеи,забележителности.<br> 
@@ -466,7 +474,8 @@ ${forSignUpAndInformation}
 `
 
 const summerZanimalnicaHTML = 
-`<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
+`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnica/' + summerZanimalnicaImages[0]['src'], 'h')}" type="image/webp">
+<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
 ${slideshow(summerZanimalnicaImages, dir='images/summer-zanimalnica/', portrait=true)}
 
 
@@ -511,7 +520,7 @@ ${forSignUpAndInformation}`
 
 
 const adminHTML =
-`    <button id="btn-login" disabled="true">Log in</button>
+`<button id="btn-login" disabled="true">Log in</button>
 <button id="btn-logout" disabled="true">Log out</button>
 <div class="hidden" id="gated-content">
 <p>
