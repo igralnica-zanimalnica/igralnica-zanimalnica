@@ -238,6 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         refreshLinks();
 
+
         // HOME / SUMMER-IGR / SCHOOL-IGR --START--
         if ((path=='/') | (path=='/училищна-занималня') | (path=='/лятна-игралница') | (path=='/лятна-занималница')) {
           var slideIndex = 0;
@@ -326,8 +327,17 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (path == '/контакти') {
           // load iframe faster
         };
-    }
 
+        const elements = document.querySelectorAll('.chevronContainer');
+        elements.forEach(element => {
+          element.addEventListener('click', event => {
+            const previousElement = element.previousElementSibling;
+            previousElement.checked = !previousElement.checked;
+          });
+        });
+    }
+    
+    
 
     function addNavLinkEventListener(element) {
         element.addEventListener('click', event => {

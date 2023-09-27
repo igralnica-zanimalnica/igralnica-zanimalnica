@@ -234,14 +234,10 @@ a {
   }
 }
 
-
-/* Hide the checkbox input */
-.hiddenToggle {
-  display: none;
-}
-
-/* Style the label as a button with the chevronContainer */
-.chevronContainer {
+button {
+  background-color: transparent;
+  border-style: unset;
+  cursor: pointer;
   color: white;
   padding: 5px 10px;
   cursor: pointer;
@@ -250,12 +246,16 @@ a {
   font-size: 1rem;
 }
 
-.chevronContainer:active {
+button:active {
   color: black;
   background-color: white;
   border-color: black;
 }
 
+/* Hide the checkbox input */
+.hiddenToggle {
+  display: none;
+}
 
 .hiddenToggle:checked + .chevronContainer #chevronDownIcon {
   transform: rotate(180deg);
@@ -500,7 +500,7 @@ a {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .chevronContainer:hover {
+  .button:hover {
     background-color: white;
     color: black;
   }

@@ -29,9 +29,9 @@ function slideshow(images, dir='/', portrait=false) {
   });
   result += 
   `<div class="btnContainer ${addClass}">
-      <button class="w3-button prev">&#10094;</button>
+      <button aria-label="Покажи предишна снимка" class="w3-button prev">&#10094;</button>
       <div class="imageOverlay"></div>
-      <button class="w3-button next">&#10095;</button>
+      <button aria-label="Покажи следваща снимка" class="w3-button next">&#10095;</button>
     </div>
   </div>
   <br>
@@ -45,12 +45,9 @@ function slideshow(images, dir='/', portrait=false) {
 
 
 
-let additionalContentUniqueId = 0; // Initialize a unique ID counter
-function additionalContent(content) {
-  additionalContentUniqueId++; // Increment the unique ID for each instance
-  const checkboxId = `hiddenToggle${additionalContentUniqueId}`; // Generate a unique ID for the checkbox
+function additionalContent(content, about='') {
   return `
-  <input type="checkbox" id="${checkboxId}" class="hiddenToggle"><label for="${checkboxId}" class="chevronContainer">${chevronDown}</label>
+  <input type="checkbox" class="hiddenToggle"><button aria-label="Покажи повече информация за ${about}" class="chevronContainer" tabindex="0" focusable="true">${chevronDown}</button>
     <div class="hiddenContent">
       ${content}
     </div>`
@@ -240,7 +237,7 @@ const hamburger =
 <path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
 
 const chevronDown = 
-`<svg xmlns="http://www.w3.org/2000/svg"  alt="Chevron expand button" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
+`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
 
 const forSignUpAndInformation = `<p style="clear: both;"><i>Записване и информация - 0889656789, 0887779783 или на място - гр. Варна ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`
 
@@ -256,7 +253,8 @@ const homeHTML =
     ${slideshow(homeImages, dir='images/home/', portrait=false)}
 
 
-    <p><b>В основната ни програма:</b>
+    <h4>В основната ни програма:</h4>
+    <p>
     <ul>
       <li>Помагаме за решаване на задачите, поставени в училище</li>
       <li>Развиваме в децата уменията за самоподготовка и заедно проверяваме готови ли сме за утрешния ден</li>
@@ -271,7 +269,8 @@ const homeHTML =
       <li>В училищната ваканция предлагаме целодневна приключенска програма, без това да натоварва допълнително семейния бюджет</li>
     </ul></p>
     <br>
-    <p><b>Допълнителна програма:</b>
+    <h4>Допълнителна програма:</h4>
+    <p>
     <ul>
       <li>Арт студио “Игралница Занималница”- рисуване и приложни изкуства в събота с Теди Скорчева</li>
       <li>Уроци и курсове по български и английски език</li>
@@ -318,8 +317,8 @@ const contactsHTML =
 
 <p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a></p>
 <p>Гр. Варна кв. Чайка бл. 189 / до бл. 23 /</p>
-<iframe class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
-<iframe class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+<iframe title="Занималнята от Google Street view" class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe title="Занималнята В Google Maps" class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 
 const schoolZanimalnicaHTML = 
 `<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute('images/school-zanimalnya/' + schoolZanimalnyaImages[0]['src'], 'h')}" type="image/webp">
@@ -341,8 +340,8 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 
 <p class="centered">Разполагаме с просторни и светли учебни стаи, зала за игра, богата детска библиотека и огромен избор от учебни помагала.</p>
 
+<h4>Полудневно посещение:</h4>
 <p>
-<b>Полудневно посещение:</b><br>
 <ul>
   <li>Месечна такса - 360 лв./20 работни дни / Не се възстановява при отсъствие на детето</li>
   <li>Седмична такса - 100лв.</li>
@@ -354,11 +353,12 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 Целодневно посещение: 25лв./ден
 </p>
 <div></dv>
-<p><b>Допълнителни занимания</b>:
+<h4>Допълнителни занимания:</h4>
+<p>
 <ul>    
   <li>
     Арт студио "Игралница Занималница", рисуване и приложни изкуства - 20лв./2 часа, с включени материали
-    ${additionalContent(artStudioText)}
+    ${additionalContent(artStudioText, "арт студио Игралница Занималница")}
   </li>
   <li>Индивидуални уроци по български език и математика - 20лв./час</li>
   <li>Индивидуални уроци по английски език - 25лв./час</li>
@@ -394,8 +394,8 @@ ${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true
   Подробна програма публикуваме всяка седмица в профила и страницата ни във Фейсбук, предвид метеороличната прогноза. При неподходящо време е възможна промяна в програмата за седмицата.
 </p>
 
+<h4>Примерна програма за седмица:</h4>
 <p>
-  <b>Примерна програма за седмица:</b>
   <ul style="list-style-type:none;">
     <li>/Понеделник/ - Хайде да играем /игри и забавления в морската градина/</li>
     <li>/Вторник/ - Като Рицарите /парк - музей Владислав Варненчик/</li>
@@ -405,16 +405,16 @@ ${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true
   </ul>
 </p>
 
+<h4>Цени:</h4>
 <p>
-<b>Цени:</b>
   <ul style="list-style-type:none;">
     <li>Седмична такса - 100лв.</li>
     <li>Дневна такса: 25лв.</li>
     <li>Входни такси и транспорт се заплащат допълнително /25- 30 лв. за седмица/</li>
   </ul>
 </p>
+<h4>Отстъпки:</h4>
 <p>
-<b>Отстъпки:</b>
   <ul style="list-style-type:none;">
     <li>10% от таксата за второ и трето дете от семейството</li>
     <li>10% при заплащане на месецна такса</li>
@@ -427,7 +427,7 @@ Tранспорт с лицензиран автобус.
 </p>
 
 
-<p>Актуалната програма  за всяка седмица ще бъде публикувана <a href="https://www.facebook.com/IgralnicaZanimalnica">тук</a></p>
+<p>Актуалната програма  за всяка седмица ще бъде публикувана <a style="text-decoration:underline" aria-label="Линк към актулната програма за седмицата" href="https://www.facebook.com/IgralnicaZanimalnica">тук</a></p>
 
 <p>
 Местата, на които приключенстваме:
@@ -462,16 +462,17 @@ Tранспорт с лицензиран автобус.
 <ul>    
   <li>
     Какво трябва да сложим в раничката?
-    ${additionalContent(backpackText)}
+    ${additionalContent(backpackText, "нещата за носене в раничка")}
   </li>
   <li>
     Какво да изберем за хапване?
-    ${additionalContent(foodText)}
+    ${additionalContent(foodText, "храната")}
   </li>
   <li>
     Облеклото?
-    ${additionalContent(clothingText)}
+    ${additionalContent(clothingText, "облеклото")}
   </li>
+</ul>
 </p>
 ${forSignUpAndInformation}
 `
@@ -509,7 +510,8 @@ ${slideshow(summerZanimalnicaImages, dir='images/summer-zanimalnica/', portrait=
 </p>
 
 <br>
-<p><b>Целодневно посещение:</b>
+<h4>Целодневно посещение:</h4>
+<p>
   <ul style="list-style-type:none;padding-left:20px;">
     <li>Седмична такса /пет дни/ - 100лв.</li>
     <li>Еднократно посещение - 25лв.</li>
