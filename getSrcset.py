@@ -1,4 +1,6 @@
 from PIL import Image
+from pillow_heif import register_heif_opener
+
 import os
 
 def resize_and_convert(input_path, output_path, dimensions):
@@ -10,6 +12,7 @@ def resize_and_convert(input_path, output_path, dimensions):
     - output_path (str): Path to save the resized and converted images.
     - dimensions (list): List of integers representing the width or height for each desired size.
     """
+    register_heif_opener()
     portrait = False
     original_filename = os.path.splitext(os.path.basename(input_path))[0]
     
@@ -35,7 +38,7 @@ def resize_and_convert(input_path, output_path, dimensions):
             resized_img.convert("RGB").save(output_filename, "WEBP")
         img.convert("RGB").save(f"{output_path}/{original_filename}.webp", "WEBP")
 if __name__ == "__main__":
-    input_image_path = "birthday.jpg"
+    input_image_path = "homework.HEIC"
     output_folder_path = "images/school-zanimalnya"
     
     # Specify the dimensions you want
