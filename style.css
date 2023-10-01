@@ -182,7 +182,7 @@ a {
 .hamburgerLines {
   fill: #7B3000;
   stroke: black;
-  filter: drop-shadow(0vw 0vw 0.4rem black) drop-shadow(0vw 0vw 0.9rem white);
+  filter: drop-shadow(0vw 0vw 4px black) drop-shadow(0vw 0vw 9px white);
   stroke-width: 0.1rem;
 }
 
@@ -277,8 +277,12 @@ button:active {
   justify-content: center;
 }
 
-.imageOverlay {
-  width: 90vh;
+.horizontal > .imageOverlay {
+  width: 48vw;
+}
+
+.portrait > .imageOverlay {
+  width: 35vw;
 }
 
 .btnContainer {
@@ -290,6 +294,7 @@ button:active {
 
 
 .w3-button {
+  z-index: 1;
   border:none;
   display:inline-block;
   padding:4px 16px;
@@ -452,7 +457,7 @@ button:active {
   }
 
   .mySlides, .imageOverlay, .btnContainer {
-    width: 90vw;
+    width: 90vw!important;
     padding: 2vw;
   }
 
@@ -462,6 +467,7 @@ button:active {
   
   .slideshow-container {
     margin: 0vw;
+    float: unset;
   }
 
   .mySlides {
@@ -500,7 +506,7 @@ button:active {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .button:hover {
+  .chevronContainer:hover {
     background-color: white;
     color: black;
   }

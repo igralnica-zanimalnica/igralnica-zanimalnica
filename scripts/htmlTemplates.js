@@ -12,9 +12,9 @@ function imageEl(image, dir='', portrait=false, classes='') {
     dim = 'h';
   };
   let imgPath = `${dir}${image['src']}`;
-  return `<img class="${classes} ${orientation}" src="${imgPath}" 
-  srcset="${srcsetAttribute(imgPath, dim)}" alt="${image['alt']}" 
-  title="${image['title']}"
+  return `<img class="${classes} ${orientation}"  
+  srcset="${srcsetAttribute(imgPath, dim)}" src="${imgPath}" title="${image['title']}"
+  alt="${image['alt']}"
 >`
 }
 
@@ -23,16 +23,16 @@ function slideshow(images, dir='/', portrait=false) {
   if (portrait) {
     addClass = 'portrait'
   };
-  let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer">`
+  let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${addClass}">
+  <button aria-label="Покажи предишна снимка" class="w3-button prev">&#10094;</button>
+  <div class="imageOverlay"></div>
+  <button aria-label="Покажи следваща снимка" class="w3-button next">&#10095;</button>
+</div>`
   images.forEach(image => {
     result += imageEl(image, dir, portrait, classes='mySlides fade')
   });
   result += 
-  `<div class="btnContainer ${addClass}">
-      <button aria-label="Покажи предишна снимка" class="w3-button prev">&#10094;</button>
-      <div class="imageOverlay"></div>
-      <button aria-label="Покажи следваща снимка" class="w3-button next">&#10095;</button>
-    </div>
+  `
   </div>
   <br>
   <div class="dotContainer">`
@@ -65,21 +65,22 @@ const homeImages = [
 
 const summerIgralnicaImages = [
   {src: "knighthood.webp", alt: "Дете бива посвещавано в рицарство с меч.", title: "Рицарство"},
+  {src: "pobiti.webp", alt: "Деца от занималнята са на екскурция до побити камъни", title: "Побити камъни"},
   {src: "neptune.webp", alt: "Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун"},
-  {src: "ferry.webp", alt: "Група деца насъбрали се пред прозорец, гледайки през него.", title: "Ферибот"},
+  {src: "horse.webp", alt: "Дете язди кон.", title: "Аз съм на кон"},
+  {src: "library.webp", alt: "Група деца в градската библиотека занимавайки се приложни изкуства.", title: "Библиотека"},
   {src: "ostrich.webp", alt: "Деца се радват на щраус зад ограда.", title: "Щраус"},
   {src: "uno.webp", alt: "Група деца играят на Уно на кръгла маса в сянката на горичка.", title: "Уно"},
-  {src: "zen.webp", alt: "Дете на люлееща се платформа в горичка заело медитативна позиция.", title: "Медитация в гората"}
 ]
 
 
 const schoolZanimalnyaImages = [
   {src: "snowman.webp", alt: "Нина и няколко деца пред занималнята заедно със снежен човек.", title: "Снежен човек"},
+  {src: "birthday.webp", alt: "Отпразнуване на рожден ден в занималнята", title: "Рожден ден"},
   {src: "tea.webp", alt: "Нина сипва чай на децата в занималнята.", title: "Чай"},
   {src: "crafts.webp", alt: "Деца си играят с изработени от тях кукли в занималнята.", title: "Кукловоди"},
   {src: "halloween.webp", alt: "Деца облечени в костюми за Хелоуин в занималнята.", title: "Хелоуин"},
-  {src: "cooking.webp", alt: "Децата приготвят вкусотии в занималнята.", title: "Готвачи"},
-  {src: "bracelet.webp", alt: "Деца изработват гривнички в занималнята.", title: "Гривнички"}
+  {src: "cooking.webp", alt: "Децата приготвят вкусотии в занималнята.", title: "Готвачи"}
 ]
 
 const artStudioImages = [
@@ -133,8 +134,8 @@ const artStudioText = `<br>
     <div class="column">
     ${imageEl({
       src: "child_with_award.webp",
-      alt: "Нина и няколко деца пред занималнята заедно със снежен човек.",
-      title: "Снежен човек"
+      alt: "Дете държи грамота за най-добра рисунка",
+      title: "Грамота"
       },
     dir='images/school-zanimalnya/art-studio/',
     portrait=true)
@@ -142,8 +143,8 @@ const artStudioText = `<br>
 
     ${imageEl({
       src: "drawings_1.webp",
-      alt: "Нина сипва чай на децата в занималнята.",
-      title: "Чай"
+      alt: "Рисунки на децата от арт студиото.",
+      title: "Рисунки"
       },
     dir='images/school-zanimalnya/art-studio/',
     portrait=false)
@@ -153,8 +154,8 @@ const artStudioText = `<br>
     <div class="column">
     ${imageEl({
       src: "pilot_drawing.webp",
-      alt: "Деца си играят с изработени от тях кукли в занималнята.",
-      title: "Кукловоди"
+      alt: "Рисунка на дете от арт студиото.",
+      title: "Рисунка на пилот"
       },
     dir='images/school-zanimalnya/art-studio/',
     portrait=false)
@@ -162,8 +163,8 @@ const artStudioText = `<br>
 
     ${imageEl({
       src: "child_pointing.webp",
-      alt: "Деца си играят с изработени от тях кукли в занималнята.",
-      title: "Кукловоди"
+      alt: "Дете сочи рисунка на стената с която е спечелило награда.",
+      title: "Дете с рисунка"
       },
     dir='images/school-zanimalnya/art-studio/',
     portrait=true)
@@ -173,8 +174,8 @@ const artStudioText = `<br>
     <div class="column">
     ${imageEl({
       src: "child_with_award_and_drawings.webp",
-      alt: "Деца си играят с изработени от тях кукли в занималнята.",
-      title: "Кукловоди"
+      alt: "Дете държи грамота за най-добра рисунка.",
+      title: "Награда"
       },
     dir='images/school-zanimalnya/art-studio/',
     portrait=true)
@@ -182,8 +183,8 @@ const artStudioText = `<br>
 
     ${imageEl({
       src: "drawings_2.webp",
-      alt: "Деца си играят с изработени от тях кукли в занималнята.",
-      title: "Кукловоди"
+      alt: "Рисунки на деца от арт студиото.",
+      title: "Рисунки"
       },
     dir='images/school-zanimalnya/art-studio/',
     portrait=false)
@@ -209,7 +210,7 @@ const artStudioText = `<br>
 `
 const headerEl = 
 `<div class="logo-container" role="banner"> 
-<svg id="kite" class="kite-logo" data-name="kite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342.19 160.3" visibility="hidden">
+<svg id="kite" class="kite-logo" role="img" title="Хвърчило" data-name="kite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342.19 160.3" visibility="hidden">
     <path class="kite-inner-border" d="M101,360a646.42,646.42,0,0,1,19,81c-24.49-8.72-50.16-17.12-77-25q-16.18-4.75-32-9a348.3,348.3,0,0,0,2-41c-.12-12.25-.88-23.63-2-34q9.84-1.11,20-2c20.48-1.79,40.17-2.73,59-3Q95.73,342.77,101,360Zm5,65a508.45,508.45,0,0,0-13-55c-3.45-11.68-7.17-22.69-11-33-8.92.08-18.26.39-28,1-11.24.7-21.92,1.74-32,3q.7,8.69,1,18a360.49,360.49,0,0,1-1,40q9.41,2.36,19,5C64,410.36,85.67,417.46,106,425Z" transform="translate(-9 -325)"/>
     <path class="kite-lower-half" d="M93,370a508.45,508.45,0,0,1,13,55c-20.33-7.54-42-14.64-65-21q-9.6-2.65-19-5l60-62C85.83,347.31,89.55,358.32,93,370Z" transform="translate(-9 -325)"/>
     <path class="kite-upper-half" d="M82,337,22,399a360.49,360.49,0,0,0,1-40q-.29-9.31-1-18c10.08-1.26,20.76-2.3,32-3C63.74,337.39,73.08,337.08,82,337Z" transform="translate(-9 -325)"/>
@@ -223,6 +224,7 @@ const headerEl =
   <img hidden
   srcset="images/logo@0.5x.png 620w, images/logo@0.75x.png 930w, images/logo@1.5x.png 1860w, images/logo@2x.png 2481w, images/logo@3x.png 3721w, images/logo@4x.png 4961w"
   src="images/logo.png"
+  title="Лого"
   alt="Лого на Игралница Занималница"
   class="logo-img"
   width="1241px"
@@ -233,7 +235,9 @@ const headerEl =
 
 const hamburger = 
 `
-<svg xmlns="http://www.w3.org/2000/svg" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+<svg xmlns="http://www.w3.org/2000/svg" role="button" aria-labelledby="hamburgerTitle" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+<title id="hamburgerTitle">Покажи меню</title>
+<description id="hamburgerDescription">Бутон, който показва меню с различните секции на сайта</description>
 <path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
 
 const chevronDown = 
@@ -376,10 +380,9 @@ const summerIgralnicaHTML =
 `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-igralnica/' + summerIgralnicaImages[0]['src'], 'h')}" type="image/webp">
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
 ${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true)}
-<p>Опознаваме света отблизо, защото опитът винаги е най-добрият учител.<br> 
-Правим екскурзии,посещаваме интересни места, изложби, музеи,забележителности.<br> 
+<p>Правим екскурзии, посещаваме интересни места, изложби, музеи, забележителности.<br> 
 Гостуваме на библиотеката, творим красотички в различни работилнички.<br> 
-Правим походи в гората, катерим се, учим се да се ориентираме, плуваме и събираме слънце на плажа.
+Правим походи в гората, катерим се, учим се да се ориентираме, плуваме и събираме слънце на плажа.<br>Опознаваме света отблизо, защото опитът винаги е най-добрият учител.
 </p>
 
 <p>Програмата е седмична и почти целия ден прекарваме навън. Децата си носят вода и храна за обяд и следобедна закуска.</p>
