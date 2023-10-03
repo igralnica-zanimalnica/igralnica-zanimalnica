@@ -234,7 +234,7 @@ const hamburger =
 const chevronDown = 
 `<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
 
-const forSignUpAndInformation = `<p style="clear: both;"><i>Записване и информация - 0889656789, 0887779783 или на място - гр. Варна ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`
+const forSignUpAndInformation = `<p style="clear: both;"><i>Записване и информация - 0889656789, 0887779783 или на място - ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`
 
 
 // Start of HTML
@@ -310,8 +310,11 @@ const contactsHTML =
 
 <p>Е-mail - igralnica1@gmail.com</p>
 
-<p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a></p>
-<p>Гр. Варна кв. Чайка бл. 189 / до бл. 23 /</p>
+<p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a><br>
+Instagram - <a href="https://www.instagram.com/igralnicazanimalnica/">igralnicazanimalnica</a></p>
+
+<p>Намираме се на адрес - ж.к. Чайка, бл. 189, Варна<br>
+Заповядайте всеки делничен ден от 08:00 до 18:00.</p>
 <iframe title="Занималнята от Google Street view" class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <iframe title="Занималнята В Google Maps" class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
 

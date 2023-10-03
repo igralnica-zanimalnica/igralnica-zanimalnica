@@ -34,7 +34,7 @@ header {
 }
 
 #desktopHeader {
-  background: linear-gradient( white -20%, #87ceeb 50%, #FFEACE 90%);
+  background: linear-gradient(white -20%, #87ceeb 50%, #FFEACE 90%);
 }
 
 #mobileHeader {
@@ -63,7 +63,10 @@ footer p {
   margin: 0px;
 }
 
-h1, h2, p, ul {
+h1,
+h2,
+p,
+ul {
   color: #333;
   line-height: 1.5;
   margin-block-start: 0px;
@@ -98,9 +101,11 @@ a {
   0% {
     transform: translateY(var(--translationStart, 0));
   }
+
   50% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(var(--translationEnd, 0));
   }
@@ -206,7 +211,8 @@ a {
   stroke-width: 4px;
 }
 
-.kite-mouth, .kite-tail {
+.kite-mouth,
+.kite-tail {
   fill: #e63030;
 }
 
@@ -229,6 +235,7 @@ a {
   0% {
     transform: translateX(-0.2vw) translateY(0vw) rotate(-1.5deg);
   }
+
   100% {
     transform: translateX(0vw) translateY(0vw) rotate(1.5deg);
   }
@@ -257,7 +264,7 @@ button:active {
   display: none;
 }
 
-.hiddenToggle:checked + .chevronContainer #chevronDownIcon {
+.hiddenToggle:checked+.chevronContainer #chevronDownIcon {
   transform: rotate(180deg);
 }
 
@@ -267,21 +274,21 @@ button:active {
 }
 
 /* When the checkbox is checked, show the content */
-.hiddenToggle:checked + .chevronContainer + .hiddenContent {
+.hiddenToggle:checked+.chevronContainer+.hiddenContent {
   display: block;
 }
- 
+
 .imageContainer {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.horizontal > .imageOverlay {
+.horizontal>.imageOverlay {
   width: 48vw;
 }
 
-.portrait > .imageOverlay {
+.portrait>.imageOverlay {
   width: 35vw;
 }
 
@@ -295,17 +302,17 @@ button:active {
 
 .w3-button {
   z-index: 1;
-  border:none;
-  display:inline-block;
-  padding:4px 16px;
-  vertical-align:middle;
-  overflow:hidden;
-  text-decoration:none;
-  text-align:center;
-  cursor:pointer;
-  white-space:nowrap;
-  color:white;
-  background-color:transparent;
+  border: none;
+  display: inline-block;
+  padding: 4px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  color: white;
+  background-color: transparent;
   font-size: 2rem;
   filter: drop-shadow(0vw 0vw 0.1rem black) drop-shadow(0vw 0vw 0.1rem skyblue)
 }
@@ -316,54 +323,70 @@ button:active {
   float: right;
 }
 
-.prev{
-  position:relative;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(-0%,-50%);
+.prev {
+  position: relative;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(-0%, -50%);
 
 }
-.next{
-  position:relative;
-  transform:translate(0%,-50%);
-  -ms-transform:translate(0%,-50%);
+
+.next {
+  position: relative;
+  transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
 
 }
+
 .dotContainer {
   position: relative;
   text-align: center;
   top: -2vh;
 }
+
 /* The dots/bullets/indicators */
 .dot {
-	cursor: pointer;
-	height: 0.7rem;
-	width: 0.7rem;
-	margin: 0 0.1rem;
-	background-color: white;
+  cursor: pointer;
+  height: 0.7rem;
+  width: 0.7rem;
+  margin: 0 0.1rem;
+  background-color: white;
   filter: drop-shadow(0vw 0vw 0.07rem skyblue) drop-shadow(0vw 0vw 0.15rem gray);
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
+
 .activeDot {
-	background-color: skyblue;
+  background-color: skyblue;
   filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.08rem black);
 }
+
 /* Fading animation */
 .fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 2s;
-	animation-name: fade;
-	animation-duration: 2s;
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 2s;
+  animation-name: fade;
+  animation-duration: 2s;
 }
+
 @-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 @keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
 }
 
 
@@ -394,7 +417,7 @@ button:active {
   display: inline;
   max-width: 40vw;
   width: 100%;
-  aspect-ratio : 4 / 3;
+  aspect-ratio: 4 / 3;
   border-radius: 5%;
 }
 
@@ -429,7 +452,7 @@ button:active {
 
 
 .mySlides {
-  display:none;
+  display: none;
   border-radius: 4%;
   filter: drop-shadow(0.1vw 0.1vw 0.3vw gray);
 }
@@ -438,16 +461,21 @@ button:active {
   aspect-ratio: 4/3;
 }
 
-.horizontal, .horizontal + .imageOverlay, .horizontal + .btnContainer {
+.horizontal,
+.horizontal+.imageOverlay,
+.horizontal+.btnContainer {
   width: 48vw;
 }
+
 .portrait {
   aspect-ratio: 3/4;
 }
-.portrait, .portrait + .imageOverlay, .portrait + .btnContainer {
+
+.portrait,
+.portrait+.imageOverlay,
+.portrait+.btnContainer {
   width: 35vw;
 }
-
 
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -456,15 +484,18 @@ button:active {
     max-width: 100vw;
   }
 
-  .mySlides, .imageOverlay, .btnContainer {
-    width: 90vw!important;
+  .mySlides,
+  .imageOverlay,
+  .btnContainer {
+    width: 90vw !important;
     padding: 2vw;
   }
 
-  .horizontal + .btnContainer, .portrait + .btnContainer {
+  .horizontal+.btnContainer,
+  .portrait+.btnContainer {
     width: 90vw;
   }
-  
+
   .slideshow-container {
     margin: 0vw;
     float: unset;
@@ -476,27 +507,33 @@ button:active {
     border-style: none;
     filter: none;
   }
+
   html {
     font-size: 4vmin;
   }
+
   ul {
     padding-inline-start: 3vw;
   }
+
   .row {
     max-width: 100%;
     padding: 0px;
   }
+
   .centered {
     text-align: center;
   }
-  
-  .w3-button, .w3-button:hover, .w3-button:active {
+
+  .w3-button,
+  .w3-button:hover,
+  .w3-button:active {
     font-size: 1.7rem;
     text-decoration: none;
   }
 
-  .w3-button:active{
-    color:black;
+  .w3-button:active {
+    color: black;
     filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.2rem skyblue)
   }
 
@@ -512,8 +549,8 @@ button:active {
   }
 
   .w3-button:hover {
-    color:#000;
-    background-color:transparent;
+    color: #000;
+    background-color: transparent;
     font-size: 2rem;
     filter: drop-shadow(0vw 0vw 0.1rem white) drop-shadow(0vw 0vw 0.1rem skyblue)
   }
