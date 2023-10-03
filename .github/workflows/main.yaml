@@ -2,18 +2,25 @@ name: Auto Minify
 run-name: "Github Action: Auto Minified JS and CSS files"
 on: [push]
 jobs:
-  check-bats-version:
+  auto-minify:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v2
-      - name: Auto Minify
+      - name: Auto Minify js
         uses: nizarmah/auto-minify@v2.1
         with:
-          directory: public
+          directory: 'private/scripts'
+          output: 'public/scripts'
           overwrite: true
-          maxdepth: 2
+      - name: Auto Minify css
+        uses: nizarmah/auto-minify@v2.1
+        with:
+          directory: 'private'
+          output: 'public'
+          overwrite: true
+          maxdepth: 1
       - name: Auto committing minified files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
