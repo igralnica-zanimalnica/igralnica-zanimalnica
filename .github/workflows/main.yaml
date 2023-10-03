@@ -1,0 +1,21 @@
+name: Auto Minify
+run-name: "Github Action: Auto Minified JS and CSS files"
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v2
+      - name: Auto Minify
+        uses: nizarmah/auto-minify@v2.1
+        with:
+          directory: public
+          overwrite: true
+          maxdepth: 2
+      - name: Auto committing minified files
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "Github Action: Auto Minified JS and CSS files"
+          branch: ${{ github.ref }}

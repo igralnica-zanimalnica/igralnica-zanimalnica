@@ -1,100 +1,18 @@
-
-function srcsetAttribute(imgPath, dim) {
-  let format = imgPath.split('.').pop();
-  let imgPathNoExt = imgPath.replaceAll(`.${format}`, '');
-  return `${imgPathNoExt}@600${dim}.${format} 600w, ${imgPathNoExt}@1000${dim}.${format} 1000w, ${imgPathNoExt}@2000${dim}.${format} 2000w, ${imgPathNoExt}@3000${dim}.${format} 3000w`}
-
-function imageEl(image, dir='', portrait=false, classes='') {
-  let orientation= 'horizontal';
-  let dim = 'w';
-  if (portrait) {
-    orientation = 'portrait';
-    dim = 'h';
-  };
-  let imgPath = `${dir}${image['src']}`;
-  return `<img class="${classes} ${orientation}"  
-  srcset="${srcsetAttribute(imgPath, dim)}" src="${imgPath}" title="${image['title']}"
-  alt="${image['alt']}"
->`
-}
-
-function slideshow(images, dir='/', portrait=false) {
-  let addClass = 'horizontal'
-  if (portrait) {
-    addClass = 'portrait'
-  };
-  let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${addClass}">
+function srcsetAttribute(a,b){let c=a.split(".").pop(),d=a.replaceAll(`.${c}`,"");return`${d}@600${b}.${c} 600w, ${d}@1000${b}.${c} 1000w, ${d}@2000${b}.${c} 2000w, ${d}@3000${b}.${c} 3000w`}function imageEl(a,b="",c=!1,d=""){let e="horizontal",f="w";c&&(e="portrait",f="h");let g=`${b}${a.src}`;return`<img class="${d} ${e}"  
+  srcset="${srcsetAttribute(g,f)}" src="${g}" title="${a.title}"
+  alt="${a.alt}"
+>`}function slideshow(a,b="/",c=!1){let d="horizontal";c&&(d="portrait");let e=`<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${d}">
   <button aria-label="Покажи предишна снимка" class="w3-button prev">&#10094;</button>
   <div class="imageOverlay"></div>
   <button aria-label="Покажи следваща снимка" class="w3-button next">&#10095;</button>
-</div>`
-  images.forEach(image => {
-    result += imageEl(image, dir, portrait, classes='mySlides fade')
-  });
-  result += 
-  `
+</div>`;return a.forEach(a=>{e+=imageEl(a,b,c,classes="mySlides fade")}),e+=`
   </div>
   <br>
-  <div class="dotContainer">`
-  images.forEach(image => {
-    result += `<span class="dot"></span>`
-  });
-  result += `</div></div>`
-  return result
-};
-
-
-
-function additionalContent(content, about='') {
-  return `
-  <input type="checkbox" class="hiddenToggle"><button aria-label="Покажи повече информация за ${about}" class="chevronContainer" tabindex="0" focusable="true">${chevronDown}</button>
+  <div class="dotContainer">`,a.forEach(()=>{e+=`<span class="dot"></span>`}),e+=`</div></div>`,e}function additionalContent(a,b=""){return`
+  <input type="checkbox" class="hiddenToggle"><button aria-label="Покажи повече информация за ${b}" class="chevronContainer" tabindex="0" focusable="true">${chevronDown}</button>
     <div class="hiddenContent">
-      ${content}
-    </div>`
-};
-
-
-const homeImages = [
-  {src: "igralnica_inside.webp", alt: "Нина и децата в занималнята.", title: "В занималнята"},
-  {src: "twister.webp", alt: "Деца играят на Туистър в занималнята.", title: "Туистър"},
-  {src: "rope.webp", alt: "Деца се състезават да дърпат въже.", title: "Дърпане на въже"},
-  {src: "archer.webp", alt: "Дете стреля с лък навън.", title: "Стрелба с лък"},
-  {src: "pool.webp", alt: "Деца плуват щастливо в басейн.", title: "На басейн"},
-  {src: "forest_smile.webp", alt: "Децата играят на рицари насред горичка.", title: "Рицари в гората"}
-]
-
-const summerIgralnicaImages = [
-  {src: "knighthood.webp", alt: "Дете бива посвещавано в рицарство с меч.", title: "Рицарство"},
-  {src: "pobiti.webp", alt: "Деца от занималнята са на екскурция до побити камъни", title: "Побити камъни"},
-  {src: "neptune.webp", alt: "Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун"},
-  {src: "horse.webp", alt: "Дете язди кон.", title: "Аз съм на кон"},
-  {src: "library.webp", alt: "Група деца в градската библиотека занимавайки се приложни изкуства.", title: "Библиотека"},
-  {src: "ostrich.webp", alt: "Деца се радват на щраус зад ограда.", title: "Щраус"},
-  {src: "uno.webp", alt: "Група деца играят на Уно на кръгла маса в сянката на горичка.", title: "Уно"},
-]
-
-
-const schoolZanimalnyaImages = [
-  {src: "homework.webp", alt: "Нина и помага на дете с домашното.", title: "Домашно"},
-  {src: "birthday.webp", alt: "Отпразнуване на рожден ден в занималнята", title: "Рожден ден"},
-  {src: "snowman.webp", alt: "Нина и няколко деца пред занималнята заедно със снежен човек.", title: "Снежен човек"},
-  {src: "tea.webp", alt: "Нина сипва чай на децата в занималнята.", title: "Чай"},
-  {src: "halloween.webp", alt: "Деца облечени в костюми за Хелоуин в занималнята.", title: "Хелоуин"},
-  {src: "crafts.webp", alt: "Деца си играят с изработени от тях кукли в занималнята.", title: "Кукловоди"},
-  {src: "cooking.webp", alt: "Децата приготвят вкусотии в занималнята.", title: "Готвачи"}
-]
-
-const summerZanimalnicaImages = [
-  {src: "igralnica_entrance_baloons.webp", alt: "Деца пред входа на занималнята се радват с балони в ръка.", title: "Добре дошли в Игралниза Занималница"},
-  {src: "sea_garden_games.webp", alt: "Деца играят на камък ножица хартия в морската градина и се веселят.", title: "Игри в морската"},
-  {src: "wizard_stories.webp", alt: "Нина прави фокуси на децата в занималнята.", title: "Фокусник"},
-  {src: "rain_shelter.webp", alt: "Децата се крият под заслон докато вали в морската градина.", title: "Заслон"},
-  {src: "drawing.webp", alt: "Момиче в занималнята си показва рисунката.", title: "Рисунки"},
-  {src: "sea_garden_running.webp", alt: "Деца Се приготвят за бягане на стартовата линия в морската градина.", title: "Бягане в морската"}
-]
-
-
-const backpackText = `
+      ${a}
+    </div>`}const homeImages=[{src:"igralnica_inside.webp",alt:"\u041D\u0438\u043D\u0430 \u0438 \u0434\u0435\u0446\u0430\u0442\u0430 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0412 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430"},{src:"twister.webp",alt:"\u0414\u0435\u0446\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u0422\u0443\u0438\u0441\u0442\u044A\u0440 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0422\u0443\u0438\u0441\u0442\u044A\u0440"},{src:"rope.webp",alt:"\u0414\u0435\u0446\u0430 \u0441\u0435 \u0441\u044A\u0441\u0442\u0435\u0437\u0430\u0432\u0430\u0442 \u0434\u0430 \u0434\u044A\u0440\u043F\u0430\u0442 \u0432\u044A\u0436\u0435.",title:"\u0414\u044A\u0440\u043F\u0430\u043D\u0435 \u043D\u0430 \u0432\u044A\u0436\u0435"},{src:"archer.webp",alt:"\u0414\u0435\u0442\u0435 \u0441\u0442\u0440\u0435\u043B\u044F \u0441 \u043B\u044A\u043A \u043D\u0430\u0432\u044A\u043D.",title:"\u0421\u0442\u0440\u0435\u043B\u0431\u0430 \u0441 \u043B\u044A\u043A"},{src:"pool.webp",alt:"\u0414\u0435\u0446\u0430 \u043F\u043B\u0443\u0432\u0430\u0442 \u0449\u0430\u0441\u0442\u043B\u0438\u0432\u043E \u0432 \u0431\u0430\u0441\u0435\u0439\u043D.",title:"\u041D\u0430 \u0431\u0430\u0441\u0435\u0439\u043D"},{src:"forest_smile.webp",alt:"\u0414\u0435\u0446\u0430\u0442\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u0440\u0438\u0446\u0430\u0440\u0438 \u043D\u0430\u0441\u0440\u0435\u0434 \u0433\u043E\u0440\u0438\u0447\u043A\u0430.",title:"\u0420\u0438\u0446\u0430\u0440\u0438 \u0432 \u0433\u043E\u0440\u0430\u0442\u0430"}],summerIgralnicaImages=[{src:"knighthood.webp",alt:"\u0414\u0435\u0442\u0435 \u0431\u0438\u0432\u0430 \u043F\u043E\u0441\u0432\u0435\u0449\u0430\u0432\u0430\u043D\u043E \u0432 \u0440\u0438\u0446\u0430\u0440\u0441\u0442\u0432\u043E \u0441 \u043C\u0435\u0447.",title:"\u0420\u0438\u0446\u0430\u0440\u0441\u0442\u0432\u043E"},{src:"pobiti.webp",alt:"\u0414\u0435\u0446\u0430 \u043E\u0442 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0441\u0430 \u043D\u0430 \u0435\u043A\u0441\u043A\u0443\u0440\u0446\u0438\u044F \u0434\u043E \u043F\u043E\u0431\u0438\u0442\u0438 \u043A\u0430\u043C\u044A\u043D\u0438",title:"\u041F\u043E\u0431\u0438\u0442\u0438 \u043A\u0430\u043C\u044A\u043D\u0438"},{src:"neptune.webp",alt:"\u0414\u0435\u0446\u0430 \u043D\u0430 \u043F\u043B\u0430\u0436\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043C\u043E\u0440\u0441\u043A\u0438 \u0438\u0433\u0440\u0438, \u0435\u0434\u043D\u043E \u043E\u0442 \u0442\u044F\u0445 \u043E\u0431\u043B\u0435\u0447\u0435\u043D\u043E \u043A\u0430\u0442\u043E \u041D\u0435\u043F\u0442\u0443\u043D \u0441 \u0442\u0440\u0438\u0437\u044A\u0431\u0435\u0446 \u0432 \u0440\u044A\u043A\u0430.",title:"\u041D\u0435\u043F\u0442\u0443\u043D"},{src:"horse.webp",alt:"\u0414\u0435\u0442\u0435 \u044F\u0437\u0434\u0438 \u043A\u043E\u043D.",title:"\u0410\u0437 \u0441\u044A\u043C \u043D\u0430 \u043A\u043E\u043D"},{src:"library.webp",alt:"\u0413\u0440\u0443\u043F\u0430 \u0434\u0435\u0446\u0430 \u0432 \u0433\u0440\u0430\u0434\u0441\u043A\u0430\u0442\u0430 \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u0432\u0430\u0439\u043A\u0438 \u0441\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u043D\u0438 \u0438\u0437\u043A\u0443\u0441\u0442\u0432\u0430.",title:"\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430"},{src:"ostrich.webp",alt:"\u0414\u0435\u0446\u0430 \u0441\u0435 \u0440\u0430\u0434\u0432\u0430\u0442 \u043D\u0430 \u0449\u0440\u0430\u0443\u0441 \u0437\u0430\u0434 \u043E\u0433\u0440\u0430\u0434\u0430.",title:"\u0429\u0440\u0430\u0443\u0441"},{src:"uno.webp",alt:"\u0413\u0440\u0443\u043F\u0430 \u0434\u0435\u0446\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u0423\u043D\u043E \u043D\u0430 \u043A\u0440\u044A\u0433\u043B\u0430 \u043C\u0430\u0441\u0430 \u0432 \u0441\u044F\u043D\u043A\u0430\u0442\u0430 \u043D\u0430 \u0433\u043E\u0440\u0438\u0447\u043A\u0430.",title:"\u0423\u043D\u043E"}],schoolZanimalnyaImages=[{src:"homework.webp",alt:"\u041D\u0438\u043D\u0430 \u0438 \u043F\u043E\u043C\u0430\u0433\u0430 \u043D\u0430 \u0434\u0435\u0442\u0435 \u0441 \u0434\u043E\u043C\u0430\u0448\u043D\u043E\u0442\u043E.",title:"\u0414\u043E\u043C\u0430\u0448\u043D\u043E"},{src:"birthday.webp",alt:"\u041E\u0442\u043F\u0440\u0430\u0437\u043D\u0443\u0432\u0430\u043D\u0435 \u043D\u0430 \u0440\u043E\u0436\u0434\u0435\u043D \u0434\u0435\u043D \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430",title:"\u0420\u043E\u0436\u0434\u0435\u043D \u0434\u0435\u043D"},{src:"snowman.webp",alt:"\u041D\u0438\u043D\u0430 \u0438 \u043D\u044F\u043A\u043E\u043B\u043A\u043E \u0434\u0435\u0446\u0430 \u043F\u0440\u0435\u0434 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0437\u0430\u0435\u0434\u043D\u043E \u0441\u044A\u0441 \u0441\u043D\u0435\u0436\u0435\u043D \u0447\u043E\u0432\u0435\u043A.",title:"\u0421\u043D\u0435\u0436\u0435\u043D \u0447\u043E\u0432\u0435\u043A"},{src:"tea.webp",alt:"\u041D\u0438\u043D\u0430 \u0441\u0438\u043F\u0432\u0430 \u0447\u0430\u0439 \u043D\u0430 \u0434\u0435\u0446\u0430\u0442\u0430 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0427\u0430\u0439"},{src:"halloween.webp",alt:"\u0414\u0435\u0446\u0430 \u043E\u0431\u043B\u0435\u0447\u0435\u043D\u0438 \u0432 \u043A\u043E\u0441\u0442\u044E\u043C\u0438 \u0437\u0430 \u0425\u0435\u043B\u043E\u0443\u0438\u043D \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0425\u0435\u043B\u043E\u0443\u0438\u043D"},{src:"crafts.webp",alt:"\u0414\u0435\u0446\u0430 \u0441\u0438 \u0438\u0433\u0440\u0430\u044F\u0442 \u0441 \u0438\u0437\u0440\u0430\u0431\u043E\u0442\u0435\u043D\u0438 \u043E\u0442 \u0442\u044F\u0445 \u043A\u0443\u043A\u043B\u0438 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u041A\u0443\u043A\u043B\u043E\u0432\u043E\u0434\u0438"},{src:"cooking.webp",alt:"\u0414\u0435\u0446\u0430\u0442\u0430 \u043F\u0440\u0438\u0433\u043E\u0442\u0432\u044F\u0442 \u0432\u043A\u0443\u0441\u043E\u0442\u0438\u0438 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0413\u043E\u0442\u0432\u0430\u0447\u0438"}],summerZanimalnicaImages=[{src:"igralnica_entrance_baloons.webp",alt:"\u0414\u0435\u0446\u0430 \u043F\u0440\u0435\u0434 \u0432\u0445\u043E\u0434\u0430 \u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0441\u0435 \u0440\u0430\u0434\u0432\u0430\u0442 \u0441 \u0431\u0430\u043B\u043E\u043D\u0438 \u0432 \u0440\u044A\u043A\u0430.",title:"\u0414\u043E\u0431\u0440\u0435 \u0434\u043E\u0448\u043B\u0438 \u0432 \u0418\u0433\u0440\u0430\u043B\u043D\u0438\u0437\u0430 \u0417\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u0438\u0446\u0430"},{src:"sea_garden_games.webp",alt:"\u0414\u0435\u0446\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u043A\u0430\u043C\u044A\u043A \u043D\u043E\u0436\u0438\u0446\u0430 \u0445\u0430\u0440\u0442\u0438\u044F \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430 \u0433\u0440\u0430\u0434\u0438\u043D\u0430 \u0438 \u0441\u0435 \u0432\u0435\u0441\u0435\u043B\u044F\u0442.",title:"\u0418\u0433\u0440\u0438 \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430"},{src:"wizard_stories.webp",alt:"\u041D\u0438\u043D\u0430 \u043F\u0440\u0430\u0432\u0438 \u0444\u043E\u043A\u0443\u0441\u0438 \u043D\u0430 \u0434\u0435\u0446\u0430\u0442\u0430 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0424\u043E\u043A\u0443\u0441\u043D\u0438\u043A"},{src:"rain_shelter.webp",alt:"\u0414\u0435\u0446\u0430\u0442\u0430 \u0441\u0435 \u043A\u0440\u0438\u044F\u0442 \u043F\u043E\u0434 \u0437\u0430\u0441\u043B\u043E\u043D \u0434\u043E\u043A\u0430\u0442\u043E \u0432\u0430\u043B\u0438 \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430 \u0433\u0440\u0430\u0434\u0438\u043D\u0430.",title:"\u0417\u0430\u0441\u043B\u043E\u043D"},{src:"drawing.webp",alt:"\u041C\u043E\u043C\u0438\u0447\u0435 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0441\u0438 \u043F\u043E\u043A\u0430\u0437\u0432\u0430 \u0440\u0438\u0441\u0443\u043D\u043A\u0430\u0442\u0430.",title:"\u0420\u0438\u0441\u0443\u043D\u043A\u0438"},{src:"sea_garden_running.webp",alt:"\u0414\u0435\u0446\u0430 \u0421\u0435 \u043F\u0440\u0438\u0433\u043E\u0442\u0432\u044F\u0442 \u0437\u0430 \u0431\u044F\u0433\u0430\u043D\u0435 \u043D\u0430 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u0442\u0430 \u043B\u0438\u043D\u0438\u044F \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430 \u0433\u0440\u0430\u0434\u0438\u043D\u0430.",title:"\u0411\u044F\u0433\u0430\u043D\u0435 \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430"}],backpackText=`
 <ol>
   <li>Вода - едно 500 мл шише е достатъчно, защото почти винаги има къде да налеем вода. Предупреждаваме, когато сме на място без вода</li>
   <li>Сандвичи или нещо любимо за гризкане</li>
@@ -108,78 +26,32 @@ const backpackText = `
   <li>Добро настроение</li>
   ...и шапка на главата :)
 </ol>
-`
-const foodText = `
+`,foodText=`
 <p>Хубаво е сандвичите да са с дълготраен колбас, кашкавал, сирене, топено сирене, зеленчуци. Моля избягвайте комбинациите с лютеница, майонеза и кетчуп, защото предизвикват лееееки затруднения в изяждането, гарнирани с чудесни петна. Запечените, затворени сандвичи са много вкусни и по обяд. Често децата носят и харесват различни комбинации от месца, печени на скара. Кюфтета и кебапчета не издържат на жегата. </p>
 <p>Всякакви вкусотийки като бисквитки, солети, соленки, малки банички, кроасанчета са много подходящи за  хапване по време на почивките. Колкото и да са обичани от децата, шоколадовите вафли, сухи пасти с шоколадова глазура и всички техни производни, не са особено подходящи, защото в топлите дни има опасност да се окажем с шоколад почти на всеки квадратен сантиметър от нас.</p>
 <p>Плодове и зеленчуци - аз често си слагам обелена и нарязана краставица и никога не е била от нещата, които са се връщали в края на деня. Морков, ябълка, твърди плодове или пък кайсии, праскови, но в подходяща кутийка. Миналото лято хит сред децата бяха малките кутийки с царевица на Бондюел, които отваряха и хапваха, без опасност от разваляне.</p>
 <p>В Jumbo открих и редовно си купувам компактни кутии с много отделения, в които събирам и сандвич и всички гарнитури без да се смесват.</p>
 <p>Събирам оригинални идеи за хапване, подходящо за пикник, които да публикуваме тук за облекчение на всички, участващи в организацията на приключенците :)</p>
-`
-const clothingText = `
+`,clothingText=`
 <p>В началото на седмицата всеки ще се запознае с програмата. Хубаво е в дните с екскурзии туристите ни да са с дълги панталони или клинове (или да имат такива в раниците ) и да предпочетат маратонките и гуменките пред сандалите.</p>
-`
-
-const artStudioText = `<br>
+`,artStudioText=`<br>
   <div class="row">
     <div class="column">
-    ${imageEl({
-      src: "child_with_award.webp",
-      alt: "Дете държи грамота за най-добра рисунка",
-      title: "Грамота"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=true)
-    }
+    ${imageEl({src:"child_with_award.webp",alt:"\u0414\u0435\u0442\u0435 \u0434\u044A\u0440\u0436\u0438 \u0433\u0440\u0430\u043C\u043E\u0442\u0430 \u0437\u0430 \u043D\u0430\u0439-\u0434\u043E\u0431\u0440\u0430 \u0440\u0438\u0441\u0443\u043D\u043A\u0430",title:"\u0413\u0440\u0430\u043C\u043E\u0442\u0430"},dir="images/school-zanimalnya/art-studio/",portrait=!0)}
 
-    ${imageEl({
-      src: "drawings_1.webp",
-      alt: "Рисунки на децата от арт студиото.",
-      title: "Рисунки"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=false)
-    }
+    ${imageEl({src:"drawings_1.webp",alt:"\u0420\u0438\u0441\u0443\u043D\u043A\u0438 \u043D\u0430 \u0434\u0435\u0446\u0430\u0442\u0430 \u043E\u0442 \u0430\u0440\u0442 \u0441\u0442\u0443\u0434\u0438\u043E\u0442\u043E.",title:"\u0420\u0438\u0441\u0443\u043D\u043A\u0438"},dir="images/school-zanimalnya/art-studio/",portrait=!1)}
     
     </div>
     <div class="column">
-    ${imageEl({
-      src: "pilot_drawing.webp",
-      alt: "Рисунка на дете от арт студиото.",
-      title: "Рисунка на пилот"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=false)
-    }
+    ${imageEl({src:"pilot_drawing.webp",alt:"\u0420\u0438\u0441\u0443\u043D\u043A\u0430 \u043D\u0430 \u0434\u0435\u0442\u0435 \u043E\u0442 \u0430\u0440\u0442 \u0441\u0442\u0443\u0434\u0438\u043E\u0442\u043E.",title:"\u0420\u0438\u0441\u0443\u043D\u043A\u0430 \u043D\u0430 \u043F\u0438\u043B\u043E\u0442"},dir="images/school-zanimalnya/art-studio/",portrait=!1)}
 
-    ${imageEl({
-      src: "child_pointing.webp",
-      alt: "Дете сочи рисунка на стената с която е спечелило награда.",
-      title: "Дете с рисунка"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=true)
-    }
+    ${imageEl({src:"child_pointing.webp",alt:"\u0414\u0435\u0442\u0435 \u0441\u043E\u0447\u0438 \u0440\u0438\u0441\u0443\u043D\u043A\u0430 \u043D\u0430 \u0441\u0442\u0435\u043D\u0430\u0442\u0430 \u0441 \u043A\u043E\u044F\u0442\u043E \u0435 \u0441\u043F\u0435\u0447\u0435\u043B\u0438\u043B\u043E \u043D\u0430\u0433\u0440\u0430\u0434\u0430.",title:"\u0414\u0435\u0442\u0435 \u0441 \u0440\u0438\u0441\u0443\u043D\u043A\u0430"},dir="images/school-zanimalnya/art-studio/",portrait=!0)}
     
     </div>
     <div class="column">
-    ${imageEl({
-      src: "child_with_award_and_drawings.webp",
-      alt: "Дете държи грамота за най-добра рисунка.",
-      title: "Награда"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=true)
-    }
+    ${imageEl({src:"child_with_award_and_drawings.webp",alt:"\u0414\u0435\u0442\u0435 \u0434\u044A\u0440\u0436\u0438 \u0433\u0440\u0430\u043C\u043E\u0442\u0430 \u0437\u0430 \u043D\u0430\u0439-\u0434\u043E\u0431\u0440\u0430 \u0440\u0438\u0441\u0443\u043D\u043A\u0430.",title:"\u041D\u0430\u0433\u0440\u0430\u0434\u0430"},dir="images/school-zanimalnya/art-studio/",portrait=!0)}
 
-    ${imageEl({
-      src: "drawings_2.webp",
-      alt: "Рисунки на деца от арт студиото.",
-      title: "Рисунки"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=false)
-    }
+    ${imageEl({src:"drawings_2.webp",alt:"\u0420\u0438\u0441\u0443\u043D\u043A\u0438 \u043D\u0430 \u0434\u0435\u0446\u0430 \u043E\u0442 \u0430\u0440\u0442 \u0441\u0442\u0443\u0434\u0438\u043E\u0442\u043E.",title:"\u0420\u0438\u0441\u0443\u043D\u043A\u0438"},dir="images/school-zanimalnya/art-studio/",portrait=!1)}
     
     </div>
   </div>
@@ -198,9 +70,7 @@ const artStudioText = `<br>
   
   <p>В края на учебната година се провежда изложба, където всеки може да се полюбува на таланта и постиженията на малките художници.</p>
 
-`
-const headerEl = 
-`<div class="logo-container" role="banner"> 
+`,headerEl=`<div class="logo-container" role="banner"> 
 <svg id="kite" class="kite-logo" role="img" title="Хвърчило" data-name="kite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342.19 160.3" visibility="hidden">
     <path class="kite-inner-border" d="M101,360a646.42,646.42,0,0,1,19,81c-24.49-8.72-50.16-17.12-77-25q-16.18-4.75-32-9a348.3,348.3,0,0,0,2-41c-.12-12.25-.88-23.63-2-34q9.84-1.11,20-2c20.48-1.79,40.17-2.73,59-3Q95.73,342.77,101,360Zm5,65a508.45,508.45,0,0,0-13-55c-3.45-11.68-7.17-22.69-11-33-8.92.08-18.26.39-28,1-11.24.7-21.92,1.74-32,3q.7,8.69,1,18a360.49,360.49,0,0,1-1,40q9.41,2.36,19,5C64,410.36,85.67,417.46,106,425Z" transform="translate(-9 -325)"/>
     <path class="kite-lower-half" d="M93,370a508.45,508.45,0,0,1,13,55c-20.33-7.54-42-14.64-65-21q-9.6-2.65-19-5l60-62C85.83,347.31,89.55,358.32,93,370Z" transform="translate(-9 -325)"/>
@@ -222,30 +92,17 @@ const headerEl =
   height="180px"
   />
 </a>
-</div>`
-
-const hamburger = 
-`
+</div>`,hamburger=`
 <svg xmlns="http://www.w3.org/2000/svg" role="button" aria-labelledby="hamburgerTitle" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 <title id="hamburgerTitle">Покажи меню</title>
 <description id="hamburgerDescription">Бутон, който показва меню с различните секции на сайта</description>
-<path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
-
-const chevronDown = 
-`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
-
-const forSignUpAndInformation = `<p style="clear: both;"><i>Записване и информация - 0889656789, 0887779783 или на място - гр. Варна ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`
-
-
-// Start of HTML
-const homeHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute('images/home/' + homeImages[0]['src'], 'w')}" type="image/webp">
+<path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`,chevronDown=`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`,forSignUpAndInformation=`<p style="clear: both;"><i>Записване и информация - 0889656789, 0887779783 или на място - ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`,homeHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute("images/home/"+homeImages[0].src,"w")}" type="image/webp">
 <div class="contentContainer">
     <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
     <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
 
-    ${slideshow(homeImages, dir='images/home/', portrait=false)}
+    ${slideshow(homeImages,dir="images/home/",portrait=!1)}
 
 
     <h4>В основната ни програма:</h4>
@@ -276,10 +133,7 @@ const homeHTML =
     <p class="centered" style="clear: both;"><q><i>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</i></q>
       - Илиана Йорданова, основател на "Игралница Занималница"</p>
   
-</div>`
-
-const aboutHTML = 
-`<div style="display: flex;align-items: center;flex-direction: column;">
+</div>`,aboutHTML=`<div style="display: flex;align-items: center;flex-direction: column;">
     <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
     <div style="margin: 2vw 0vw; display: flex;align-items: center;flex-wrap: wrap;justify-content: center;">
       <img src="images/about/nina.webp" title="Нина" class="profileImage framed framedLeft" alt="Снимка на Нина" style="display: inline;">
@@ -294,10 +148,7 @@ const aboutHTML =
       <p>Не забравяме празниците и рождените  дни и обичаме ваканциите и приключенията.</p>
       <p>Важно за нас е родителите да ни имат доверие, да се чувстват спокойни, улеснени и сигурни, че детето им ще е щастливо, подготвено и устремено.</p>
     </div>
-  </div>`
-
-const contactsHTML = 
-`<p><b>Николина Богданова</b> - управител, учител, утешител, укротител и разрешител на всякакви проблеми <br>
+  </div>`,contactsHTML=`<p><b>Николина Богданова</b> - управител, учител, утешител, укротител и разрешител на всякакви проблеми <br>
 0877 504508</p>
 
 <p><b>Росица Георгиева</b> - управител, учител, умиротворител, търсач на изгубени домашни и др. <br>
@@ -310,20 +161,20 @@ const contactsHTML =
 
 <p>Е-mail - igralnica1@gmail.com</p>
 
-<p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a></p>
-<p>Гр. Варна кв. Чайка бл. 189 / до бл. 23 /</p>
-<iframe title="Занималнята от Google Street view" class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
-<iframe title="Занималнята В Google Maps" class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`
+<p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a><br>
+Instagram - <a href="https://www.instagram.com/igralnicazanimalnica/">igralnicazanimalnica</a></p>
 
-const schoolZanimalnicaHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute('images/school-zanimalnya/' + schoolZanimalnyaImages[0]['src'], 'h')}" type="image/webp">
+<p>Намираме се на адрес - ж.к. Чайка, бл. 189, Варна<br>
+Заповядайте всеки делничен ден от 08:00 до 18:00.</p>
+<iframe title="Занималнята от Google Street view" class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<iframe title="Занималнята В Google Maps" class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`,schoolZanimalnicaHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute("images/school-zanimalnya/"+schoolZanimalnyaImages[0].src,"h")}" type="image/webp">
 <p class="centered">От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 
 <p class="centered">Близо до нас са: ОУ „Захари Стоянов“, ОУ “Георги Сава Раковски”, VII СУ “Найден Геров”, ОУ “Васил Друмев”</p>
 
 <p class="centered">Организираме взимане и водене на децата от и до училище, подготовка на уроци и домашни, както и допълнителни занимания и упражнения по учебния материал. Предлагаме топъл обяд. Всеки ден  осигуряваме на децата време за отдих и игри в морската градина.</p>
 
-${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=true)}
+${slideshow(schoolZanimalnyaImages,dir="images/school-zanimalnya/",portrait=!0)}
 
 <p class="centered">Обичаме  приложните изкуства и художествените проекти. </p>
 
@@ -353,7 +204,7 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 <ul>    
   <li>
     Арт студио "Игралница Занималница", рисуване и приложни изкуства - 20лв./2 часа, с включени материали
-    ${additionalContent(artStudioText, "арт студио Игралница Занималница")}
+    ${additionalContent(artStudioText,"\u0430\u0440\u0442 \u0441\u0442\u0443\u0434\u0438\u043E \u0418\u0433\u0440\u0430\u043B\u043D\u0438\u0446\u0430 \u0417\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u0438\u0446\u0430")}
   </li>
   <li>Индивидуални уроци по български език и математика - 20лв./час</li>
   <li>Индивидуални уроци по английски език - 25лв./час</li>
@@ -363,14 +214,9 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 *Месечната такса се заплаща от 1-5 число на текущия месец, включва полудневна занималня, взимане и водене на детето от и до училище, не се възстановява при отсъствие<br>
 
 *Седмичната такса се заплаща в началото на всяка седмица, включва полудневна занималня, взимане и водене на детето от и до училище.
-</i></p>`
-
-
-
-const summerIgralnicaHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-igralnica/' + summerIgralnicaImages[0]['src'], 'h')}" type="image/webp">
+</i></p>`,summerIgralnicaHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute("images/summer-igralnica/"+summerIgralnicaImages[0].src,"h")}" type="image/webp">
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
-${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true)}
+${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
 <p>Правим екскурзии, посещаваме интересни места, изложби, музеи, забележителности.<br> 
 Гостуваме на библиотеката, творим красотички в различни работилнички.<br> 
 Правим походи в гората, катерим се, учим се да се ориентираме, плуваме и събираме слънце на плажа.<br>Опознаваме света отблизо, защото опитът винаги е най-добрият учител.
@@ -456,25 +302,22 @@ Tранспорт с лицензиран автобус.
 <ul>    
   <li>
     Какво трябва да сложим в раничката?
-    ${additionalContent(backpackText, "нещата за носене в раничка")}
+    ${additionalContent(backpackText,"\u043D\u0435\u0449\u0430\u0442\u0430 \u0437\u0430 \u043D\u043E\u0441\u0435\u043D\u0435 \u0432 \u0440\u0430\u043D\u0438\u0447\u043A\u0430")}
   </li>
   <li>
     Какво да изберем за хапване?
-    ${additionalContent(foodText, "храната")}
+    ${additionalContent(foodText,"\u0445\u0440\u0430\u043D\u0430\u0442\u0430")}
   </li>
   <li>
     Облеклото?
-    ${additionalContent(clothingText, "облеклото")}
+    ${additionalContent(clothingText,"\u043E\u0431\u043B\u0435\u043A\u043B\u043E\u0442\u043E")}
   </li>
 </ul>
 </p>
 ${forSignUpAndInformation}
-`
-
-const summerZanimalnicaHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnica/' + summerZanimalnicaImages[0]['src'], 'h')}" type="image/webp">
+`,summerZanimalnicaHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute("images/summer-zanimalnica/"+summerZanimalnicaImages[0].src,"h")}" type="image/webp">
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
-${slideshow(summerZanimalnicaImages, dir='images/summer-zanimalnica/', portrait=true)}
+${slideshow(summerZanimalnicaImages,dir="images/summer-zanimalnica/",portrait=!0)}
 
 
 <p class="centered">Тук се забавляваме, учим и играем. В спокойна и приятна среда на нашата база, на метри от Морската градина на град Варна. 
@@ -514,12 +357,7 @@ ${slideshow(summerZanimalnicaImages, dir='images/summer-zanimalnica/', portrait=
 <p>
   Обяд /Двустепенно меню/- 6лв.
 </p>
-${forSignUpAndInformation}`
-// End of HTML - Do not delete this line, generate_sitemap.py uses it.
-
-
-const adminHTML =
-`<button id="btn-login" disabled="true">Log in</button>
+${forSignUpAndInformation}`,adminHTML=`<button id="btn-login" disabled="true">Log in</button>
 <button id="btn-logout" disabled="true">Log out</button>
 <div class="hidden" id="gated-content">
 <p>
@@ -534,31 +372,7 @@ const adminHTML =
   User profile:
   <pre id="ipt-user-profile"></pre>
 </label>
-</div>`
-
-
-const mainContent = {
-  '/': homeHTML,
-  '/училищна-занималня': schoolZanimalnicaHTML,
-  '/лятна-игралница': summerIgralnicaHTML,
-  '/лятна-занималница': summerZanimalnicaHTML,
-  '/за-нас': aboutHTML,
-  '/контакти': contactsHTML,
-  '/admin': adminHTML,
-  };
-
-const metaDescriptions = {
-  '/': 'Добре дошли в Игралница Занималница! Детски център и място за игра на вашето дете. Предламе училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.',
-  '/училищна-занималня': 'Какво представлява училищната занималня? Какво включва цената и как минава един ден в занималнята.',
-  '/лятна-игралница': 'Какво представлява лятната игралница? Какво включва приключенската програма, как минава един ден в лятната игралница, цена и често задавани въпроси.',
-  '/лятна-занималница': 'Какво представлява лятната занималня? Какво включва цената и как минава един ден в занималнята.',
-  '/за-нас': 'Информация за служителите на занималнята. Каква е нашата квалификация, с какво можем да помогнем на вашето дете и какво ни мотивира.',
-  '/контакти': 'Телефон за връзка на всеки учител, както и служебен телефон на занималнята. Имейл и адрес на занималнята.',
-  '/admin': 'Администраторски панел за служители на занималнята. Не е публично достъпно.',
-  };
-
-const navbarHTML = 
-  `
+</div>`,mainContent={"/":homeHTML,"/училищна-занималня":schoolZanimalnicaHTML,"/лятна-игралница":summerIgralnicaHTML,"/лятна-занималница":summerZanimalnicaHTML,"/за-нас":aboutHTML,"/контакти":contactsHTML,"/admin":adminHTML},metaDescriptions={"/":"\u0414\u043E\u0431\u0440\u0435 \u0434\u043E\u0448\u043B\u0438 \u0432 \u0418\u0433\u0440\u0430\u043B\u043D\u0438\u0446\u0430 \u0417\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u0438\u0446\u0430! \u0414\u0435\u0442\u0441\u043A\u0438 \u0446\u0435\u043D\u0442\u044A\u0440 \u0438 \u043C\u044F\u0441\u0442\u043E \u0437\u0430 \u0438\u0433\u0440\u0430 \u043D\u0430 \u0432\u0430\u0448\u0435\u0442\u043E \u0434\u0435\u0442\u0435. \u041F\u0440\u0435\u0434\u043B\u0430\u043C\u0435 \u0443\u0447\u0438\u043B\u0438\u0449\u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F \u0437\u0430 \u0443\u0447\u0435\u043D\u0438\u0446\u0438 \u043E\u0442 1 \u0434\u043E 5 \u043A\u043B\u0430\u0441, \u043A\u0430\u043A\u0442\u043E \u0438 \u0437\u0430 \u0434\u0435\u0446\u0430 \u043E\u0442 \u043F\u043E\u0434\u0433\u043E\u0442\u0432\u0438\u0442\u0435\u043B\u043D\u0438\u0442\u0435 \u0433\u0440\u0443\u043F\u0438 \u043A\u044A\u043C \u0443\u0447\u0438\u043B\u0438\u0449\u0430\u0442\u0430.","/училищна-занималня":"\u041A\u0430\u043A\u0432\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0432\u0430 \u0443\u0447\u0438\u043B\u0438\u0449\u043D\u0430\u0442\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F? \u041A\u0430\u043A\u0432\u043E \u0432\u043A\u043B\u044E\u0447\u0432\u0430 \u0446\u0435\u043D\u0430\u0442\u0430 \u0438 \u043A\u0430\u043A \u043C\u0438\u043D\u0430\u0432\u0430 \u0435\u0434\u0438\u043D \u0434\u0435\u043D \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.","/лятна-игралница":"\u041A\u0430\u043A\u0432\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0432\u0430 \u043B\u044F\u0442\u043D\u0430\u0442\u0430 \u0438\u0433\u0440\u0430\u043B\u043D\u0438\u0446\u0430? \u041A\u0430\u043A\u0432\u043E \u0432\u043A\u043B\u044E\u0447\u0432\u0430 \u043F\u0440\u0438\u043A\u043B\u044E\u0447\u0435\u043D\u0441\u043A\u0430\u0442\u0430 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u0430, \u043A\u0430\u043A \u043C\u0438\u043D\u0430\u0432\u0430 \u0435\u0434\u0438\u043D \u0434\u0435\u043D \u0432 \u043B\u044F\u0442\u043D\u0430\u0442\u0430 \u0438\u0433\u0440\u0430\u043B\u043D\u0438\u0446\u0430, \u0446\u0435\u043D\u0430 \u0438 \u0447\u0435\u0441\u0442\u043E \u0437\u0430\u0434\u0430\u0432\u0430\u043D\u0438 \u0432\u044A\u043F\u0440\u043E\u0441\u0438.","/лятна-занималница":"\u041A\u0430\u043A\u0432\u043E \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u043B\u044F\u0432\u0430 \u043B\u044F\u0442\u043D\u0430\u0442\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F? \u041A\u0430\u043A\u0432\u043E \u0432\u043A\u043B\u044E\u0447\u0432\u0430 \u0446\u0435\u043D\u0430\u0442\u0430 \u0438 \u043A\u0430\u043A \u043C\u0438\u043D\u0430\u0432\u0430 \u0435\u0434\u0438\u043D \u0434\u0435\u043D \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.","/за-нас":"\u0418\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044F \u0437\u0430 \u0441\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u0438\u0442\u0435 \u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430. \u041A\u0430\u043A\u0432\u0430 \u0435 \u043D\u0430\u0448\u0430\u0442\u0430 \u043A\u0432\u0430\u043B\u0438\u0444\u0438\u043A\u0430\u0446\u0438\u044F, \u0441 \u043A\u0430\u043A\u0432\u043E \u043C\u043E\u0436\u0435\u043C \u0434\u0430 \u043F\u043E\u043C\u043E\u0433\u043D\u0435\u043C \u043D\u0430 \u0432\u0430\u0448\u0435\u0442\u043E \u0434\u0435\u0442\u0435 \u0438 \u043A\u0430\u043A\u0432\u043E \u043D\u0438 \u043C\u043E\u0442\u0438\u0432\u0438\u0440\u0430.","/контакти":"\u0422\u0435\u043B\u0435\u0444\u043E\u043D \u0437\u0430 \u0432\u0440\u044A\u0437\u043A\u0430 \u043D\u0430 \u0432\u0441\u0435\u043A\u0438 \u0443\u0447\u0438\u0442\u0435\u043B, \u043A\u0430\u043A\u0442\u043E \u0438 \u0441\u043B\u0443\u0436\u0435\u0431\u0435\u043D \u0442\u0435\u043B\u0435\u0444\u043E\u043D \u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430. \u0418\u043C\u0435\u0439\u043B \u0438 \u0430\u0434\u0440\u0435\u0441 \u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.","/admin":"\u0410\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0442\u043E\u0440\u0441\u043A\u0438 \u043F\u0430\u043D\u0435\u043B \u0437\u0430 \u0441\u043B\u0443\u0436\u0438\u0442\u0435\u043B\u0438 \u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430. \u041D\u0435 \u0435 \u043F\u0443\u0431\u043B\u0438\u0447\u043D\u043E \u0434\u043E\u0441\u0442\u044A\u043F\u043D\u043E."},navbarHTML=`
   <nav class="navbar" id="desktopNavbar">
     <a href="/" class="navlink">Начало</a>
     <a href="/училищна-занималня" class="navlink">Училищна Занималня</a>
@@ -566,5 +380,4 @@ const navbarHTML =
     <a href="/лятна-занималница" class="navlink">Лятна Занималница</a>
     <a href="/за-нас" class="navlink">За Нас</a>
     <a href="/контакти" class="navlink">Контакти</a>
-  </nav>`
-
+  </nav>`;
