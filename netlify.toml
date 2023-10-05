@@ -1,0 +1,8 @@
+[dev]
+  base = "public/"
+  publish = "public"
+  autoLaunch = true
+
+[functions]
+  # Specifies `esbuild` for functions bundling
+  node_bundler = "esbuild"

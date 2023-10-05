@@ -2,9 +2,18 @@
 import os
 from flask import Flask
 
+# Get the absolute path for the directory containing the Flask app script
+app_dir = os.path.abspath(os.path.dirname(__file__))
 
-app = Flask(__name__, template_folder=os.path.abspath(os.path.dirname(__file__)),
-            static_url_path='/', static_folder=os.path.join(os.path.abspath(os.path.dirname(__file__)), 'public'))
+# Navigate up one level to get the absolute path for the root directory
+project_dir = os.path.abspath(os.path.join(app_dir, '..'))
+
+# Set the absolute paths for the template and static folders
+template_folder = os.path.join(project_dir, 'public')
+static_folder = os.path.join(project_dir, 'public')
+
+app = Flask(__name__, template_folder=template_folder,
+            static_url_path='', static_folder=static_folder)
 
 
 @app.route('/')
