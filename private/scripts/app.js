@@ -1,4 +1,4 @@
-document.addEventListener("adminAccess", updateUI);
+// document.addEventListener("adminAccess", updateUI);
 document.addEventListener('DOMContentLoaded', function() {
     const companyName = "Игралница Занималница";
     const red = '#e63030';
@@ -227,14 +227,25 @@ document.addEventListener('DOMContentLoaded', function() {
         updateTitle(path);
         updateDescription(path);
         // Modify browser's history and change the URL without triggering a full page reload
-        if (!shouldParseResult) { // part of auth flow
+        // if (!shouldParseResult) { // part of auth flow
         window.history.pushState({}, '', path);
-        };
+        // };
         // ADMIN --START--
-        if (path=='/admin') {
-            const event = new Event("adminAccess");
-            document.dispatchEvent(event);
-          }
+        // if (path=='/admin') {
+        //     const event = new Event("adminAccess");
+        //     document.dispatchEvent(event);
+        //     var supabaseJS = document.createElement('script');
+        //     supabaseJS.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js';
+        //     supabaseJS.async = false;
+        //     supabaseJS.addEventListener('load', () => {
+        //       var editDB = document.createElement('script');
+        //       editDB.src = 'scripts/edit-db.js';
+        //       editDB.async = false;
+        //       document.body.appendChild(editDB);
+        //     })
+        //     document.body.appendChild(supabaseJS);
+            
+        //   }
         // ADMIN --END--
 
         refreshLinks();

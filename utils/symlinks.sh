@@ -1,8 +1,10 @@
-cd ../public/scripts/
+cd public/scripts/
 rm *.js
-ln -s ../../private/scripts/app.js app.js
-ln -s ../../private/scripts/auth.js auth.js
-ln -s ../../private/scripts/htmlTemplates.js htmlTemplates.js
+ln ../../private/scripts/app.js app.js
+ln ../../private/scripts/auth.js auth.js
+ln ../../private/scripts/edit-db.js edit-db.js
+ln ../../private/scripts/htmlTemplates.js htmlTemplates.js
 cd ../
 rm style.css
-ln -s ../private/style.css style.css
+ln ../private/style.css style.css
+echo Symlinks created
