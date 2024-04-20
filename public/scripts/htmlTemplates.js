@@ -248,10 +248,9 @@ ${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
 <h4>Цени:</h4>
 <p>
   <ul style="list-style-type:none;">
-    <li>2 седмици /10 дни/ - 220лв.</li>
-    <li>1 седмица /5 дни/ - 125лв.</li>
-    <li>1 ден - 30лв.</li>
-    <li>Входни такси и транспорт се заплащат допълнително /25-30 лв. за седмица/</li>
+    <li>Седмична такса - 100лв.</li>
+    <li>Дневна такса: 25лв.</li>
+    <li>Входни такси и транспорт се заплащат допълнително /25- 30 лв. за седмица/</li>
   </ul>
 </p>
 <h4>Отстъпки:</h4>
@@ -351,19 +350,12 @@ ${slideshow(summerZanimalnicaImages,dir="images/summer-zanimalnica/",portrait=!0
 <h4>Целодневно посещение:</h4>
 <p>
   <ul style="list-style-type:none;padding-left:20px;">
-    <li>Седмична такса /пет дни/ - 125лв.</li>
-    <li>Еднократно посещение - 30лв.</li>
+    <li>Седмична такса /пет дни/ - 100лв.</li>
+    <li>Еднократно посещение - 25лв.</li>
   </ul>
 </p>
-<h4>Полудневно посещение:</h4>
 <p>
-<ul>
-  <li>Седмична такса /пет дни/ - 100лв.</li>
-  <li>Еднократно посещение - 25 лв.</li>
-  <li>Почасово - 8 лв./час</li>
-</ul>
-<p>
-  Обяд /Двустепенно меню/ - 6лв/ден.
+  Обяд /Двустепенно меню/- 6лв.
 </p>
 ${forSignUpAndInformation}`,adminHTML=`<button id="btn-login" disabled="true">Log in</button>
 <button id="btn-logout" disabled="true">Log out</button>
