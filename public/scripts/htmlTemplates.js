@@ -56,7 +56,7 @@ function srcsetAttribute(a,b){let c=a.split(".").pop(),d=a.replaceAll(`.${c}`,""
     </div>
   </div>
   <p>Рисувайки малките деца стават по-наблюдателни, чувствителни и възпитават у себе си усет към красивото и любов към природата.</p>
-  <p>При нас няма възрастови ограничения. Всеки е добре дошъл да се присъедини към групата, която се събира всяка събота от 10:00 до 12:00 часа е ръководена от художничката Теодора Скорчева.</p>                                        
+  <p>При нас няма възрастови ограничения. Всеки е добре дошъл да се присъедини към групата, която се събира всяка събота от 10:00 до 12:00 и от 12:30 до 14:30 е ръководена от художничката Теодора Скорчева.</p>                                        
   
   <p>Децата в студиото работят с различни материали и техники за да усетят широките възможности, които им дава изобразителното изкуство. Възможността да изразят себе си, своето усещане за света, своите чувства, мисли и мечти.</p>
   
@@ -96,9 +96,10 @@ function srcsetAttribute(a,b){let c=a.split(".").pop(),d=a.replaceAll(`.${c}`,""
 <svg xmlns="http://www.w3.org/2000/svg" role="button" aria-labelledby="hamburgerTitle" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 <title id="hamburgerTitle">Покажи меню</title>
 <description id="hamburgerDescription">Бутон, който показва меню с различните секции на сайта</description>
-<path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`,chevronDown=`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`,forSignUpAndInformation=`<p style="clear: both;"><i>Записване и информация - 0889656789, 0887779783 или на място - ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`,homeHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute("images/home/"+homeImages[0].src,"w")}" type="image/webp">
+<path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`,chevronDown=`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`,forSignUpAndInformation=`<p style="clear: both;"><i>Записване и информация: <a href="tel:+359889656789">0889656789</a>, <a href="tel:+359887779783">0887779783</a> или на място - ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`,homeHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute("images/home/"+homeImages[0].src,"w")}" type="image/webp">
 <div class="contentContainer">
-    <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата.</p> 
+    <h1>Начало</h1>
+    <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата, уроци и курсове по БЕЛ, математика, английски език и рисуване.</p> 
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
     <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
 
@@ -125,7 +126,8 @@ function srcsetAttribute(a,b){let c=a.split(".").pop(),d=a.replaceAll(`.${c}`,""
     <p>
     <ul>
       <li>Арт студио “Игралница Занималница”- рисуване и приложни изкуства в събота с Теди Скорчева</li>
-      <li>Уроци и курсове по български и английски език</li>
+      <li>Уроци и курсове по български език и литература</li>
+      <li>Уроци и курсове по английски език</li>
       <li>Уроци и курсове по математика</li>
       <li>Логопедична консултация и помощ</li>
     </ul></p>
@@ -133,13 +135,14 @@ function srcsetAttribute(a,b){let c=a.split(".").pop(),d=a.replaceAll(`.${c}`,""
     <p class="centered" style="clear: both;"><q><i>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</i></q>
       - Илиана Йорданова, основател на "Игралница Занималница"</p>
   
-</div>`,aboutHTML=`<div style="display: flex;align-items: center;flex-direction: column;">
-    <h3 style="font-size: 100%; white-space: nowrap; margin: 0vw 3vw; margin-top: 2vw;">Здравейте, ние сме Нина и Роси!</h3>
+</div>`,aboutHTML=`<div style="display: flex;flex-direction: column;">
+   <h1>За нас</h1>
+    <h4>Здравейте, ние сме Нина и Роси!</h4>
     <div style="margin: 2vw 0vw; display: flex;align-items: center;flex-wrap: wrap;justify-content: center;">
       <img src="images/about/nina.webp" title="Нина" class="profileImage framed framedLeft" alt="Снимка на Нина" style="display: inline;">
       <img src="images/about/rosi.webp" title="Роси" class="profileImage framed framedRight" alt="Снимка на Роси" style="display: inline;">
     </div>
-    <div style="text-align: center;">
+    <div>
       <p>За нас е удоволствие да  работим и помагаме за решаването на безбройните въпроси при обучението и възпитанието на детето.</p>
       <p>Ние сме  учители, утешители, възпитатели, придружители, приятели, вдъхновители и какво ли още не. Очакваме ви с нетърпение  да  се учим, развиваме и забавляваме заедно.</p> 
       <p>Вярваме в децата и техните  мечти и правим всичко по силите си за да се чувстват подкрепени и окрилени.</p>
@@ -148,18 +151,18 @@ function srcsetAttribute(a,b){let c=a.split(".").pop(),d=a.replaceAll(`.${c}`,""
       <p>Не забравяме празниците и рождените  дни и обичаме ваканциите и приключенията.</p>
       <p>Важно за нас е родителите да ни имат доверие, да се чувстват спокойни, улеснени и сигурни, че детето им ще е щастливо, подготвено и устремено.</p>
     </div>
-  </div>`,contactsHTML=`<p><b>Николина Богданова</b> - управител, учител, утешител, укротител и разрешител на всякакви проблеми <br>
-0877 504508</p>
+  </div>`,contactsHTML=`<h1>Контакти</h1><p><b>Николина Богданова</b> - управител, учител, утешител, укротител и разрешител на всякакви проблеми <br>
+<a href="tel:+359877504508">0877 504 508</a></p>
 
 <p><b>Росица Георгиева</b> - управител, учител, умиротворител, търсач на изгубени домашни и др. <br>
-0887 779783</p>
+<a href="tel:+359887779783">0887 779 783</a></p>
 
 <p><b>Теодора Скорчева-Хараланова</b> - художник и ръководител на Арт студиото <br>
-0888 769508</p>
+<a href="tel:+359888769508">0888 769 508</a></p>
 
-<p>Служебен телефон  0889 656789</p>
+<p>Служебен телефон  <a href="tel:+359889656789">0889 656 789</a></p>
 
-<p>Е-mail - igralnica1@gmail.com</p>
+<p>Е-mail - <a href= "mailto:igralnica1@gmail.com">igralnica1@gmail.com</a></p>
 
 <p>Facebook - <a href="https://www.facebook.com/IgralnicaZanimalnica">Игралница Занималница</a><br>
 Instagram - <a href="https://www.instagram.com/igralnicazanimalnica/">igralnicazanimalnica</a></p>
@@ -168,6 +171,7 @@ Instagram - <a href="https://www.instagram.com/igralnicazanimalnica/">igralnicaz
 Заповядайте всеки делничен ден от 08:00 до 18:00.</p>
 <iframe title="Занималнята от Google Street view" class="googleMap framed framedLeft" src="https://www.google.com/maps/embed?pb=!4v1694336757849!6m8!1m7!1ssvKDniCXQ2BeTGZgkuGLZQ!2m2!1d43.21386349649769!2d27.93854024952334!3f3.1267098522612784!4f-0.9822007946029316!5f1.9587109090973311" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <iframe title="Занималнята В Google Maps" class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>`,schoolZanimalnicaHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute("images/school-zanimalnya/"+schoolZanimalnyaImages[0].src,"h")}" type="image/webp">
+<h1>Училищна Занималня</h1>
 <p class="centered">От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 
 <p class="centered">Близо до нас са: ОУ „Захари Стоянов“, ОУ “Георги Сава Раковски”, VII СУ “Найден Геров”, ОУ “Васил Друмев”</p>
@@ -176,13 +180,13 @@ Instagram - <a href="https://www.instagram.com/igralnicazanimalnica/">igralnicaz
 
 ${slideshow(schoolZanimalnyaImages,dir="images/school-zanimalnya/",portrait=!0)}
 
+<p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
+
 <p class="centered">Обичаме  приложните изкуства и художествените проекти. </p>
 
 <p class="centered">Отбелязваме подобаващо рождените и празнични дни.</p>
 
 <p class="centered">Работим от 8:00 до 18:00, в зависимост от училищната заетост на децата, в малки групи с до 8 деца на един учител.</p> 
-
-<p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
 
 <p class="centered">Разполагаме с просторни и светли учебни стаи, зала за игра, богата детска библиотека и огромен избор от учебни помагала.</p>
 
@@ -215,6 +219,7 @@ ${slideshow(schoolZanimalnyaImages,dir="images/school-zanimalnya/",portrait=!0)}
 
 *Седмичната такса се заплаща в началото на всяка седмица, включва полудневна занималня, взимане и водене на детето от и до училище.
 </i></p>`,summerIgralnicaHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute("images/summer-igralnica/"+summerIgralnicaImages[0].src,"h")}" type="image/webp">
+<h1>Лятна Игралница</h1>
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
 ${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
 <p>Правим екскурзии, посещаваме интересни места, изложби, музеи, забележителности.<br> 
@@ -317,6 +322,7 @@ Tранспорт с лицензиран автобус.
 </p>
 ${forSignUpAndInformation}
 `,summerZanimalnicaHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute("images/summer-zanimalnica/"+summerZanimalnicaImages[0].src,"h")}" type="image/webp">
+<h1>Лятна Занималница</h1>
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
 ${slideshow(summerZanimalnicaImages,dir="images/summer-zanimalnica/",portrait=!0)}
 
