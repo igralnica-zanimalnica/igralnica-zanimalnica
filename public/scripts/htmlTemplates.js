@@ -1,17 +1,17 @@
-function srcsetAttribute(e,a){let b=e.split(".").pop(),c=e.replaceAll(`.${b}`,"");return`${c}@600${a}.${b} 600w, ${c}@1000${a}.${b} 1000w, ${c}@2000${a}.${b} 2000w, ${c}@3000${a}.${b} 3000w`}function imageEl(h,a="",b=!1,c=""){let d="horizontal",i="w";b&&(d="portrait",i="h");let j=`${a}${h.src}`;return`<img class="${c} ${d}"  
-  srcset="${srcsetAttribute(j,i)}" src="${j}" title="${h.title}"
-  alt="${h.alt}"
->`}function slideshow(f,g="/",b=!1){let a="horizontal";b&&(a="portrait");let c=`<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${a}">
+function srcsetAttribute(d,e){let a=d.split(".").pop(),b=d.replaceAll(`.${a}`,"");return`${b}@600${e}.${a} 600w, ${b}@1000${e}.${a} 1000w, ${b}@2000${e}.${a} 2000w, ${b}@3000${e}.${a} 3000w`}function imageEl(e,f="",a=!1,b=""){let c="horizontal",g="w";a&&(c="portrait",g="h");let h=`${f}${e.src}`;return`<img class="${b} ${c}"  
+  srcset="${srcsetAttribute(h,g)}" src="${h}" title="${e.title}"
+  alt="${e.alt}"
+>`}function slideshow(d,e="/",f=!1){let b="horizontal";f&&(b="portrait");let g=`<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${b}">
   <button aria-label="Покажи предишна снимка" class="w3-button prev">&#10094;</button>
   <div class="imageOverlay"></div>
   <button aria-label="Покажи следваща снимка" class="w3-button next">&#10095;</button>
-</div>`;return f.forEach(d=>{c+=imageEl(d,g,b,classes="mySlides fade")}),c+=`
+</div>`;return d.forEach(a=>{g+=imageEl(a,e,f,classes="mySlides fade")}),g+=`
   </div>
   <br>
-  <div class="dotContainer">`,f.forEach(()=>{c+=`<span class="dot"></span>`}),c+=`</div></div>`,c}function additionalContent(c,a=""){return`
-  <input type="checkbox" class="hiddenToggle"><button aria-label="Покажи повече информация за ${a}" class="chevronContainer" tabindex="0" focusable="true">${chevronDown}</button>
+  <div class="dotContainer">`,d.forEach(()=>{g+=`<span class="dot"></span>`}),g+=`</div></div>`,g}function additionalContent(b,c=""){return`
+  <input type="checkbox" class="hiddenToggle"><button aria-label="Покажи повече информация за ${c}" class="chevronContainer" tabindex="0" focusable="true">${chevronDown}</button>
     <div class="hiddenContent">
-      ${c}
+      ${b}
     </div>`}const homeImages=[{src:"igralnica_inside.webp",alt:"\u041D\u0438\u043D\u0430 \u0438 \u0434\u0435\u0446\u0430\u0442\u0430 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0412 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430"},{src:"twister.webp",alt:"\u0414\u0435\u0446\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u0422\u0443\u0438\u0441\u0442\u044A\u0440 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0422\u0443\u0438\u0441\u0442\u044A\u0440"},{src:"rope.webp",alt:"\u0414\u0435\u0446\u0430 \u0441\u0435 \u0441\u044A\u0441\u0442\u0435\u0437\u0430\u0432\u0430\u0442 \u0434\u0430 \u0434\u044A\u0440\u043F\u0430\u0442 \u0432\u044A\u0436\u0435.",title:"\u0414\u044A\u0440\u043F\u0430\u043D\u0435 \u043D\u0430 \u0432\u044A\u0436\u0435"},{src:"archer.webp",alt:"\u0414\u0435\u0442\u0435 \u0441\u0442\u0440\u0435\u043B\u044F \u0441 \u043B\u044A\u043A \u043D\u0430\u0432\u044A\u043D.",title:"\u0421\u0442\u0440\u0435\u043B\u0431\u0430 \u0441 \u043B\u044A\u043A"},{src:"pool.webp",alt:"\u0414\u0435\u0446\u0430 \u043F\u043B\u0443\u0432\u0430\u0442 \u0449\u0430\u0441\u0442\u043B\u0438\u0432\u043E \u0432 \u0431\u0430\u0441\u0435\u0439\u043D.",title:"\u041D\u0430 \u0431\u0430\u0441\u0435\u0439\u043D"},{src:"forest_smile.webp",alt:"\u0414\u0435\u0446\u0430\u0442\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u0440\u0438\u0446\u0430\u0440\u0438 \u043D\u0430\u0441\u0440\u0435\u0434 \u0433\u043E\u0440\u0438\u0447\u043A\u0430.",title:"\u0420\u0438\u0446\u0430\u0440\u0438 \u0432 \u0433\u043E\u0440\u0430\u0442\u0430"}],summerIgralnicaImages=[{src:"knighthood.webp",alt:"\u0414\u0435\u0442\u0435 \u0431\u0438\u0432\u0430 \u043F\u043E\u0441\u0432\u0435\u0449\u0430\u0432\u0430\u043D\u043E \u0432 \u0440\u0438\u0446\u0430\u0440\u0441\u0442\u0432\u043E \u0441 \u043C\u0435\u0447.",title:"\u0420\u0438\u0446\u0430\u0440\u0441\u0442\u0432\u043E"},{src:"pobiti.webp",alt:"\u0414\u0435\u0446\u0430 \u043E\u0442 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0441\u0430 \u043D\u0430 \u0435\u043A\u0441\u043A\u0443\u0440\u0446\u0438\u044F \u0434\u043E \u043F\u043E\u0431\u0438\u0442\u0438 \u043A\u0430\u043C\u044A\u043D\u0438",title:"\u041F\u043E\u0431\u0438\u0442\u0438 \u043A\u0430\u043C\u044A\u043D\u0438"},{src:"neptune.webp",alt:"\u0414\u0435\u0446\u0430 \u043D\u0430 \u043F\u043B\u0430\u0436\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043C\u043E\u0440\u0441\u043A\u0438 \u0438\u0433\u0440\u0438, \u0435\u0434\u043D\u043E \u043E\u0442 \u0442\u044F\u0445 \u043E\u0431\u043B\u0435\u0447\u0435\u043D\u043E \u043A\u0430\u0442\u043E \u041D\u0435\u043F\u0442\u0443\u043D \u0441 \u0442\u0440\u0438\u0437\u044A\u0431\u0435\u0446 \u0432 \u0440\u044A\u043A\u0430.",title:"\u041D\u0435\u043F\u0442\u0443\u043D"},{src:"horse.webp",alt:"\u0414\u0435\u0442\u0435 \u044F\u0437\u0434\u0438 \u043A\u043E\u043D.",title:"\u0410\u0437 \u0441\u044A\u043C \u043D\u0430 \u043A\u043E\u043D"},{src:"library.webp",alt:"\u0413\u0440\u0443\u043F\u0430 \u0434\u0435\u0446\u0430 \u0432 \u0433\u0440\u0430\u0434\u0441\u043A\u0430\u0442\u0430 \u0431\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u0432\u0430\u0439\u043A\u0438 \u0441\u0435 \u043F\u0440\u0438\u043B\u043E\u0436\u043D\u0438 \u0438\u0437\u043A\u0443\u0441\u0442\u0432\u0430.",title:"\u0411\u0438\u0431\u043B\u0438\u043E\u0442\u0435\u043A\u0430"},{src:"ostrich.webp",alt:"\u0414\u0435\u0446\u0430 \u0441\u0435 \u0440\u0430\u0434\u0432\u0430\u0442 \u043D\u0430 \u0449\u0440\u0430\u0443\u0441 \u0437\u0430\u0434 \u043E\u0433\u0440\u0430\u0434\u0430.",title:"\u0429\u0440\u0430\u0443\u0441"},{src:"uno.webp",alt:"\u0413\u0440\u0443\u043F\u0430 \u0434\u0435\u0446\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u0423\u043D\u043E \u043D\u0430 \u043A\u0440\u044A\u0433\u043B\u0430 \u043C\u0430\u0441\u0430 \u0432 \u0441\u044F\u043D\u043A\u0430\u0442\u0430 \u043D\u0430 \u0433\u043E\u0440\u0438\u0447\u043A\u0430.",title:"\u0423\u043D\u043E"}],schoolZanimalnyaImages=[{src:"homework.webp",alt:"\u041D\u0438\u043D\u0430 \u0438 \u043F\u043E\u043C\u0430\u0433\u0430 \u043D\u0430 \u0434\u0435\u0442\u0435 \u0441 \u0434\u043E\u043C\u0430\u0448\u043D\u043E\u0442\u043E.",title:"\u0414\u043E\u043C\u0430\u0448\u043D\u043E"},{src:"birthday.webp",alt:"\u041E\u0442\u043F\u0440\u0430\u0437\u043D\u0443\u0432\u0430\u043D\u0435 \u043D\u0430 \u0440\u043E\u0436\u0434\u0435\u043D \u0434\u0435\u043D \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430",title:"\u0420\u043E\u0436\u0434\u0435\u043D \u0434\u0435\u043D"},{src:"snowman.webp",alt:"\u041D\u0438\u043D\u0430 \u0438 \u043D\u044F\u043A\u043E\u043B\u043A\u043E \u0434\u0435\u0446\u0430 \u043F\u0440\u0435\u0434 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0437\u0430\u0435\u0434\u043D\u043E \u0441\u044A\u0441 \u0441\u043D\u0435\u0436\u0435\u043D \u0447\u043E\u0432\u0435\u043A.",title:"\u0421\u043D\u0435\u0436\u0435\u043D \u0447\u043E\u0432\u0435\u043A"},{src:"tea.webp",alt:"\u041D\u0438\u043D\u0430 \u0441\u0438\u043F\u0432\u0430 \u0447\u0430\u0439 \u043D\u0430 \u0434\u0435\u0446\u0430\u0442\u0430 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0427\u0430\u0439"},{src:"halloween.webp",alt:"\u0414\u0435\u0446\u0430 \u043E\u0431\u043B\u0435\u0447\u0435\u043D\u0438 \u0432 \u043A\u043E\u0441\u0442\u044E\u043C\u0438 \u0437\u0430 \u0425\u0435\u043B\u043E\u0443\u0438\u043D \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0425\u0435\u043B\u043E\u0443\u0438\u043D"},{src:"crafts.webp",alt:"\u0414\u0435\u0446\u0430 \u0441\u0438 \u0438\u0433\u0440\u0430\u044F\u0442 \u0441 \u0438\u0437\u0440\u0430\u0431\u043E\u0442\u0435\u043D\u0438 \u043E\u0442 \u0442\u044F\u0445 \u043A\u0443\u043A\u043B\u0438 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u041A\u0443\u043A\u043B\u043E\u0432\u043E\u0434\u0438"},{src:"cooking.webp",alt:"\u0414\u0435\u0446\u0430\u0442\u0430 \u043F\u0440\u0438\u0433\u043E\u0442\u0432\u044F\u0442 \u0432\u043A\u0443\u0441\u043E\u0442\u0438\u0438 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0413\u043E\u0442\u0432\u0430\u0447\u0438"}],summerZanimalnicaImages=[{src:"igralnica_entrance_baloons.webp",alt:"\u0414\u0435\u0446\u0430 \u043F\u0440\u0435\u0434 \u0432\u0445\u043E\u0434\u0430 \u043D\u0430 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0441\u0435 \u0440\u0430\u0434\u0432\u0430\u0442 \u0441 \u0431\u0430\u043B\u043E\u043D\u0438 \u0432 \u0440\u044A\u043A\u0430.",title:"\u0414\u043E\u0431\u0440\u0435 \u0434\u043E\u0448\u043B\u0438 \u0432 \u0418\u0433\u0440\u0430\u043B\u043D\u0438\u0437\u0430 \u0417\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u0438\u0446\u0430"},{src:"sea_garden_games.webp",alt:"\u0414\u0435\u0446\u0430 \u0438\u0433\u0440\u0430\u044F\u0442 \u043D\u0430 \u043A\u0430\u043C\u044A\u043A \u043D\u043E\u0436\u0438\u0446\u0430 \u0445\u0430\u0440\u0442\u0438\u044F \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430 \u0433\u0440\u0430\u0434\u0438\u043D\u0430 \u0438 \u0441\u0435 \u0432\u0435\u0441\u0435\u043B\u044F\u0442.",title:"\u0418\u0433\u0440\u0438 \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430"},{src:"wizard_stories.webp",alt:"\u041D\u0438\u043D\u0430 \u043F\u0440\u0430\u0432\u0438 \u0444\u043E\u043A\u0443\u0441\u0438 \u043D\u0430 \u0434\u0435\u0446\u0430\u0442\u0430 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430.",title:"\u0424\u043E\u043A\u0443\u0441\u043D\u0438\u043A"},{src:"rain_shelter.webp",alt:"\u0414\u0435\u0446\u0430\u0442\u0430 \u0441\u0435 \u043A\u0440\u0438\u044F\u0442 \u043F\u043E\u0434 \u0437\u0430\u0441\u043B\u043E\u043D \u0434\u043E\u043A\u0430\u0442\u043E \u0432\u0430\u043B\u0438 \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430 \u0433\u0440\u0430\u0434\u0438\u043D\u0430.",title:"\u0417\u0430\u0441\u043B\u043E\u043D"},{src:"drawing.webp",alt:"\u041C\u043E\u043C\u0438\u0447\u0435 \u0432 \u0437\u0430\u043D\u0438\u043C\u0430\u043B\u043D\u044F\u0442\u0430 \u0441\u0438 \u043F\u043E\u043A\u0430\u0437\u0432\u0430 \u0440\u0438\u0441\u0443\u043D\u043A\u0430\u0442\u0430.",title:"\u0420\u0438\u0441\u0443\u043D\u043A\u0438"},{src:"sea_garden_running.webp",alt:"\u0414\u0435\u0446\u0430 \u0421\u0435 \u043F\u0440\u0438\u0433\u043E\u0442\u0432\u044F\u0442 \u0437\u0430 \u0431\u044F\u0433\u0430\u043D\u0435 \u043D\u0430 \u0441\u0442\u0430\u0440\u0442\u043E\u0432\u0430\u0442\u0430 \u043B\u0438\u043D\u0438\u044F \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430 \u0433\u0440\u0430\u0434\u0438\u043D\u0430.",title:"\u0411\u044F\u0433\u0430\u043D\u0435 \u0432 \u043C\u043E\u0440\u0441\u043A\u0430\u0442\u0430"}],backpackText=`
 <ol>
   <li>Вода - едно 500 мл шише е достатъчно, защото почти винаги има къде да налеем вода. Предупреждаваме, когато сме на място без вода</li>
@@ -98,15 +98,15 @@ function srcsetAttribute(e,a){let b=e.split(".").pop(),c=e.replaceAll(`.${b}`,""
 <description id="hamburgerDescription">Бутон, който показва меню с различните секции на сайта</description>
 <path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`,chevronDown=`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`,forSignUpAndInformation=`<p style="clear: both;"><i>Записване и информация: <a href="tel:+359889656789">0889656789</a>, <a href="tel:+359887779783">0887779783</a> или на място - ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`,homeHTML=`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute("images/home/"+homeImages[0].src,"w")}" type="image/webp">
 <div class="contentContainer">
-    <h1>Начало</h1>
-    <p class="centered">Детски център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата, уроци и курсове по БЕЛ, математика, английски език и рисуване.</p> 
+    <h1>Добре дошли в детски учебен център и занималня Игралница Занималница град Варна</h1>
+    <p class="centered">Детски учебен център "Игралница Занималница", предлага училищна занималня за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата, уроци и курсове по БЕЛ, математика, английски език и рисуване.</p> 
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
     <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
 
     ${slideshow(homeImages,dir="images/home/",portrait=!1)}
 
 
-    <h4>В основната ни програма:</h4>
+    <h2>В основната ни програма:</h2>
     <p>
     <ul>
       <li>Помагаме за решаване на задачите, поставени в училище</li>
@@ -122,7 +122,7 @@ function srcsetAttribute(e,a){let b=e.split(".").pop(),c=e.replaceAll(`.${b}`,""
       <li>В училищната ваканция предлагаме целодневна приключенска програма, без това да натоварва допълнително семейния бюджет</li>
     </ul></p>
     <br>
-    <h4>Допълнителна програма:</h4>
+    <h2>Допълнителна програма:</h2>
     <p>
     <ul>
       <li>Арт студио “Игралница Занималница”- рисуване и приложни изкуства в събота с Теди Скорчева</li>
@@ -135,9 +135,7 @@ function srcsetAttribute(e,a){let b=e.split(".").pop(),c=e.replaceAll(`.${b}`,""
     <p class="centered" style="clear: both;"><q><i>Работата е вдъхновение. Да сме навън е приключение. Книгата е удоволствие. Детето е човече с голяма мечта и личен талант, който уважаваме. Обичаме да четем. Правим го заедно и знаем, че буквите разкриват тайни. Призванието ни е да бъдем Учители.</i></q>
       - Илиана Йорданова, основател на "Игралница Занималница"</p>
   
-</div>`,aboutHTML=`<div style="display: flex;flex-direction: column;">
-   <h1>За нас</h1>
-    <h4>Здравейте, ние сме Нина и Роси!</h4>
+</div>`,aboutHTML=`<div style="display: flex;flex-direction: column;"><h1>Здравейте, ние сме Нина и Роси!</h1>
     <div style="margin: 2vw 0vw; display: flex;align-items: center;flex-wrap: wrap;justify-content: center;">
       <img src="images/about/nina.webp" title="Нина" class="profileImage framed framedLeft" alt="Снимка на Нина" style="display: inline;">
       <img src="images/about/rosi.webp" title="Роси" class="profileImage framed framedRight" alt="Снимка на Роси" style="display: inline;">
@@ -190,7 +188,7 @@ ${slideshow(schoolZanimalnyaImages,dir="images/school-zanimalnya/",portrait=!0)}
 
 <p class="centered">Разполагаме с просторни и светли учебни стаи, зала за игра, богата детска библиотека и огромен избор от учебни помагала.</p>
 
-<h4>Полудневно посещение:</h4>
+<h2>Полудневно посещение:</h2>
 <p>
 <ul>
   <li>Месечна такса - 400 лв./20 работни дни / Не се възстановява при отсъствие на детето</li>
@@ -202,8 +200,8 @@ ${slideshow(schoolZanimalnyaImages,dir="images/school-zanimalnya/",portrait=!0)}
 </ul>
 Целодневно посещение: 30 лв./ден
 </p>
-<div></dv>
-<h4>Допълнителни занимания:</h4>
+<p>За информация или записване на дете: <a href="tel:+359889656789">0889 656 789</a></p>
+<h2>Допълнителни занимания:</h2>
 <p>
 <ul>    
   <li>
@@ -239,7 +237,7 @@ ${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
   Подробна програма публикуваме всяка седмица в профила и страницата ни във Фейсбук, предвид метеороличната прогноза. При неподходящо време е възможна промяна в програмата за седмицата.
 </p>
 
-<h4>Примерна програма за седмица:</h4>
+<h2>Примерна програма за седмица:</h2>
 <p>
   <ul style="list-style-type:none;">
     <li>/Понеделник/ - Хайде да играем /игри и забавления в морската градина/</li>
@@ -250,7 +248,7 @@ ${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
   </ul>
 </p>
 
-<h4>Цени:</h4>
+<h2>Цени:</h2>
 <p>
   <ul style="list-style-type:none;">
     <li>Седмична такса - 100лв.</li>
@@ -258,7 +256,7 @@ ${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
     <li>Входни такси и транспорт се заплащат допълнително /25- 30 лв. за седмица/</li>
   </ul>
 </p>
-<h4>Отстъпки:</h4>
+<h2>Отстъпки:</h2>
 <p>
   <ul style="list-style-type:none;">
     <li>10% от таксата за второ и трето дете от семейството</li>
@@ -335,7 +333,7 @@ ${slideshow(summerZanimalnicaImages,dir="images/summer-zanimalnica/",portrait=!0
 
   
 <br>
-<h4>Един примерен ден в Лятната занималница:</h4>
+<h2>Един примерен ден в Лятната занималница:</h2>
 <p>
   Сутрин в занималнята:
   <ol style="list-style-type:none;padding-left:20px;">
@@ -353,7 +351,7 @@ ${slideshow(summerZanimalnicaImages,dir="images/summer-zanimalnica/",portrait=!0
 </p>
 
 <br>
-<h4>Целодневно посещение:</h4>
+<h2>Целодневно посещение:</h2>
 <p>
   <ul style="list-style-type:none;padding-left:20px;">
     <li>Седмична такса /пет дни/ - 100лв.</li>
