@@ -67,7 +67,12 @@ h1, h2, p, ul {
   line-height: 1.5;
   margin-block-start: 0px;
 }
-
+h1 {
+  font-size:1.2em;
+}
+h2 {
+  font-size:1.1em;
+}
 .navbar {
   overflow: hidden;
 }
@@ -88,7 +93,7 @@ h1, h2, p, ul {
 }
 
 a {
-  color: black;
+  color: rgb(2, 95, 161);
   text-decoration: none;
   display: inline;
 }
@@ -334,26 +339,26 @@ button:active {
 }
 /* The dots/bullets/indicators */
 .dot {
-	cursor: pointer;
-	height: 0.7rem;
-	width: 0.7rem;
-	margin: 0 0.1rem;
-	background-color: white;
+    cursor: pointer;
+    height: 0.7rem;
+    width: 0.7rem;
+    margin: 0 0.1rem;
+    background-color: white;
   filter: drop-shadow(0vw 0vw 0.07rem skyblue) drop-shadow(0vw 0vw 0.15rem gray);
-	border-radius: 50%;
-	display: inline-block;
-	transition: background-color 0.6s ease;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
 }
 .activeDot {
-	background-color: skyblue;
+    background-color: skyblue;
   filter: drop-shadow(0vw 0vw 0.2rem white) drop-shadow(0vw 0vw 0.08rem black);
 }
 /* Fading animation */
 .fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 2s;
-	animation-name: fade;
-	animation-duration: 2s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 2s;
+    animation-name: fade;
+    animation-duration: 2s;
 }
 @-webkit-keyframes fade {
   from {opacity: .4} 
