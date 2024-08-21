@@ -42,6 +42,6 @@ if __name__ == "__main__":
     output_folder_path = "../public/images/school-zanimalnya"
     
     # Specify the dimensions you want
-    resize_dimensions = [600, 1000, 2000, 3000]  # Provide only width or height
+    resize_dimensions = [600, 1000, 2000]  # Provide only width or height
 
     resize_and_convert(input_image_path, output_folder_path, resize_dimensions)
