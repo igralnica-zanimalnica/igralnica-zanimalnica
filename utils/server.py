@@ -41,6 +41,10 @@ def about():
 def contacts():
     return app.send_static_file("index.html")
 
+@app.route('/политика-за-поверителност')
+def cookies():
+    return app.send_static_file("index.html")
+
 # @app.route('/admin')
 # def admin():
 #     return app.send_static_file("index.html")
