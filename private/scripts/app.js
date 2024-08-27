@@ -374,6 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
       loadGoogleAnalytics();
   }
 
+
   function loadCookies() {
       document.getElementById('acceptCookies').addEventListener('click', function() {
           localStorage.setItem('cookiesAccepted', 'true');
@@ -390,6 +391,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const accepted = localStorage.getItem('cookiesAccepted');
   
       if (accepted === null) {
+          enableTrackingScripts();
           cookieConsent.style.display = 'block';
       } else if (accepted === 'true') {
           enableTrackingScripts();
