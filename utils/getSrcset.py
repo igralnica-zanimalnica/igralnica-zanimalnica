@@ -38,10 +38,10 @@ def resize_and_convert(input_path, output_path, dimensions):
             resized_img.convert("RGB").save(output_filename, "WEBP")
         img.convert("RGB").save(f"{output_path}/{original_filename}.webp", "WEBP")
 if __name__ == "__main__":
-    input_image_path = "homework.HEIC"
-    output_folder_path = "../public/images/school-zanimalnya"
+    input_image_path = "public/images/about/aboutUs.png"
+    output_folder_path = "public/images/about/"
     
     # Specify the dimensions you want
-    resize_dimensions = [600, 1000, 2000]  # Provide only width or height
+    resize_dimensions = [600, 1000, 1600]  # Provide only width or height
 
     resize_and_convert(input_image_path, output_folder_path, resize_dimensions)
