@@ -33,6 +33,10 @@ def summer_igralnica():
 def summer_zanimalnica():
     return app.send_static_file("index.html")
 
+@app.route('/частни-уроци')
+def private_lessons():
+    return app.send_static_file("index.html")
+
 @app.route('/за-нас')
 def about():
     return app.send_static_file("index.html")
