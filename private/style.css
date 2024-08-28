@@ -173,7 +173,6 @@ a {
 
 /* Add a grey background color on mouse-over */
 .pencil:hover {
-  background-color: #ddd;
   color: black;
 }
 
