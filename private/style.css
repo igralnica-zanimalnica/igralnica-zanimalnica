@@ -402,6 +402,14 @@ button:active {
   border-radius: 5%;
 }
 
+.regularImage {
+  display: inline;
+  max-width: 40vw;
+  width: 100%;
+  border-radius: 5%;
+  float: left;
+}
+
 .row {
   max-width: 50%;
   padding-right: 1vw;
@@ -456,6 +464,10 @@ button:active {
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 75vh) {
+  .regularImage {
+      max-width: 100vw;
+    }
+
   .googleMap {
     max-width: 100vw;
   }
