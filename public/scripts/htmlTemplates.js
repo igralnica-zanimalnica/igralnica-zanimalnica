@@ -294,7 +294,7 @@ ${slideshow(summerIgralnicaImages,dir="images/summer-igralnica/",portrait=!0)}
 <h2>Цени:</h2>
 <p>
   <ul style="list-style-type:none;">
-    <li>1 седмица /5 дни/ - 125лв.</li>
+    <li>1 седмица /5 дни/ - 130лв.</li>
     <li>1 ден - 30лв.</li>
     <li>Входни такси и транспорт се заплащат допълнително /30-40 лв. за седмица/</li>
   </ul>
@@ -396,7 +396,7 @@ ${slideshow(summerZanimalnicaImages,dir="images/summer-zanimalnica/",portrait=!0
 <h2>Целодневно посещение:</h2>
 <p>
   <ul style="list-style-type:none;padding-left:20px;">
-    <li>Седмична такса /пет дни/ - 125лв.</li>
+    <li>Седмична такса /пет дни/ - 130лв.</li>
     <li>Еднократно посещение - 30лв.</li>
   </ul>
 </p>
