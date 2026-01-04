@@ -395,7 +395,7 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
     <li>Еднодневно посещение – 20€(39,12лв)</li>
     <li>Почасово посещение – 6€(11,73лв)/час</li>
     <li>Удължено работно време – 6€(11,73лв)/час за всеки започнат час</li>
-    <li>Обяд – 4,10€(8,01лв)/ден</li>
+    <li>Обяд – 4,20€(8,21лв)/ден</li>
 </ul>
 <p>Месечната такса се заплаща между 1 и 5-то число на  месеца, за  който се отнася плащането и важи  за цялата учебна година
 /15.09.2025 г. – 30.05.2026 г./<br>
@@ -543,9 +543,6 @@ ${slideshow(summerZanimalnicaImages, dir='images/summer-zanimalnica/', portrait=
 </p>
 
 <br>
-<p>
-  Обяд /Двустепенно меню/ - 3,57€(7лв)/ден.
-</p>
 ${forSignUpAndInformation}`
 
 privateLessonsHTML = 
