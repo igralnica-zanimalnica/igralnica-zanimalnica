@@ -63,7 +63,7 @@ const homeImages = [
     { src: "forest_smile.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата играят на рицари насред горичка.", title: "Рицари в гората" }
 ]
 
-const summerZanimalnqImages = [
+const summerIgralnicaImages = [
     { src: "knighthood.webp", alt: "Зелено училище в град Варна | Дете бива посвещавано в рицарство с меч.", title: "Рицарство" },
     { src: "pobiti.webp", alt: "Зелено училище в град Варна | Деца от занималнята са на екскурция до побити камъни", title: "Побити камъни" },
     { src: "neptune.webp", alt: "Зелено училище в град Варна | Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун" },
@@ -84,7 +84,7 @@ const schoolZanimalnyaImages = [
     { src: "cooking.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата приготвят вкусотии в занималнята.", title: "Готвачи" }
 ]
 
-const additionalActivitiesImages = [
+const summerZanimalnicaImages = [
     { src: "igralnica_entrance_baloons.webp", alt: "Зелено училище в град Варна | Деца пред входа на занималнята се радват с балони в ръка.", title: "Добре дошли в Игралниза Занималница" },
     { src: "sea_garden_games.webp", alt: "Зелено училище в град Варна | Деца играят на камък ножица хартия в морската градина и се веселят.", title: "Игри в морската" },
     { src: "wizard_stories.webp", alt: "Зелено училище в град Варна | Нина прави фокуси на децата в занималнята.", title: "Фокусник" },
@@ -422,10 +422,10 @@ ${slideshow(schoolZanimalnyaImages, dir = 'images/school-zanimalnya/', portrait 
 
 
 
-const summerZanimalnqHTML =
-    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnqImages[0]}" imagesrcset="${srcsetAttribute('images/summer-igralnica/' + summerZanimalnqImages[0]['src'], 'h')}" type="image/webp">
+const summerIgralnicaHTML =
+    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-igralnica/' + summerIgralnicaImages[0]['src'], 'h')}" type="image/webp">
 <p class="centered">От 1 Юни до 14 Септември предлагаме лятна целодневна програма за деца от 5-11г., които обичат приключенията, пътешествията и игрите на открито.</p>
-${slideshow(summerZanimalnqImages, dir = "images/summer-igralnica/", portrait = !0)}
+${slideshow(summerIgralnicaImages, dir = "images/summer-igralnica/", portrait = !0)}
 <p>Отделяме време за учебни занимания, за да затвърдим и подобрим знанията с преговор и упражнения на наученото. Обръщаме специално внимание на бъдещите първокласници.
 <br>Четем книжките от списъка с художествена литература за ваканцията.
 Развиваме творчески умения с работилници и арт ателиета.</p>
@@ -551,10 +551,10 @@ Tранспорт с лицензиран автобус.
 ${forSignUpAndInformation}
 `
 
-const additionalActivitiesHTML =
-    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${additionalActivitiesImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnica/' + additionalActivitiesImages[0]['src'], 'h')}" type="image/webp">
+const summerZanimalnicaHTML =
+    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnica/' + summerZanimalnicaImages[0]['src'], 'h')}" type="image/webp">
 <p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
-${slideshow(additionalActivitiesImages, dir = 'images/summer-zanimalnica/', portrait = true)}
+${slideshow(summerZanimalnicaImages, dir = 'images/summer-zanimalnica/', portrait = true)}
 
 
 <p class="centered">Тук се забавляваме, учим и играем. В спокойна и приятна среда на нашата база, на метри от Морската градина на град Варна. 
@@ -697,8 +697,8 @@ Opera: http://www.opera.com/help/tutorials/security/privacy/<br />
 const mainContent = {
     '/': homeHTML,
     '/училищна-занималня': schoolZanimalnicaHTML,
-    '/лятна-занималня': summerZanimalnqHTML,
-    '/допълнителни-дейности': additionalActivitiesHTML,
+    '/лятна-игралница': summerIgralnicaHTML,
+    '/лятна-занималница': summerZanimalnicaHTML,
     '/частни-уроци': privateLessonsHTML,
     '/за-нас': aboutHTML,
     '/контакти': contactsHTML,
@@ -708,8 +708,8 @@ const mainContent = {
 const metaDescriptions = {
     '/': 'Заповядайте в Игралница Занималница! Предлагаме целодневна и полудневна училищна занималня и вълнуваща лятна програма за деца от 1 до 5 клас, както и за деца от подготвителните групи.',
     '/училищна-занималня': 'Открийте какво включва училищната занималня - програма, цени и как минава един ден с нас.',
-    '/лятна-занималня': 'Незабравимо лято в нашата игралница! Приключенска програма, цена и често задавани въпроси за лятната игралница.',
-    '/допълнителни-дейности': 'Детска радост през лятото! Открийте какво предлага лятната занималня - програма, цени и важна информация.',
+    '/лятна-игралница': 'Незабравимо лято в нашата игралница! Приключенска програма, цена и често задавани въпроси за лятната игралница.',
+    '/лятна-занималница': 'Детска радост през лятото! Открийте какво предлага лятната занималня - програма, цени и важна информация.',
     '/частни-уроци': 'Частни уроци и арт школа в Детски център Игралница занималница Варна. БЕЛ, математика, английски, рисуване, НВО подготовка. Индивидуален подход за деца 1-12 клас.',
     '/за-нас': 'Нашият екип - квалификация, как можем да помогнем на вашето дете и какво ни мотивира.',
     '/контакти': 'Свържете се с нас! Телефони за връзка, имейл и адрес на занималнята за деца.'
@@ -720,8 +720,8 @@ const navbarHTML =
   <nav class="navbar" id="desktopNavbar">
     <a href="/" class="navlink">Начало</a>
     <a href="/училищна-занималня" class="navlink">Училищна Занималня</a>
-    <a href="/лятна-занималня" class="navlink">Лятна Игралница</a>
-    <a href="/допълнителни-дейности" class="navlink">Лятна Занималница</a>
+    <a href="/лятна-игралница" class="navlink">Лятна Игралница</a>
+    <a href="/лятна-занималница" class="navlink">Лятна Занималница</a>
     <a href="/частни-уроци" class="navlink">Частни уроци</a>
     <a href="/за-нас" class="navlink">За Нас</a>
     <a href="/контакти" class="navlink">Контакти</a>

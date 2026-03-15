@@ -63,7 +63,7 @@ const homeImages = [
     { src: "forest_smile.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата играят на рицари насред горичка.", title: "Рицари в гората" }
 ]
 
-const additionalActivitiesImages = [
+const summerZanimalnqImages = [
     { src: "knighthood.webp", alt: "Зелено училище в град Варна | Дете бива посвещавано в рицарство с меч.", title: "Рицарство" },
     { src: "pobiti.webp", alt: "Зелено училище в град Варна | Деца от занималнята са на екскурция до побити камъни", title: "Побити камъни" },
     { src: "neptune.webp", alt: "Зелено училище в град Варна | Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун" },
@@ -84,7 +84,7 @@ const schoolZanimalnyaImages = [
     { src: "cooking.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата приготвят вкусотии в занималнята.", title: "Готвачи" }
 ]
 
-const summerZanimalnicaImages = [
+const additionalActivitiesImages = [
     { src: "igralnica_entrance_baloons.webp", alt: "Зелено училище в град Варна | Деца пред входа на занималнята се радват с балони в ръка.", title: "Добре дошли в Игралниза Занималница" },
     { src: "sea_garden_games.webp", alt: "Зелено училище в град Варна | Деца играят на камък ножица хартия в морската градина и се веселят.", title: "Игри в морската" },
     { src: "wizard_stories.webp", alt: "Зелено училище в град Варна | Нина прави фокуси на децата в занималнята.", title: "Фокусник" },
@@ -422,17 +422,17 @@ ${slideshow(schoolZanimalnyaImages, dir = 'images/school-zanimalnya/', portrait 
 
 
 
-const additionalActivitiesHTML =
-    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${additionalActivitiesImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnq/' + additionalActivitiesImages[0]['src'], 'h')}" type="image/webp">
+const summerZanimalnqHTML =
+    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnqImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnq/' + summerZanimalnqImages[0]['src'], 'h')}" type="image/webp">
 <p class="centered">От 1 Юни до 14 Септември предлагаме лятна целодневна програма за деца от 5-11г., които обичат приключенията, пътешествията и игрите на открито.</p>
-${slideshow(additionalActivitiesImages, dir = "images/summer-zanimalnq/", portrait = !0)}
+${slideshow(summerZanimalnqImages, dir = "images/summer-zanimalnq/", portrait = !0)}
 <p>Отделяме време за учебни занимания, за да затвърдим и подобрим знанията с преговор и упражнения на наученото. Обръщаме специално внимание на бъдещите първокласници.
 <br>Четем книжките от списъка с художествена литература за ваканцията.
 Развиваме творчески умения с работилници и арт ателиета.</p>
 
 <p>Програмата ни е седмична и почти целия ден прекарваме навън. Опознаваме света отблизо, защото опитът винаги е най-добрият учител.</p>
 
-<h2>Как протичаasd денят</h2>
+<h2>Как протича денят</h2>
 <p>
     <ul>
     <li>08:00–09:30ч. – Посрещане в занималнята (ж.к. Чайка, бл. 189)</li>
@@ -551,40 +551,46 @@ Tранспорт с лицензиран автобус.
 ${forSignUpAndInformation}
 `
 
-const summerZanimalnicaHTML =
-    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute('images/additional-activities/' + summerZanimalnicaImages[0]['src'], 'h')}" type="image/webp">
-<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
-${slideshow(summerZanimalnicaImages, dir = 'images/additional-activities/', portrait = true)}
+const additionalActivitiesHTML =
+    `<h2>Допълнителни занимания за деца от 5-11г.</h2>
+    <p>ж.к.Чайка, бл.189</p><br>
+
+    <div>
+        <img class="regularImage framed framedLeft"" srcset="images/additional-activities/drawing-dolphins@600h.webp 600w, images/additional-activities/drawing-dolphins@1200h.webp 1200w" src="additional-activities/drawing-dolphins.webp" title="Рисунка на делфини" alt="Рисунка на делфини">
+    
+        <h2>Школа по Лего роботика с Откриватели </h2>
+        <p>Децата строят роботи, съобразени с тяхната възраст и интереси. Така навлизат в света на технологиите чрез игра.<br>
+        Развиват логическо мислене,креативност и увереност. Учат програмиране с визуални блокове и проекти с роботи. Така разбират логиката и структурата на програмирането.<br>
+        Експериментират и приемат грешките,като път към правилните решения.
+        </p>
+    </div>
+    <p><b>Информация и записване:</b> <br>
+    <a href="tel:+359877223280">0877 223 280</a>: Откриватели<br>
+    <a href="mailto:otkrivateli.info@gmail.com">otkrivateli.info@gmail.com</a><br>
+    <a href="https://www.otkrivateli.info/">www.otkrivateli.info</a></p>
+
+    <p class="clear"></p>
+    <div>
+        <img class="regularImage framed framedLeft"" srcset="images/additional-activities/drawing-dolphins@600h.webp 600w, images/additional-activities/drawing-dolphins@1200h.webp 1200w" src="additional-activities/drawing-dolphins.webp" title="Рисунка на делфини" alt="Рисунка на делфини">
+    
+        <h2>Школа по Рисуване с Теди Скорчева-Хараланова - всяка събота 10:00-12:00ч. </h2>
+        <p>Рисувайки малките деца стават по-наблюдателни, чувствителни и възпитават у себе си усет към красивото и любов към природата.<br>
+        Децата в студиото работят с различни материали и техники за да усетят широките възможности, които им дава изобразителното изкуство. Възможността да изразят себе си, своето усещане за света, своите чувства, мисли и мечти.<br>
+        С много старание рисуват с водни и темперни бои, сухи пастели и цветни моливи, рисуват върху стъкло и текстил, правят апликации с природни и други материали.
+        </p
+    </div>
+    <p><b>Информация и записване:</b> <br>
+    <a href="tel:+359889656789">0889 656 789</a>: Игралница Занималница<br>
+    <a href="tel:+359888769508">0888 769 508</a>: Теди Скорчева - художник</p>
 
 
-<p class="centered">Тук се забавляваме, учим и играем. В спокойна и приятна среда на нашата база, на метри от Морската градина на град Варна. 
-Сутрешни занимания по четене, писане, математика и следобедни игри в Морската градина.</p>
-
-<p class="centered">Работното ни време е от понеделник до петък, от 8:00 до 18:00.</p>
-
-  
-
-  
-<br>
-<h2>Един примерен ден в Лятната занималница:</h2>
-<p>
-  Сутрин в занималнята:
-  <ol style="list-style-type:none;padding-left:20px;">
-    <li>8:00 -10:00 - Посрещане на децата, свободни занимания, приложни дейности</li>
-    <li>10:00 -12:00 - Занимания по математика, български език, английски език, четене /заниманията са по график за деня/</li>
-    <li>12:00- 13:00 - Обяд /готвено меню, не е включен в общата такса/</li>
-  </ol>
-
-  Следобедна занималня:
-  <ol style="list-style-type:none;padding-left:20px;">
-    <li>13:00-16:00 - време за разходка, игри в Морската градина</li>
-    <li>16:00-17:00 - занимания по интереси, четене на книжки, приложни дейности</li>
-    <li>17:00-18-00 - изпращане на децата</li>
-  </ol>
 </p>
 
+
+
+
 <br>
-${forSignUpAndInformation}`
+`
 
 privateLessonsHTML =
     `
@@ -697,8 +703,8 @@ Opera: http://www.opera.com/help/tutorials/security/privacy/<br />
 const mainContent = {
     '/': homeHTML,
     '/училищна-занималня': schoolZanimalnicaHTML,
-    '/лятна-занималня': additionalActivitiesHTML,
-    '/допълнителни-дейности': summerZanimalnicaHTML,
+    '/лятна-занималня': summerZanimalnqHTML,
+    '/допълнителни-дейности': additionalActivitiesHTML,
     '/частни-уроци': privateLessonsHTML,
     '/за-нас': aboutHTML,
     '/контакти': contactsHTML,
