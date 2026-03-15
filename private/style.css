@@ -393,6 +393,10 @@ button:active {
   filter: drop-shadow(0vw 0vw 0.3vw lightgray);
 }
 
+.clear {
+  clear: left;
+}
+
 .googleMap {
   display: inline;
   max-width: 40vw;
