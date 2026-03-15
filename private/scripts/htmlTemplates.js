@@ -1,52 +1,53 @@
 
 function srcsetAttribute(imgPath, dim) {
-  let format = imgPath.split('.').pop();
-  let imgPathNoExt = imgPath.replaceAll(`.${format}`, '');
-  return `${imgPathNoExt}@600${dim}.${format} 600w, ${imgPathNoExt}@1000${dim}.${format} 1000w, ${imgPathNoExt}@2000${dim}.${format} 2000w`}
+    let format = imgPath.split('.').pop();
+    let imgPathNoExt = imgPath.replaceAll(`.${format}`, '');
+    return `${imgPathNoExt}@600${dim}.${format} 600w, ${imgPathNoExt}@1000${dim}.${format} 1000w, ${imgPathNoExt}@2000${dim}.${format} 2000w`
+}
 
-function imageEl(image, dir='', portrait=false, classes='') {
-  let orientation= 'horizontal';
-  let dim = 'w';
-  if (portrait) {
-    orientation = 'portrait';
-    dim = 'h';
-  };
-  let imgPath = `${dir}${image['src']}`;
-  return `<img class="${classes} ${orientation}"  
+function imageEl(image, dir = '', portrait = false, classes = '') {
+    let orientation = 'horizontal';
+    let dim = 'w';
+    if (portrait) {
+        orientation = 'portrait';
+        dim = 'h';
+    };
+    let imgPath = `${dir}${image['src']}`;
+    return `<img class="${classes} ${orientation}"  
   srcset="${srcsetAttribute(imgPath, dim)}" src="${imgPath}" title="${image['title']}"
   alt="${image['alt']}"
 >`
 }
 
-function slideshow(images, dir='/', portrait=false) {
-  let addClass = 'horizontal'
-  if (portrait) {
-    addClass = 'portrait'
-  };
-  let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${addClass}">
+function slideshow(images, dir = '/', portrait = false) {
+    let addClass = 'horizontal'
+    if (portrait) {
+        addClass = 'portrait'
+    };
+    let result = `<div class="w3-content w3-display-container slideshow-container"><div class="imageContainer"><div class="btnContainer ${addClass}">
   <button aria-label="Покажи предишна снимка" class="w3-button prev">&#10094;</button>
   <div class="imageOverlay"></div>
   <button aria-label="Покажи следваща снимка" class="w3-button next">&#10095;</button>
 </div>`
-  images.forEach(image => {
-    result += imageEl(image, dir, portrait, classes='mySlides fade')
-  });
-  result += 
-  `
+    images.forEach(image => {
+        result += imageEl(image, dir, portrait, classes = 'mySlides fade')
+    });
+    result +=
+        `
   </div>
   <br>
   <div class="dotContainer">`
-  images.forEach(image => {
-    result += `<span class="dot"></span>`
-  });
-  result += `</div></div>`
-  return result
+    images.forEach(image => {
+        result += `<span class="dot"></span>`
+    });
+    result += `</div></div>`
+    return result
 };
 
 
 
-function additionalContent(content, about='') {
-  return `
+function additionalContent(content, about = '') {
+    return `
   <input type="checkbox" class="hiddenToggle"><button aria-label="Покажи повече информация за ${about}" class="chevronContainer" tabindex="0" focusable="true">${chevronDown}</button>
     <div class="hiddenContent">
       ${content}
@@ -54,42 +55,42 @@ function additionalContent(content, about='') {
 };
 
 const homeImages = [
-  {src: "igralnica_inside.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина и децата в занималнята.", title: "В занималнята"},
-  {src: "twister.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца играят на Туистър в занималнята.", title: "Туистър"},
-  {src: "rope.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца се състезават да дърпат въже.", title: "Дърпане на въже"},
-  {src: "archer.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете стреля с лък навън.", title: "Стрелба с лък"},
-  {src: "pool.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца плуват щастливо в басейн.", title: "На басейн"},
-  {src: "forest_smile.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата играят на рицари насред горичка.", title: "Рицари в гората"}
+    { src: "igralnica_inside.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина и децата в занималнята.", title: "В занималнята" },
+    { src: "twister.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца играят на Туистър в занималнята.", title: "Туистър" },
+    { src: "rope.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца се състезават да дърпат въже.", title: "Дърпане на въже" },
+    { src: "archer.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете стреля с лък навън.", title: "Стрелба с лък" },
+    { src: "pool.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца плуват щастливо в басейн.", title: "На басейн" },
+    { src: "forest_smile.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата играят на рицари насред горичка.", title: "Рицари в гората" }
 ]
 
-const summerIgralnicaImages = [
-  {src: "knighthood.webp", alt: "Зелено училище в град Варна | Дете бива посвещавано в рицарство с меч.", title: "Рицарство"},
-  {src: "pobiti.webp", alt: "Зелено училище в град Варна | Деца от занималнята са на екскурция до побити камъни", title: "Побити камъни"},
-  {src: "neptune.webp", alt: "Зелено училище в град Варна | Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун"},
-  {src: "horse.webp", alt: "Зелено училище в град Варна | Дете язди кон.", title: "Аз съм на кон"},
-  {src: "library.webp", alt: "Зелено училище в град Варна | Група деца в градската библиотека занимавайки се приложни изкуства.", title: "Библиотека"},
-  {src: "ostrich.webp", alt: "Зелено училище в град Варна | Деца се радват на щраус зад ограда.", title: "Щраус"},
-  {src: "uno.webp", alt: "Зелено училище в град Варна | Група деца играят на Уно на кръгла маса в сянката на горичка.", title: "Уно"},
+const summerZanimalnqImages = [
+    { src: "pobiti.webp", alt: "Зелено училище в град Варна | Деца от занималнята са на екскурция до побити камъни", title: "Побити камъни" },
+    { src: "homework.webp", alt: "Зелено училище в град Варна | Деца решават задачи.", title: "Задачи" },
+    { src: "neptune.webp", alt: "Зелено училище в град Варна | Деца на плажа играят морски игри, едно от тях облечено като Нептун с тризъбец в ръка.", title: "Нептун" },
+    { src: "horse.webp", alt: "Зелено училище в град Варна | Дете язди кон.", title: "Аз съм на кон" },
+    { src: "library.webp", alt: "Зелено училище в град Варна | Група деца в градската библиотека занимавайки се приложни изкуства.", title: "Библиотека" },
+    { src: "ostrich.webp", alt: "Зелено училище в град Варна | Деца се радват на щраус зад ограда.", title: "Щраус" },
+    { src: "uno.webp", alt: "Зелено училище в град Варна | Група деца играят на Уно на кръгла маса в сянката на горичка.", title: "Уно" },
 ]
 
 
 const schoolZanimalnyaImages = [
-  {src: "homework.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина и помага на дете с домашното.", title: "Домашно"},
-  {src: "birthday.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Отпразнуване на рожден ден в занималнята", title: "Рожден ден"},
-  {src: "snowman.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина и няколко деца пред занималнята заедно със снежен човек.", title: "Снежен човек"},
-  {src: "tea.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина сипва чай на децата в занималнята.", title: "Чай"},
-  {src: "halloween.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца облечени в костюми за Хелоуин в занималнята.", title: "Хелоуин"},
-  {src: "crafts.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца си играят с изработени от тях кукли в занималнята.", title: "Кукловоди"},
-  {src: "cooking.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата приготвят вкусотии в занималнята.", title: "Готвачи"}
+    { src: "homework.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина и помага на дете с домашното.", title: "Домашно" },
+    { src: "birthday.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Отпразнуване на рожден ден в занималнята", title: "Рожден ден" },
+    { src: "snowman.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина и няколко деца пред занималнята заедно със снежен човек.", title: "Снежен човек" },
+    { src: "tea.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Нина сипва чай на децата в занималнята.", title: "Чай" },
+    { src: "halloween.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца облечени в костюми за Хелоуин в занималнята.", title: "Хелоуин" },
+    { src: "crafts.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Деца си играят с изработени от тях кукли в занималнята.", title: "Кукловоди" },
+    { src: "cooking.webp", alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Децата приготвят вкусотии в занималнята.", title: "Готвачи" }
 ]
 
-const summerZanimalnicaImages = [
-  {src: "igralnica_entrance_baloons.webp", alt: "Зелено училище в град Варна | Деца пред входа на занималнята се радват с балони в ръка.", title: "Добре дошли в Игралниза Занималница"},
-  {src: "sea_garden_games.webp", alt: "Зелено училище в град Варна | Деца играят на камък ножица хартия в морската градина и се веселят.", title: "Игри в морската"},
-  {src: "wizard_stories.webp", alt: "Зелено училище в град Варна | Нина прави фокуси на децата в занималнята.", title: "Фокусник"},
-  {src: "rain_shelter.webp", alt: "Зелено училище в град Варна | Децата се крият под заслон докато вали в морската градина.", title: "Заслон"},
-  {src: "drawing.webp", alt: "Зелено училище в град Варна | Момиче в занималнята си показва рисунката.", title: "Рисунки"},
-  {src: "sea_garden_running.webp", alt: "Зелено училище в град Варна | Деца Се приготвят за бягане на стартовата линия в морската градина.", title: "Бягане в морската"}
+const additionalActivitiesImages = [
+    { src: "igralnica_entrance_baloons.webp", alt: "Зелено училище в град Варна | Деца пред входа на занималнята се радват с балони в ръка.", title: "Добре дошли в Игралниза Занималница" },
+    { src: "sea_garden_games.webp", alt: "Зелено училище в град Варна | Деца играят на камък ножица хартия в морската градина и се веселят.", title: "Игри в морската" },
+    { src: "wizard_stories.webp", alt: "Зелено училище в град Варна | Нина прави фокуси на децата в занималнята.", title: "Фокусник" },
+    { src: "rain_shelter.webp", alt: "Зелено училище в град Варна | Децата се крият под заслон докато вали в морската градина.", title: "Заслон" },
+    { src: "drawing.webp", alt: "Зелено училище в град Варна | Момиче в занималнята си показва рисунката.", title: "Рисунки" },
+    { src: "sea_garden_running.webp", alt: "Зелено училище в град Варна | Деца Се приготвят за бягане на стартовата линия в морската градина.", title: "Бягане в морската" }
 ]
 
 
@@ -123,61 +124,61 @@ const artStudioText = `<br>
   <div class="row">
     <div class="column">
     ${imageEl({
-      src: "child_with_award.webp",
-      alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете държи грамота за най-добра рисунка",
-      title: "Грамота"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=true)
+    src: "child_with_award.webp",
+    alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете държи грамота за най-добра рисунка",
+    title: "Грамота"
+},
+    dir = 'images/school-zanimalnya/art-studio/',
+    portrait = true)
     }
 
     ${imageEl({
-      src: "drawings_1.webp",
-      alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Рисунки на децата от арт студиото.",
-      title: "Рисунки"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=false)
+        src: "drawings_1.webp",
+        alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Рисунки на децата от арт студиото.",
+        title: "Рисунки"
+    },
+        dir = 'images/school-zanimalnya/art-studio/',
+        portrait = false)
     }
     
     </div>
     <div class="column">
     ${imageEl({
-      src: "pilot_drawing.webp",
-      alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Рисунка на дете от арт студиото.",
-      title: "Рисунка на пилот"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=false)
+        src: "pilot_drawing.webp",
+        alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Рисунка на дете от арт студиото.",
+        title: "Рисунка на пилот"
+    },
+        dir = 'images/school-zanimalnya/art-studio/',
+        portrait = false)
     }
 
     ${imageEl({
-      src: "child_pointing.webp",
-      alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете сочи рисунка на стената с която е спечелило награда.",
-      title: "Дете с рисунка"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=true)
+        src: "child_pointing.webp",
+        alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете сочи рисунка на стената с която е спечелило награда.",
+        title: "Дете с рисунка"
+    },
+        dir = 'images/school-zanimalnya/art-studio/',
+        portrait = true)
     }
     
     </div>
     <div class="column">
     ${imageEl({
-      src: "child_with_award_and_drawings.webp",
-      alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете държи грамота за най-добра рисунка.",
-      title: "Награда"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=true)
+        src: "child_with_award_and_drawings.webp",
+        alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Дете държи грамота за най-добра рисунка.",
+        title: "Награда"
+    },
+        dir = 'images/school-zanimalnya/art-studio/',
+        portrait = true)
     }
 
     ${imageEl({
-      src: "drawings_2.webp",
-      alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Рисунки на деца от арт студиото.",
-      title: "Рисунки"
-      },
-    dir='images/school-zanimalnya/art-studio/',
-    portrait=false)
+        src: "drawings_2.webp",
+        alt: "Игралница Занималница - Детски учебен център и занималня в гр. Варна | Рисунки на деца от арт студиото.",
+        title: "Рисунки"
+    },
+        dir = 'images/school-zanimalnya/art-studio/',
+        portrait = false)
     }
     
     </div>
@@ -198,8 +199,8 @@ const artStudioText = `<br>
   <p>В края на учебната година се провежда изложба, където всеки може да се полюбува на таланта и постиженията на малките художници.</p>
 
 `
-const headerEl = 
-`<div class="logo-container" role="banner"> 
+const headerEl =
+    `<div class="logo-container" role="banner"> 
 <svg id="kite" class="kite-logo" role="img" title="Хвърчило" data-name="kite" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 342.19 160.3" visibility="hidden">
     <path class="kite-inner-border" d="M101,360a646.42,646.42,0,0,1,19,81c-24.49-8.72-50.16-17.12-77-25q-16.18-4.75-32-9a348.3,348.3,0,0,0,2-41c-.12-12.25-.88-23.63-2-34q9.84-1.11,20-2c20.48-1.79,40.17-2.73,59-3Q95.73,342.77,101,360Zm5,65a508.45,508.45,0,0,0-13-55c-3.45-11.68-7.17-22.69-11-33-8.92.08-18.26.39-28,1-11.24.7-21.92,1.74-32,3q.7,8.69,1,18a360.49,360.49,0,0,1-1,40q9.41,2.36,19,5C64,410.36,85.67,417.46,106,425Z" transform="translate(-9 -325)"/>
     <path class="kite-lower-half" d="M93,370a508.45,508.45,0,0,1,13,55c-20.33-7.54-42-14.64-65-21q-9.6-2.65-19-5l60-62C85.83,347.31,89.55,358.32,93,370Z" transform="translate(-9 -325)"/>
@@ -223,29 +224,29 @@ const headerEl =
 </a>
 </div>`
 
-const hamburger = 
-`
+const hamburger =
+    `
 <svg xmlns="http://www.w3.org/2000/svg" role="button" aria-labelledby="hamburgerTitle" alt="Hamburger menu button" id="hamburgerIcon" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
 <title id="hamburgerTitle">Покажи меню</title>
 <description id="hamburgerDescription">Бутон, който показва меню с различните секции на сайта</description>
 <path class="hamburgerLines" d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg>`
 
-const chevronDown = 
-`<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
+const chevronDown =
+    `<svg xmlns="http://www.w3.org/2000/svg" alt="Бутон за показване на скрито съдържание" id="chevronDownIcon" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>`
 
 const forSignUpAndInformation = `<p style="clear: both;"><i>Записване и информация - <a href="tel:+359889656789">0889 656 789</a>, <a href="tel:+359887779783">0887 779 783</a> или на място - ж.к. Чайка, бл. 189, от понеделник до петък, от 8:00 до 18:00.</i></p>`
 
 
 // Start of HTML
-const homeHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute('images/home/' + homeImages[0]['src'], 'w')}" type="image/webp">
+const homeHTML =
+    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${homeImages[0]}" imagesrcset="${srcsetAttribute('images/home/' + homeImages[0]['src'], 'w')}" type="image/webp">
 <div class="contentContainer">
     <h1>Добре дошли в Игралница Занималница - Детски учебен център и занималня в гр. Варна!</h1>
     <p class="centered">Детски учебен център "Игралница Занималница", предлага <a href="/училищна-занималня">училищна занималня</a> за ученици от 1 до 5 клас, както и за деца от подготвителните групи към училищата, уроци и курсове по БЕЛ, математика, английски език и рисуване.</p>
     <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
     <p class="centered">Вярваме, че мечтите създават бъдеще. Насърчаваме децата да бъдат радостни без официален повод и ги подкрепяме в стремежа им винаги да са заети с нещо.</p>
 
-    ${slideshow(homeImages, dir='images/home/', portrait=false)}
+    ${slideshow(homeImages, dir = 'images/home/', portrait = false)}
 
 
     <h2>В основната ни програма:</h2>
@@ -330,8 +331,8 @@ const aboutHTML = `
 доверие, да се чувстват улеснени и сигурни, че детето им ще е щастливо, подготвено и устремено.</p>
 `
 
-const contactsHTML = 
-`<p><h1>Как да се свържете с нас?</h1>
+const contactsHTML =
+    `<p><h1>Как да се свържете с нас?</h1>
 <address>
 <b>Николина Богданова</b> - управител, учител<br>
 <a href="tel:+359877504508">0877 504 508</a></p>
@@ -360,8 +361,8 @@ Instagram - <a href="https://www.instagram.com/igralnicazanimalnica/">igralnicaz
 <iframe title="Занималнята В Google Maps" class="googleMap framed framedRight" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7990.307874775659!2d27.93378972147678!3d43.214117923401915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40a454401d8909c1%3A0xe407984e20a12751!2z0JjQs9GA0LDQu9C90LjRhtCwINCX0LDQvdC40LzQsNC70L3QuNGG0LA!5e0!3m2!1sbg!2sbg!4v1694365208587!5m2!1sbg!2sbg" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </address>`
 
-const schoolZanimalnicaHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute('images/school-zanimalnya/' + schoolZanimalnyaImages[0]['src'], 'h')}" type="image/webp">
+const schoolZanimalnicaHTML =
+    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${schoolZanimalnyaImages[0]}" imagesrcset="${srcsetAttribute('images/school-zanimalnya/' + schoolZanimalnyaImages[0]['src'], 'h')}" type="image/webp">
 <h1>Училищна занималня в град Варна</h1>
 <p class="centered">От 15-ти Септември до 31-ви Май предламе училищна занималня за ученици от 1 до 5  клас, както и за деца от подготвителните групи към училищата.</p>
 <p class="centered">Училищата близо до нас са:
@@ -375,7 +376,7 @@ const schoolZanimalnicaHTML =
 
 <p class="centered">Организираме взимане и водене на децата от и до училище, подготовка на уроци и домашни, както и допълнителни занимания и упражнения по учебния материал. Предлагаме топъл обяд. Всеки ден  осигуряваме на децата време за отдих и игри в морската градина.</p>
 
-${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=true)}
+${slideshow(schoolZanimalnyaImages, dir = 'images/school-zanimalnya/', portrait = true)}
 
 <p class="centered">Преподавателите ни са специалисти с дългогодишен опит в областта на хуманитарните и точните науки, изкуствата и музиката.</p>
 
@@ -421,35 +422,53 @@ ${slideshow(schoolZanimalnyaImages, dir='images/school-zanimalnya/', portrait=tr
 
 
 
-const summerIgralnicaHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerIgralnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-igralnica/' + summerIgralnicaImages[0]['src'], 'h')}" type="image/webp">
-<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна приключенска програма за всички, които обичат забавленията, пътешествията и игрите на открито.</p>
-${slideshow(summerIgralnicaImages, dir='images/summer-igralnica/', portrait=true)}
-<p>Правим екскурзии, посещаваме интересни места, изложби, музеи, забележителности.<br> 
-Гостуваме на библиотеката, творим красотички в различни работилнички.<br> 
-Правим походи в гората, катерим се, учим се да се ориентираме, плуваме и събираме слънце на плажа.<br>Опознаваме света отблизо, защото опитът винаги е най-добрият учител.
+const summerZanimalnqHTML =
+    `<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnqImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnq/' + summerZanimalnqImages[0]['src'], 'h')}" type="image/webp">
+<p class="centered">От 1 Юни до 14 Септември предлагаме лятна целодневна програма за деца от 5-11г., които обичат приключенията, пътешествията и игрите на открито.</p>
+${slideshow(summerZanimalnqImages, dir = "images/summer-zanimalnq/", portrait = !0)}
+<p>Отделяме време за учебни занимания, за да затвърдим и подобрим знанията с преговор и упражнения на наученото. Обръщаме специално внимание на бъдещите първокласници.
+<br>Четем книжките от списъка с художествена литература за ваканцията.
+Развиваме творчески умения с работилници и арт ателиета.</p>
+
+<p>Програмата ни е седмична и почти целия ден прекарваме навън. Опознаваме света отблизо, защото опитът винаги е най-добрият учител.</p>
+
+<h2>Как протича денят</h2>
+<p>
+    <ul>
+    <li>08:00–09:30ч. – Посрещане в занималнята (ж.к. Чайка, бл. 189)</li>
+    <li>10:00 – Начало на дневната програма: екскурзия, работилница или учебни занимания (10:00-12:00ч. и следобедни игри в Морската градина)</li>
+    <li>16:00–17:00ч. – Връщане в занималнята-четене,настолни игри</li>
+    <li>17:00–18:00ч. – Изпращане на децата</li>
+    </ul>
 </p>
 
-<p>Програмата е седмична и почти целия ден прекарваме навън. Децата си носят вода и храна за обяд и следобедна закуска.</p>
+<h2>Какво включва седмицата</h2>
+<p>
+    <ul>
+    <li>2 дни учебни занимания – преговор, упражнения, четене с разбиране</li>
+    <li>2 дни екскурзии – горски кът, ферма за животни, музеи, въжен парк, басейн и др.</li>
+    <li>1 ден творческа работилница – рисуване, приложни дейности , Лего роботика</li>
+    </ul>
+</p>
 
 <p>
-  Сутрин се събираме в занималнята от 8:00 до 9:30, /ж.к. Чайка, бл.189, на един подлез разстояние от морската градина/<br>
+    Децата си носят вода, храна за обяд и следобедна закуска. <br>
+    Има вариант за кетъринг за обяд по желание на родителите.
+</p>
 
-  10:00 тръгваме по програмата за деня и се връщаме в занималнята около 16:00<br>
-
-  Изпращаме децата до 18:00<br>
-
-  Подробна програма публикуваме всяка седмица в профила и страницата ни във Фейсбук, предвид метеороличната прогноза. При неподходящо време е възможна промяна в програмата за седмицата.
+<p>
+    Подробна програма  за всяка седмица публикуваме в профила и страницата ни във Фейсбук. <br>
+    При лоши метеорологични условия е възможна промяна в програмата за седмицата, но винаги имаме вариант заниманията да се проведат в занималнята.
 </p>
 
 <h2>Примерна програма за седмица:</h2>
 <p>
   <ul style="list-style-type:none;">
-    <li>/Понеделник/ - Хайде да играем /игри и забавления в морската градина/</li>
-    <li>/Вторник/ - Като Рицарите /парк - музей Владислав Варненчик/</li>
-    <li>/Сряда/ - По следите на животните /Зоопарк Варна/</li>
-    <li>/Четвъртък/ - Сладки приказки в библиотеката /Детски отдел на РБ”П.Славейков”/</li>
-    <li>/Петък/ - Фотосафари /Побити камъни/</li>
+    <li>Понеделник – Уча, зная и играя /таблица за умножение/</li>
+    <li>Вторник – Игри и забавления във Вълшебната гора / въжен парк/</li>
+    <li>Сряда – Работилница /Лего роботика/</li>
+    <li>Четвъртък – Забавления в Екоселище Доброглед</li>
+    <li>Петък – Уча, зная и играя /четене с разбиране, диктовка/</li>
   </ul>
 </p>
 
@@ -465,29 +484,51 @@ Tранспорт с лицензиран автобус.
 <p>
 Местата, на които приключенстваме:
 <ul>
-  <li>Природен парк "Златни пясъци"</li>
-  <li>Маршрут "Домът на сойката"</li>
+  <li>Природен парк "Златни пясъци" - "Домът на сойката"</li>
   <li>Вълшебната гора</li>
   <li>Морска гара и Южен плаж</li>
   <li>местност Боровец</li>
   <li>местност Царска чешма</li>
   <li>Виница / гората над Конна база /</li>
-  <li>Конна база с. Доброглед</li>
+  <li>Екоселище с. Доброглед</li>
   <li>местност Елен дере</li>
   <li>Маршрут "Яйла чешма"</li>
+  <li>Пеперудена къща</li>
   <li>Музей на стъклото гр. Белослав / пътуване с влак и ферибот /</li>
   <li>Вълшебните извори</li>
   <li>Музей на мозайките гр.Девня</li>
   <li>Побити камъни</li>
   <li>с. Орешак</li>
-  <li>местност Батова</li>
+  <li>Ферма за щрауси /с.Равна гора/</li>
   <li>Екопарк "Св. Константин и Елена"</li>
-  <li>Парк Аспарухово</li>
+  <li>Плаж и парк Аспарухово</li>
+  <li>с. Казашко</li>
   <li>Парк-музей "Владислав Варненчик"</li>
   <li>Археологически музей</li>
   <li>Ферма с. Зорница</li>
+  <li>Басейн Белвю</li>
 </ul>
-и още знайни и незнайни горички и полянки, на които геройски играем, щуреем и приключенстваме.
+…и още знайни и незнайни горички и полянки, на които геройски играем, щуреем и приключенстваме.
+</p>
+
+<h2>Безопасност и организация</h2>
+<p>
+<ul>
+    <li>Групи до 20 деца</li>
+    <li>Двама ръководители във всяка група</li>
+    <li>Транспорт с лицензиран автобус</li>
+    <li>Винаги имаме резервен план при лошо време - занимания в занималнята.</li>
+</ul>
+</p>
+
+<h2>Цени</h2>
+<p>
+<ul>
+    <li>Седмична такса: 80 €</li>
+    <li>Допълнителни разходи: около 25 €/седмица (входни такси и транспорт)</li>
+    <li>При посещение на лятната занималня от две деца от едно семейство се ползва 10 % отстъпка от таксата на второто дете. </li>
+    <li>Кетъринг за обяд (по желание на родителите): 4.20 €/ден</li>
+</ul>
 </p>
 
 <h3>Често задавани въпроси</h3>
@@ -510,43 +551,80 @@ Tранспорт с лицензиран автобус.
 ${forSignUpAndInformation}
 `
 
-const summerZanimalnicaHTML = 
-`<link rel="preload" fetchpriority="high" as="image" href="images/home/${summerZanimalnicaImages[0]}" imagesrcset="${srcsetAttribute('images/summer-zanimalnica/' + summerZanimalnicaImages[0]['src'], 'h')}" type="image/webp">
-<p class="centered">От 1-ви Юни до 14-ти Септември предлагаме целодневна занималня за всички, които искат да попълнят пропуски в учебния материал и да се подготвят добре за следващата учебна година.</p>
-${slideshow(summerZanimalnicaImages, dir='images/summer-zanimalnica/', portrait=true)}
+const additionalActivitiesHTML =
+    `<h2>Допълнителни занимания за деца от 5-11г.</h2>
+    <p>ж.к.Чайка, бл.189</p><br>
+
+    <div>
+        <img class="regularImage framed framedLeft"" srcset="images/additional-activities/robotics@600h.webp 600w, images/additional-activities/robotics@1000h.webp 1000w", images/additional-activities/robotics@1200h.webp 1200w" src="additional-activities/robotics.webp" title="Деца сглобяват роботи" alt="Деца сглобяват роботи">
+    
+        <h2>Школа по Лего роботика с Откриватели </h2>
+        <p>Децата строят роботи, съобразени с тяхната възраст и интереси. Така навлизат в света на технологиите чрез игра.<br>
+        Развиват логическо мислене, креативност и увереност. Учат програмиране с визуални блокове и проекти с роботи. Така разбират логиката и структурата на програмирането.<br>
+        Експериментират и приемат грешките, като път към правилните решения.
+        </p>
+    </div>
+    <p><b>Информация и записване:</b> <br>
+    <a href="tel:+359877223280">0877 223 280</a>: Откриватели<br>
+    <a href="mailto:otkrivateli.info@gmail.com">otkrivateli.info@gmail.com</a><br>
+    <a href="https://www.otkrivateli.info/">www.otkrivateli.info</a></p>
+    <p class="clear"></p>
+
+    <div>
+        <img class="regularImage framed framedLeft"" srcset="images/additional-activities/drawing-dolphins@600h.webp 600w, images/additional-activities/drawing-dolphins@1200h.webp 1200w" src="additional-activities/drawing-dolphins.webp" title="Рисунка на делфини" alt="Рисунка на делфини">
+    
+        <h2>Школа по Рисуване с Теди Скорчева-Хараланова - всяка събота 10:00-12:00ч. </h2>
+        <p>Рисувайки малките деца стават по-наблюдателни, чувствителни и възпитават у себе си усет към красивото и любов към природата.<br>
+        Децата в студиото работят с различни материали и техники за да усетят широките възможности, които им дава изобразителното изкуство. Възможността да изразят себе си, своето усещане за света, своите чувства, мисли и мечти.<br>
+        С много старание рисуват с водни и темперни бои, сухи пастели и цветни моливи, рисуват върху стъкло и текстил, правят апликации с природни и други материали.<br>
+        Децата имат възможност да участват със своите рисунки в различни конкурси и да печелят награди.
+        </p
+    </div>
+    <p><b>Информация и записване:</b> <br>
+    <a href="tel:+359889656789">0889 656 789</a>: Игралница Занималница<br>
+    <a href="tel:+359888769508">0888 769 508</a>: Теди Скорчева - художник</p>
+    <p class="clear"></p>
+    
+    <div>
+        <img class="regularImage framed framedLeft"" srcset="images/additional-activities/fun-math@600h.webp 600w" src="additional-activities/fun-math.webp" title="Забавна математика снимка" alt="Забавна математика снимка">
+    
+        <h2>Забавна математика за деца от 4-7г.</h2>
+        <p>Чрез игри, движение и практически задачи децата:
+        <ul>
+            <li>развиват логическо и аналитично мислене</li>
+            <li>подобряват концентрацията и вниманието</li>
+            <li>изграждат увереност в собствените си възможности</li>
+            <li>създават стабилна основа за бъдещото училищно обучение</li>
+        </ul>                    
+        </p
+    </div>
+    <p><b>Информация и записване:</b> <br>
+    <a href="tel:+359886235813">0886 235 813</a>: Забавна математика<br>
+    <a href="https://zabavnamatematika.com/">zabavnamatematika.com</a></p>
+    <p class="clear"></p>
+
+    <div>
+        <img class="regularImage framed framedLeft"" srcset="images/additional-activities/chess@600h.webp 600w, images/additional-activities/chess@1000h.webp 1200w" src="additional-activities/chess.webp" title="Листовка за обучение по шахмат" alt="Листовка за обучение по шахмат">
+    
+        <h2>Школа по  Шах с Пламен Чаков за деца от 6-12 г.</h2>
+        <p>Шахматът помага за концентрацията,
+        развива критично мислене, търпение и устойчивост. Изгражда способности за планиране и взимане на решения.                    
+        </p
+    </div>
+    <p><b>Информация и записване:</b> <br>
+    <a href="tel:+359889656789">0889 656 789</a>: Игралница Занималница<br>
+    <a href="tel:+359878277578">0878 277 578</a>: Пламен Чаков</p>
+    <p class="clear"></p>
 
 
-<p class="centered">Тук се забавляваме, учим и играем. В спокойна и приятна среда на нашата база, на метри от Морската градина на град Варна. 
-Сутрешни занимания по четене, писане, математика и следобедни игри в Морската градина.</p>
 
-<p class="centered">Работното ни време е от понеделник до петък, от 8:00 до 18:00.</p>
 
-  
 
-  
 <br>
-<h2>Един примерен ден в Лятната занималница:</h2>
-<p>
-  Сутрин в занималнята:
-  <ol style="list-style-type:none;padding-left:20px;">
-    <li>8:00 -10:00 - Посрещане на децата, свободни занимания, приложни дейности</li>
-    <li>10:00 -12:00 - Занимания по математика, български език, английски език, четене /заниманията са по график за деня/</li>
-    <li>12:00- 13:00 - Обяд /готвено меню, не е включен в общата такса/</li>
-  </ol>
-
-  Следобедна занималня:
-  <ol style="list-style-type:none;padding-left:20px;">
-    <li>13:00-16:00 - време за разходка, игри в Морската градина</li>
-    <li>16:00-17:00 - занимания по интереси, четене на книжки, приложни дейности</li>
-    <li>17:00-18-00 - изпращане на децата</li>
-  </ol>
-</p>
-
-<br>
-${forSignUpAndInformation}`
-
-privateLessonsHTML = 
 `
+
+privateLessonsHTML =
+    `
     <h1>Частни уроци, курсове и школи в Детски учебен център и занималня Игралница занималница гр.Варна</h1>
 
     <ul>
@@ -609,7 +687,7 @@ privateLessonsHTML =
 `
 
 const cookiePolicyHTML =
-`<h1>ПОЛИТИКА ОТНОСНО БИСКВИТКИ НА <a class="no-color-link" href="https://игралница-занималница.бг">игралница-занималница.бг</a></h1>
+    `<h1>ПОЛИТИКА ОТНОСНО БИСКВИТКИ НА <a class="no-color-link" href="https://игралница-занималница.бг">игралница-занималница.бг</a></h1>
 <p>Ние използваме бисквитки и подобни технологии, за да проследяваме дейността в нашата услуга и да съхраняваме определена информация.<br/>
 Ние си запазваме правото да правим промени в тази Политика за бисквитки по всяко време и по всякаква причина. Ще ви уведомим за всякакви промени, като актуализираме датата на „Последна актуализация“ на настоящата Политика за бисквитките. Всички промени или модификации ще влязат в сила веднага след публикуването на актуализираната Политика за бисквитките на Сайта.<br />
 Последна актуализация 27.08.2024 г.</p>
@@ -648,39 +726,39 @@ Opera: http://www.opera.com/help/tutorials/security/privacy/<br />
 </p>
 <h2>СВЪРЖЕТЕ СЕ С НАС</h2>
 Ако имате въпроси или коментари относно тази Политика за бисквитки, моля, свържете се с нас на: <a href= "mailto:igralnica1@gmail.com">igralnica1@gmail.com</a></p>
-` 
+`
 
 // End of HTML - Do not delete this line, generate_sitemap.py uses it.
 
 
 const mainContent = {
-  '/': homeHTML,
-  '/училищна-занималня': schoolZanimalnicaHTML,
-  '/лятна-игралница': summerIgralnicaHTML,
-  '/лятна-занималница': summerZanimalnicaHTML,
-  '/частни-уроци': privateLessonsHTML,
-  '/за-нас': aboutHTML,
-  '/контакти': contactsHTML,
-  '/политика-за-поверителност': cookiePolicyHTML,
-  };
+    '/': homeHTML,
+    '/училищна-занималня': schoolZanimalnicaHTML,
+    '/лятна-занималня': summerZanimalnqHTML,
+    '/допълнителни-дейности': additionalActivitiesHTML,
+    '/частни-уроци': privateLessonsHTML,
+    '/за-нас': aboutHTML,
+    '/контакти': contactsHTML,
+    '/политика-за-поверителност': cookiePolicyHTML,
+};
 
-  const metaDescriptions = {
+const metaDescriptions = {
     '/': 'Заповядайте в Игралница Занималница! Предлагаме целодневна и полудневна училищна занималня и вълнуваща лятна програма за деца от 1 до 5 клас, както и за деца от подготвителните групи.',
     '/училищна-занималня': 'Открийте какво включва училищната занималня - програма, цени и как минава един ден с нас.',
-    '/лятна-игралница': 'Незабравимо лято в нашата игралница! Приключенска програма, цена и често задавани въпроси за лятната игралница.',
-    '/лятна-занималница': 'Детска радост през лятото! Открийте какво предлага лятната занималня - програма, цени и важна информация.',
+    '/лятна-занималня': 'Незабравимо лято в нашата игралница! Приключенска програма, цена и често задавани въпроси за лятната игралница.',
+    '/допълнителни-дейности': 'Детска радост през лятото! Открийте какво предлага лятната занималня - програма, цени и важна информация.',
     '/частни-уроци': 'Частни уроци и арт школа в Детски център Игралница занималница Варна. БЕЛ, математика, английски, рисуване, НВО подготовка. Индивидуален подход за деца 1-12 клас.',
     '/за-нас': 'Нашият екип - квалификация, как можем да помогнем на вашето дете и какво ни мотивира.',
     '/контакти': 'Свържете се с нас! Телефони за връзка, имейл и адрес на занималнята за деца.'
-  };
+};
 
-const navbarHTML = 
-  `
+const navbarHTML =
+    `
   <nav class="navbar" id="desktopNavbar">
     <a href="/" class="navlink">Начало</a>
     <a href="/училищна-занималня" class="navlink">Училищна Занималня</a>
-    <a href="/лятна-игралница" class="navlink">Лятна Игралница</a>
-    <a href="/лятна-занималница" class="navlink">Лятна Занималница</a>
+    <a href="/лятна-занималня" class="navlink">Лятна Занималня</a>
+    <a href="/допълнителни-дейности" class="navlink">Допълнителни дейности</a>
     <a href="/частни-уроци" class="navlink">Частни уроци</a>
     <a href="/за-нас" class="navlink">За Нас</a>
     <a href="/контакти" class="navlink">Контакти</a>

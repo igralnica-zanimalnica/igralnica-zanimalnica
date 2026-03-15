@@ -24,13 +24,13 @@ def home():
 def school_zanimalnica():
     return app.send_static_file("index.html")
 
-@app.route('/лятна-игралница')
-def summer_igralnica():
+@app.route('/лятна-занималня')
+def summer_zanimalnq():
     return app.send_static_file("index.html")
 
 
-@app.route('/лятна-занималница')
-def summer_zanimalnica():
+@app.route('/допълнителни-дейности')
+def additional_activities():
     return app.send_static_file("index.html")
 
 @app.route('/частни-уроци')
